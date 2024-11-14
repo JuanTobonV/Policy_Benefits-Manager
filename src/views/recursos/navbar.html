@@ -7,13 +7,47 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div>
-                <img src="/assets/LogoazulSura.png" alt="">
-            </div>
-            <div>
+    <style>
 
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar{
+            width: 100%;
+            background-color: #1b376f;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+        }
+
+        .navbar__image img{
+            width: 50px;
+            cursor: pointer;
+        }
+
+        .image__logo img{
+            width: 80px;
+        }
+
+        .image__user img{
+            width: 30px;
+        }
+
+        
+    </style>
+
+    <header>
+        <nav class="navbar">
+            <div class="navbar__image image__logo">
+                <img src="/assets/LogoSuraBLanco.png" alt="">
+            </div>
+
+            <div class="navbar__image image__user">
+                <img src="/assets/user.png" alt="">
             </div>
         </nav>
     </header>
