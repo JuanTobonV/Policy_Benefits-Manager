@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>con ventana sobre puesta</title>
+</head>
+<body class="grid">
+    <header></header>
+    <main class="flex">
+        <div class="header__informacion flex">
+            <p class="border-top--blue text--blue text--bold">Ver solicitudes</p>
+            <p class="text--blue text--bold">Administrar polizas</p>
+            <button class="header__btn">Cerrar Sesión</button>
+        </div>
+        <!-- __________________________________________________________________________- -->
+        <h1 class="text--blue" align="center">Lista de Solicitudes Empleados</h1>
+        <div class="informacion grid content">
+            <table id="empleadosTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Empleado</th>
+                        <th>Área</th>
+                        <th>Póliza</th>
+                        <th>Solicitud</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas de la tabla se llenarán con JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- Ventana sobrepuesta -->
+        <div id="overlay" class="overlay">
+            <div class="popup">
+                <h2 id="popupTitle">Más Información</h2>
+                <p id="popupDescription">Descripción del empleado.</p>
+                <button id="closeWindowBtn">Cerrar</button>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer></footer>
+
+
+    <script src="../../app/scriptHU04.js"></script>
+    
+
+
+
+    
+</body>
+</html>
