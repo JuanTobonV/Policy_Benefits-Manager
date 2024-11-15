@@ -24,17 +24,17 @@
                  <div class="info-empleado__label">
                     <p class="text--blue">Tipo documeto</p>
                     <div class="contenedor__documento flex">
-                        <p class=" info-empleado_placeholder placeholder--size">cc</p>
-                        <p class="info-empleado_placeholder placeholder--grow">placeholder</p>
+                        <p class=" info-empleado_placeholder placeholder--size" id="tipoDocumento">cc</p>
+                        <p class="info-empleado_placeholder placeholder--grow" id="numeroDocumento">placeholder</p>
                      </div>
                  </div>
                  <div class="info-empleado__label">
-                    <p class="text--blue">Nombre</p>
-                    <p class="info-empleado_placeholder">placeholder</p>
+                    <p class="text--blue" >Nombre</p>
+                    <p class="info-empleado_placeholder" id="nombreEmpleado">placeholder</p>
                  </div>
                  <div class="info-empleado__label">
                     <p class="text--blue">Area</p>
-                    <p class="info-empleado_placeholder">placeholder</p>
+                    <p class="info-empleado_placeholder" id="areaTrabajo">placeholder</p>
                  </div>
                 </div>
             </div>
@@ -42,16 +42,16 @@
                 <h3 class="info-empleado__titulo">INFORMACION CONTACTO</h3>
                 <div class="contenedor__info-empleado grid">
                     <div class="info-empleado__label">
-                        <p class="text--blue">Numero de celular</p>
-                        <p class="info-empleado_placeholder">placeholder</p>
+                        <p class="text--blue" >Numero de celular</p>
+                        <p class="info-empleado_placeholder" id="numeroCelular">placeholder</p>
                     </div>
                     <div class="info-empleado__label">
                         <p class="text--blue">Dirección de Correo</p>
-                        <p class="info-empleado_placeholder">placeholder</p>
+                        <p class="info-empleado_placeholder" id="correo">placeholder</p>
                     </div>
                     <div class="info-empleado__label">
                         <p class="text--blue">Ciudad</p>
-                        <p class="info-empleado_placeholder">placeholder</p>
+                        <p class="info-empleado_placeholder" id="ciudad">placeholder</p>
                     </div>
                 </div>
             </div>
@@ -60,11 +60,8 @@
                 <form class="formulario flex">
                     <div class="formulario__selec__polizas flex">
                         <label class="text--blue pading--left--8px" >Poliza que entrega el beneficio</label>
-                        <select class="polizas" name="" id="">
+                        <select class="polizas" name="" id="polizas">
                             <option value="">Selecciona</option>
-                            <option value="">opciones</option>
-                            <option value="">opciones</option>
-                            <option value="">opciones</option>
                         </select>
                     </div>
                     <div class="formulario__selec__beneficios">
@@ -73,11 +70,8 @@
                         </div>
                         <div class="nombreDescriptivo grid">
                             <div class="beneficios__poliza flex">              
-                                <select class="beneficios" name="" id="">
+                                <select class="beneficios" name="" id="beneficios">
                                     <option value="">Selecciona</option>
-                                    <option value="">opciones</option>
-                                    <option value="">opciones</option>
-                                    <option value="">opciones</option>
                                 </select>
                             </div>
                             <input type="button"  class="enviar__btn" value="Enviar">
@@ -89,6 +83,7 @@
         </div>
     </main>
     <footer></footer>
+    <script type="module" src="./js/index.js"></script>
     <script src="../../app/main.js"></script>
 </body>
 </html>
