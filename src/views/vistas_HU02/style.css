@@ -19,9 +19,12 @@
 p,h3,label{
     font-family: "Nunito", sans-serif;
 }
+body{
+    gap: 50px;
+}
 main{
     gap: 40px;
-    width: 50%;
+    width: 90%;
     flex-direction: column;
     margin: auto;
     border: solid #b0bdc1;
