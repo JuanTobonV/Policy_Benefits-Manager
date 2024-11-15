@@ -4,6 +4,10 @@ import { usuarios } from "../../../data/usuarios.js";
 const selectPoliza = document.getElementById('polizas');
 const selectBeneficio = document.getElementById('beneficios');
 
+
+// const selectPolizaRequered = document.querySelector('#polizas [required]');
+// const selectBeneficioRequered = document.querySelector('#beneficios [required]');
+
 const tipoDocumento = document.getElementById('tipoDocumento')
 const numeroDocumento = document.getElementById('numeroDocumento')
 const nombreEmpleado = document.getElementById('nombreEmpleado')
@@ -15,7 +19,7 @@ const btnEnviar = document.getElementById('btn-enviar')
 
 
 
-const id = 1 // se manda desde inicio sesion ya se por url o localstorage
+const id = 5 // se manda desde inicio sesion ya se por url o localstorage
 const usuarioActivo = usuarios.find( usuario => usuario.id === id)
 
 tipoDocumento.textContent = usuarioActivo.tipoDocumento;
@@ -34,7 +38,9 @@ selectPoliza.addEventListener('change',(e) => {
   
 });
 
-btnEnviar.addEventListener('click',() => {
+btnEnviar.addEventListener('click',(e) => {
+    
+   if(selectBeneficio.value === '') return
     // poner redireccion
       Swal.fire({
         title: "Benefico",
@@ -54,4 +60,5 @@ btnEnviar.addEventListener('click',() => {
         // poner redireccion
         window.location.href = "#"; // Cambia esta URL a donde quieras redirigir
       }
+
 })
