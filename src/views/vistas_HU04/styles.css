@@ -157,7 +157,33 @@ main{
         height: 40px;
     }
 }
+/* ____________________________________________________________ */
+/* estilos tabla */
+/* Tabla */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
 
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #1b376f;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
 
 /* ____________________________________________________________ */
 /* Estilos para la ventana sobrepuesta */
@@ -194,4 +220,22 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+#aceptar{
+    background-color: green;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;  
+}
+#rechazar{
+    background-color: red;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;  
 }
