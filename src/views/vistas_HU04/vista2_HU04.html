@@ -43,9 +43,34 @@
         <!-- Ventana sobrepuesta -->
         <div id="overlay" class="overlay">
             <div class="popup">
-                <h2 id="popupTitle">Más Información</h2>
+                <h2 id="popupTitle">Resumen Solicitud</h2>
                 <p id="popupDescription">Descripción del empleado.</p>
+                <br>
+                <div class="doprdown">
+                    <div class="item">
+                      <div class="title" onclick="toggleInfo('info1', this)">
+                        <span>Información 1</span>
+                        <span class="symbol">&#8964;</span> <!-- Flecha hacia la derecha -->
+                      </div>
+                      <p class="info" id="info1"></p>
+                    </div>
+                
+                    <div class="item">
+                      <div class="title" onclick="toggleInfo('info2', this)">
+                        <span>Información 2</span>
+                        <span class="symbol">&#8964;</span>
+                      </div>
+                      <p class="info" id="info2"></p>
+                    </div>
+
+                  </div>
+                
+                <br>
+                <button id="closeWindowBtn">Aceptar</button>
+                <button id="closeWindowBtn">Rechazar</button>
                 <button id="closeWindowBtn">Cerrar</button>
+
+
             </div>
         </div>
         </div>

@@ -47,7 +47,7 @@ function cargarTablaEmpleados() {
             <td>${empleado.area}</td>
             <td>${empleado.poliza}</td>
             <td>${empleado.descripcion}</td>
-            <td><button onclick="verMasInfo(${empleado.id})">Ver más</button></td>
+            <td><button onclick="verMasInfo(${empleado.id})">&#128065;</button></td>
         `;
         
         tablaBody.appendChild(fila);
@@ -56,11 +56,11 @@ function cargarTablaEmpleados() {
 
 // Función para mostrar más información en la ventana emergente
 function verMasInfo(idEmpleado) {
-    const empleados = JSON.parse(localStorage.getItem('empleados'));
-    const empleado = empleados.find(emp => emp.id === idEmpleado);
+    let empleados = JSON.parse(localStorage.getItem('empleados'));
+    let empleado = empleados.find(emp => emp.id === idEmpleado);
 
     if (empleado) {
-        document.getElementById('popupTitle').innerText = `Más Información de ${empleado.nombre}`;
+        document.getElementById('popupTitle').innerHTML = "Más Información de las solicitudes de"+"<br>"+empleado.nombre;
         document.getElementById('popupDescription').innerText = `Área: ${empleado.area}\nDescripción: ${empleado.descripcion}`;
         document.getElementById('overlay').style.display = 'flex';  // Mostrar la ventana emergente
     }
