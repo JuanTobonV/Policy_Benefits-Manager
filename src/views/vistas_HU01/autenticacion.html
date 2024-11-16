@@ -20,21 +20,22 @@
 
                         <div class="form__inputs">
 
-                              <select class="input input__select" name="" id="">
-                                    <option value="">Tipo de identificación</option>
-                                    <option value="">Cedula de ciudadania</option>
-                                    <option value="">Cedula de extranjeria</option>
+                              <select class="input input__select" name="" id="identificacionUsuarion">
+                                    <option>Tipo de identificación</option>
+                                    <option value="CC">Cedula de ciudadania</option>
+                                    <option value="CE">Cedula de extranjeria</option>
                               </select>
       
-                              <input class="input" type="text" placeholder="Número de identificación">
-                              <input class="input" type="text" name="" id="" placeholder="Contraseña">
+                              <input id="numeroIdentificacionUsuario" class="input" type="text" placeholder="Número de identificación">
+                              <input id="contraseñaUsuario" class="input" type="text" name="" id="" placeholder="Contraseña">
 
-                              <input class="form__inicioSesion" type="button" value="Iniciar Sesión">
+                              <input id="iniciarSesionButton" class="form__inicioSesion" type="button" value="Iniciar Sesión">
                         </div>
                   </form>
             </main>
       <footer></footer>  
-
+      
+      <script type="module" src="/src/controllers/controllersHU_01/autenticacion.js"></script>
       <script src="/src/app/main.js"></script>
 </body>
 </html>
