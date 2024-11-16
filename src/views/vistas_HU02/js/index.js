@@ -1,4 +1,5 @@
-import {CrearOpciones,MostrarBeneficioPoliza } from "./mostrarPolizas.js";
+import {CrearOpciones,MostrarBeneficioPoliza } from "./polizasYBeneficios.js";
+import { GuardarBeneficios } from "./beneficiosSelecionados.js";
 import { usuarios } from "../../../data/usuarios.js";
 
 const selectPoliza = document.getElementById('polizas');
@@ -19,7 +20,7 @@ const btnEnviar = document.getElementById('btn-enviar')
 
 
 
-const id = 5 // se manda desde inicio sesion ya se por url o localstorage
+const id = 1 // se manda desde inicio sesion ya se por url o localstorage
 const usuarioActivo = usuarios.find( usuario => usuario.id === id)
 
 tipoDocumento.textContent = usuarioActivo.tipoDocumento;
@@ -40,25 +41,33 @@ selectPoliza.addEventListener('change',(e) => {
 
 btnEnviar.addEventListener('click',(e) => {
     
-   if(selectBeneficio.value === '') return
+    const polizaSeleccionada = document.getElementById('polizas').value;
+    const beneficioSeleccionada = document.getElementById('beneficios').value;
+    const fechaHora = new Date().toLocaleDateString('es-CO',{
+        weekday: 'long', // Día de la semana
+        year: 'numeric', // Año con 4 dígitos
+        month: 'long', // Mes con nombre completo
+        day: 'numeric', // Día del mes
+      }); 
+  
+
+    const data = {polizaSeleccionada,beneficioSeleccionada,fechaHora}
+    GuardarBeneficios([data],nombreEmpleado.innerText)
+   
+    /*Nota: La funcion guardar beneficio guarda en un array las polizas
+        seleccionadas  y su respectivo beneficio seleccionado y esto a su vez
+        se almacena en el localStorage, la clave donde se almacena cada array
+        de cada usuario es el nombre de este
+    */
+
+if(selectBeneficio.value === '') return
     // poner redireccion
       Swal.fire({
         title: "Benefico",
         text: "Ha Seleccionado su Benefico Correctamente",
         icon: "success",
         confirmButtonText: "Ok"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Llama a tu función personalizada o redirecciona directamente
-          redireccionarPagina();
-        }
-      });
-      
-      // Definir tu función de redirección personalizada
-      function redireccionarPagina() {
-
-        // poner redireccion
-        window.location.href = "#"; // Cambia esta URL a donde quieras redirigir
-      }
-
+      })
 })
+
+

@@ -88,7 +88,7 @@ export const usuarios = [
         polizas: [
             'Seguro de Accidentes Personales',
             'Seguro de Vida',
-            'Seguro de Automóvil',
+            'Seguro Automóvil',
             'Seguro de Salud',
             'Seguro de Equipos Electrónicos',
             'Seguro Dental'
