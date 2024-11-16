@@ -20,7 +20,7 @@ const btnEnviar = document.getElementById('btn-enviar')
 
 
 
-const id = 1 // se manda desde inicio sesion ya se por url o localstorage
+const id = 10 // se manda desde inicio sesion ya se por url o localstorage
 const usuarioActivo = usuarios.find( usuario => usuario.id === id)
 
 tipoDocumento.textContent = usuarioActivo.tipoDocumento;
@@ -40,7 +40,7 @@ selectPoliza.addEventListener('change',(e) => {
 });
 
 btnEnviar.addEventListener('click',(e) => {
-    
+    e.preventDefault()
     const polizaSeleccionada = document.getElementById('polizas').value;
     const beneficioSeleccionada = document.getElementById('beneficios').value;
     const fechaHora = new Date().toLocaleDateString('es-CO',{
