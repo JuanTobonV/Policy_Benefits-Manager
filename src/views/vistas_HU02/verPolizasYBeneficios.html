@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body class="grid">
+    <header></header>
+    <main class="flex">
+        <div class="header__informacion flex">
+            <p class="border-top--blue text--blue text--bold">Selecciona tu solicitud</p>
+            <p class="text--blue text--bold">Ver mis solicitudes</p>
+            <button class="header__btn">Cerrar Sesión</button>
+        </div>
+        <div class="informacion grid">
+            <div class="informacion__info-empleado grid">
+                <h3 class="info-empleado__titulo">INFORMACION DEL EMPLEADO</h3>
+                <div class="contenedor__info-empleado grid">
+                 <div class="info-empleado__label">
+                    <p class="text--blue">Tipo documeto</p>
+                    <div class="contenedor__documento flex">
+                        <p class=" info-empleado_placeholder placeholder--size" id="tipoDocumento">cc</p>
+                        <p class="info-empleado_placeholder placeholder--grow" id="numeroDocumento">placeholder</p>
+                     </div>
+                 </div>
+                 <div class="info-empleado__label">
+                    <p class="text--blue" >Nombre</p>
+                    <p class="info-empleado_placeholder" id="nombreEmpleado">placeholder</p>
+                 </div>
+                 <div class="info-empleado__label">
+                    <p class="text--blue">Area</p>
+                    <p class="info-empleado_placeholder" id="areaTrabajo">placeholder</p>
+                 </div>
+                </div>
+            </div>
+            <div class="informacion__info-empleado grid">
+                <h3 class="info-empleado__titulo">INFORMACION CONTACTO</h3>
+                <div class="contenedor__info-empleado grid">
+                    <div class="info-empleado__label">
+                        <p class="text--blue" >Numero de celular</p>
+                        <p class="info-empleado_placeholder" id="numeroCelular">placeholder</p>
+                    </div>
+                    <div class="info-empleado__label">
+                        <p class="text--blue">Dirección de Correo</p>
+                        <p class="info-empleado_placeholder" id="correo">placeholder</p>
+                    </div>
+                    <div class="info-empleado__label">
+                        <p class="text--blue">Ciudad</p>
+                        <p class="info-empleado_placeholder" id="ciudad">placeholder</p>
+                    </div>
+                </div>
+            </div>
+            <div class="informacion__info-beneficio grid">
+                <h3 class="info-empleado__titulo">SOLICITUD BENEFICIO</h3>
+                <form class="formulario flex">
+                    <div class="formulario__selec__polizas flex">
+                        <label class="text--blue pading--left--8px" >Poliza que entrega el beneficio</label>
+                        <select class="polizas" name="" id="polizas" required>
+                            <option value="">Selecciona</option>
+                        </select>
+                    </div>
+                    <div class="formulario__selec__beneficios">
+                        <div>
+                            <label class="text--blue pading--left--8px">Listado beneficios</label>
+                        </div>
+                        <div class="nombreDescriptivo grid">
+                            <div class="beneficios__poliza flex">              
+                                <select class="beneficios" name="" id="beneficios" required>
+                                    <option value="">Selecciona</option>
+                                </select>
+                            </div>
+                            <input type="submit"  class="enviar__btn" value="Enviar" id="btn-enviar">
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <script type="module" src="./js/index.js"></script>
+    <script src="../../app/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
