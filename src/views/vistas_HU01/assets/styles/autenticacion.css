@@ -42,7 +42,7 @@ form{
 
 .input__select {
       background-color: white;
-      padding-left: 7px;
+      padding-left: 6px;
       background-repeat: no-repeat;
       background-position: right center;
   }
@@ -51,12 +51,12 @@ form{
       height: 40px;
       border: 1px solid #4ca9c5;
       border-radius: 7px;
+      padding-left: 7px;
 }
 
 
 
 .input::placeholder{
-      padding-left: 10px;
       color: #b0bdc1;
 
 }
