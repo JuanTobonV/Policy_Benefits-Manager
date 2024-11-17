@@ -1,29 +1,4 @@
-let empleados = [
-    {
-        fecha: '2024-11-01',
-        nombre: 'Juan Pérez',
-        area: 'Marketing',
-        poliza: 'Vida',
-        descripcion: '50% de descuento en membresia anual gimnasio BodyTech',
-        id: 1
-    },
-    {
-        fecha: '2024-10-20',
-        nombre: 'María García',
-        area: 'Recursos Humanos',
-        poliza: 'Vehiculos',
-        descripcion: '10% Descuento en compra llantas vehículo en AutollantasNutibara',
-        id: 2
-    },
-    {
-        fecha: '2024-09-15',
-        nombre: 'Carlos López',
-        area: 'Finanzas',
-        poliza: 'Salud',
-        descripcion: '20% de descuento en cita Medico deportivo Augusto Bermudes.',
-        id: 3
-    }
-];
+import { empleados } from "../../../data/empleado.js";
 
 // Guardar los empleados en el localStorage
 localStorage.setItem('empleados', JSON.stringify(empleados));
@@ -33,8 +8,8 @@ localStorage.setItem('empleados', JSON.stringify(empleados));
 // Función para cargar los empleados desde el localStorage y mostrar en la tabla
 function cargarTablaEmpleados() {
     let empleados = JSON.parse(localStorage.getItem('empleados'));  // Obtener los empleados del localStorage
-
-    let tablaBody = document.querySelector('#empleadosTable tbody');
+    
+    let tablaBody = document.querySelector('#tableBody');
     tablaBody.innerHTML = '';  // Limpiar el cuerpo de la tabla
 
     // Iterar sobre los empleados y agregar una fila por cada uno
@@ -72,4 +47,4 @@ document.getElementById('closeWindowBtn').addEventListener('click', function() {
 });
 
 // Cargar la tabla cuando la página se cargue
-window.onload = cargarTablaEmpleados;
+cargarTablaEmpleados();
