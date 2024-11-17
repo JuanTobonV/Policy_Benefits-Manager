@@ -24,7 +24,8 @@ body{
 }
 main{
     gap: 40px;
-    width: 90%;
+    width: 60%;
+    min-width: 300px;
     flex-direction: column;
     margin: auto;
     border: solid #b0bdc1;
@@ -39,11 +40,12 @@ main{
     gap: 12px;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px 10px;
+    padding: 0 20px;
+    border-bottom: 0.5px solid #b0bdc1;
 }
-.header__informacion > p{
+/* .header__informacion > p{
     margin: 12px;
-}
+} */
 
 .header__informacion > p ~ p{
     flex-grow: 1;
@@ -53,12 +55,14 @@ main{
     cursor: pointer;
 }
 .header__btn{
-    padding: 10px 0 ;
-    width: 25%;
+    padding: 10px 0;
+    width: 40%;
     border: none;
     border-radius: 10px;
     background-color: #ed0000;
     color: white;
+    font-size: 1rem;
+    
 }
 .border-top--blue{
     border-bottom: 4px solid #007bff;
@@ -96,13 +100,11 @@ main{
     background-color: #eaecef;
 }
 .info-empleado_placeholder{
-    grid: flex;
-    place-content:center;
     padding: 5px;
     text-align: center;
     border: 0.5px solid #4ca9c5;
     border-radius: 5px;
-    /* width: 80%; */
+    color: #b0bdc1;
     height: 2rem;
     margin: 8px 0;
 }
@@ -152,8 +154,32 @@ main{
     cursor: pointer;
 }
 
+.contener--style{
+    flex-grow: 1;
+    border-left: 2px solid #b0bdc1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
 @media (width <= 505px) {
     .beneficios{
         height: 40px;
     }
+  .btn-select__solicitud {
+    flex-grow: 1;
+  }
 }
+
+@media (width <= 821px) {
+ 
+  .btn-select__solicitud {
+    flex-grow: 1;
+    margin: 15px 0 0 0;
+    text-align: center;
+  }
+  .contener--style{
+    padding: 0 0 9px 0;
+    border-left: none;
+  }
+}
+
