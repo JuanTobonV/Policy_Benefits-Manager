@@ -9,7 +9,6 @@ export const usuarios = [
         numeroCelular:'124578974',
         direccionCorreo:'marlon@mail.com',
         ciudad:'Medellín',
-        rol:'Admin',
         polizas: [
             'Seguro de Vida',
             'Seguro Automóvil',
@@ -29,7 +28,6 @@ export const usuarios = [
         numeroCelular: '3123456789',
         direccionCorreo: 'juan@mail.com',
         ciudad: 'Bogotá',
-        rol:'Empleado',
         polizas: [
             'Seguro de Salud',
             'Seguro de Viaje',
@@ -49,7 +47,6 @@ export const usuarios = [
         numeroCelular: '3001234567',
         direccionCorreo: 'ana@mail.com',
         ciudad: 'Cali',
-        rol:'Empleado',
         polizas: [
             'Seguro de Automóvil',
             'Seguro Dental',
@@ -69,7 +66,6 @@ export const usuarios = [
         numeroCelular: '3109876543',
         direccionCorreo: 'pedro@mail.com',
         ciudad: 'Medellín',
-        rol:'Empleado',
         polizas: [
             'Seguro de Salud',
             'Seguro de Hogar',
@@ -89,7 +85,6 @@ export const usuarios = [
         numeroCelular: '3156543210',
         direccionCorreo: 'lucia@mail.com',
         ciudad: 'Barranquilla',
-        rol:'Empleado',
         polizas: [
             'Seguro de Accidentes Personales',
             'Seguro de Vida',
@@ -109,7 +104,6 @@ export const usuarios = [
         numeroCelular: '3142233445',
         direccionCorreo: 'sergio@mail.com',
         ciudad: 'Cartagena',
-        rol:'Empleado',
         polizas: [
             'Seguro de Viaje',
             'Seguro Dental',
@@ -129,7 +123,6 @@ export const usuarios = [
         numeroCelular: '3176655443',
         direccionCorreo: 'isabella@mail.com',
         ciudad: 'Bucaramanga',
-        rol:'Empleado',
         polizas: [
             'Seguro de Hogar',
             'Seguro de Salud',
@@ -149,7 +142,6 @@ export const usuarios = [
         numeroCelular: '3204455667',
         direccionCorreo: 'andres@mail.com',
         ciudad: 'Pereira',
-        rol:'Empleado',
         polizas: [
             'Seguro de Automóvil',
             'Seguro de Hogar',
@@ -169,7 +161,6 @@ export const usuarios = [
         numeroCelular: '3197788990',
         direccionCorreo: 'carmen@mail.com',
         ciudad: 'Manizales',
-        rol:'Empleado',
         polizas: [
             'Seguro para Mascotas',
             'Seguro de Vida',
@@ -189,7 +180,6 @@ export const usuarios = [
         numeroCelular: '3058899776',
         direccionCorreo: 'fernando@mail.com',
         ciudad: 'Cúcuta',
-        rol:'Empleado',
         polizas: [
             'Seguro Dental',
             'Seguro de Hogar',
