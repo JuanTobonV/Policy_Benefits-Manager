@@ -11,3 +11,10 @@ window.onload = function() {
           document.querySelector('footer').innerHTML = data;
     })
 }
+
+const buttonCerrarSesion = document.getElementById('btnCerrarSesion')
+
+buttonCerrarSesion.addEventListener('click', () =>{
+      window.location.href = '/src/views/vistas_HU01/autenticacion.html'
+      localStorage.removeItem('usuarioValidado')
+})

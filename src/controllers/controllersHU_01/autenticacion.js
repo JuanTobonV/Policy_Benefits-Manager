@@ -1,7 +1,7 @@
 import { usuarios } from '../../data/usuarios.js';
 
 export function sesion(usuarioValidado) {
-    sessionStorage.setItem('usuarioValidado', JSON.stringify(usuarioValidado));
+    localStorage.setItem('usuarioValidado', JSON.stringify(usuarioValidado));
     console.log("dentro de sesion");
 
     if (String(usuarioValidado.rol).toUpperCase() === 'ADMIN') {
