@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+}
+.flex{
+    display: flex;
+}
+.grid{
+    display: grid;
+}
+.text--blue{
+    color: #1b376f;
+}
+.text--bold{
+    font-weight: 900;
+}
+
+p,h3,label{
+    font-family: "Nunito", sans-serif;
+}
+
+body{
+    gap: 50px;
+}
+main{
+    gap: 10px;
+    justify-content: space-between;
+    width: 70%;
+    flex-direction: column;
+    margin: auto;
+    border: solid #b0bdc1;
+    border-radius: 15px;
+    padding: 0 0 12px 0;
+    overflow: hidden;
+
+    grid-template-rows: repeat(1, 1fr); /* una filas de igual tamaño */
+    grid-template-columns: 1fr;
+}
+.header__informacion{
+    flex-wrap: wrap;
+    background-color: #eaecef;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 10px;
+}
+.header__informacion > p{
+    margin: 12px;
+}
+
+.header__informacion > p ~ p{
+    flex-grow: 1;
+}
+.header__informacion p,button{
+    padding: 4px;
+    cursor: pointer;
+}
+.header__btn{
+    padding: 10px 0 ;
+    width: 25%;
+    border: none;
+    border-radius: 10px;
+    background-color: #ed0000;
+    color: white;
+}
+.border-top--blue{
+    border-bottom: 4px solid #007bff;
+}
+
+/*------------------------------------*/
+.selectorProveedores{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.selectorProveedores select{
+    width: 100%;              /* El select ocupa todo el ancho disponible */
+    padding: 8px;            /* Espaciado interno para mejorar la apariencia */
+    font-size: 16px;          /* Tamaño de la fuente */
+    border: 1px solid #4ca9c5;
+    border-radius: 5px;
+}
+.titulos{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns:repeat(1, 1fr); /* cuatro columna misma fración */
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.formulario1{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns:repeat(4, 1fr); /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 10vh;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.formulario1 div {
+    display: flex;
+    flex-direction: column;
+}
+.formulario2{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns:repeat(3, 1fr); /* cuatro columna misma fración */
+    gap: 8px; /* Espacio entre las filas */
+    height: 10vh;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.formulario3{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns:repeat(2, 1fr); /* cuatro columna misma fración */
+    gap: 8px; /* Espacio entre las filas */
+    height: 10vh;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.item {
+    color: #b0bdc1;
+    padding: 10px;
+    text-align: start;
+    border: 1px solid #b0bdc1;
+    border-radius: 5px;
+    background-color: #eaecef;
+}
+.botones{
+    margin-top: 40px;
+    justify-content: space-around;
+    align-items: center;
+}
+.botones #btnAgregar{
+    background-color: #007bff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    height: 6vh;
+    color: white;
+}
+.botones #btnEliminar{
+    background-color: red;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    height: 6vh;
+    color: white;
+}
+.colorAzulTexto{
+    color: #007bff;
+}
+
+#selector-tipo--ID{
+    height: 5vh;
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+}
+.inputs-informacion--Proveedor{
+    height: 5vh;
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+}
+.inputs-informacion--contacto{
+    height: 5vh;
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+    width: 100%;
+}
+#selector-polizas-activas{
+    height: 5vh;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+}
+#selector-polizas-disponibles{
+    height: 5vh;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+}
+
+
+
+
+
+
+
+@media (width <= 505px) {
+    .beneficios{
+        height: 40px;
+    }
+}
