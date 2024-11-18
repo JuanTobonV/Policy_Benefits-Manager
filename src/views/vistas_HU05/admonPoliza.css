@@ -55,7 +55,7 @@ main{
     padding: 4px;
     cursor: pointer;
 }
-.header__btn{
+#btnCerraSesion{
     padding: 10px 0 ;
     width: 25%;
     border: none;
