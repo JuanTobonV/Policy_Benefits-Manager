@@ -1,0 +1,241 @@
+*{
+    margin: 0;
+}
+.flex{
+    display: flex;
+}
+.grid{
+    display: grid;
+}
+.text--blue{
+    color: #1b376f;
+}
+.text--bold{
+    font-weight: 900;
+}
+.pading--left--8px{
+    padding-left: 8px;
+}
+p,h3,label{
+    font-family: "Nunito", sans-serif;
+}
+body{
+    gap: 50px;
+}
+main{
+    gap: 40px;
+    width: 90%;
+    flex-direction: column;
+    margin: auto;
+    border: solid #b0bdc1;
+    border-radius: 15px;
+    padding: 0 0 12px 0;
+    overflow: hidden;
+}
+
+.header__informacion{
+    flex-wrap: wrap;
+    background-color: #eaecef;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 10px;
+}
+.header__informacion > p{
+    margin: 12px;
+}
+
+.header__informacion > p ~ p{
+    flex-grow: 1;
+}
+.header__informacion p,button{
+    padding: 4px;
+    cursor: pointer;
+}
+.header__btn{
+    padding: 10px 0 ;
+    width: 25%;
+    border: none;
+    border-radius: 10px;
+    background-color: #ed0000;
+    color: white;
+}
+.border-top--blue{
+    border-bottom: 4px solid #007bff;
+    
+}
+.informacion{
+    gap: 6px;
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    margin: 0 20px;
+}
+.informacion__info-empleado{
+    gap: 12px;
+    grid-template-rows: repeat(2,auto);
+}
+.contenedor__documento{
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.informacion__info-beneficio{
+    gap: 12px;
+    grid-template-rows: repeat(2,auto)
+}
+.contenedor__info-empleado{
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0 30px;
+    padding: 8px;
+}
+
+.info-empleado__titulo{
+    font-size: 1rem;
+    color: #b0bdc1;
+    padding: 8px;
+    border: 0.5px solid #b0bdc1;
+    border-radius: 5px;
+    background-color: #eaecef;
+}
+.info-empleado_placeholder{
+    grid: flex;
+    place-content:center;
+    padding: 5px;
+    text-align: center;
+    border: 0.5px solid #4ca9c5;
+    border-radius: 5px;
+    /* width: 80%; */
+    height: 2rem;
+    margin: 8px 0;
+}
+.placeholder--grow{
+    flex-grow: 1;
+}
+.placeholder--size{
+    width: 2rem;
+}
+.formulario{
+    gap: 12px;
+    flex-direction: column;
+}
+.formulario select {
+    border-radius: 10px;
+    padding: 0 12px;
+}
+.formulario__selec__polizas{
+    flex-direction: column;
+    gap: 6px
+}
+.formulario__selec__beneficios{
+    grid-template-columns: repeat(2,1fr);
+    gap: 6px
+}
+.nombreDescriptivo{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px 22px;
+}
+.beneficios__poliza {
+    flex-direction: column;
+
+}
+.polizas{
+    height: 40px;
+}
+.beneficios{
+    height: 100%;
+}
+.enviar__btn{
+    background-color: #007bff;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 0;
+    cursor: pointer;
+}
+
+@media (width <= 505px) {
+    .beneficios{
+        height: 40px;
+    }
+}
+/* ____________________________________________________________ */
+/* estilos tabla */
+/* Tabla */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #1b376f;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* ____________________________________________________________ */
+/* Estilos para la ventana sobrepuesta */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+#aceptar{
+    background-color: green;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;  
+}
+#rechazar{
+    background-color: red;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;  
+}
