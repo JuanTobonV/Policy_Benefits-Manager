@@ -89,7 +89,7 @@ main{
 }
 .formulario1{
     grid-template-rows: 1fr; /* una filas de igual tamaño */
-    grid-template-columns:repeat(4, 1fr); /* cuatro columna misma fración */
+    grid-template-columns: 62px 1fr 1fr 1fr; /* cuatro columna misma fración */
     gap: 8px;/*  Espacio entre las filas */
     height: 10vh;
     padding-left: 40px;
@@ -152,7 +152,6 @@ main{
 
 #selector-tipo--ID{
     height: 5vh;
-    width: 100px;
     border-radius: 5px;
     border: 1px solid #4ca9c5;
     padding: 8px;
