@@ -20,14 +20,27 @@
 
                         <div class="form__inputs">
 
-                              <select class="input input__select" name="" id="identificacionUsuarion">
-                                    <option>Tipo de identificación</option>
-                                    <option value="CC">Cedula de ciudadania</option>
-                                    <option value="CE">Cedula de extranjeria</option>
-                              </select>
+                             <div >
+                                    <select class="input input__select" name="" id="identificacionUsuarion">
+                                          <option value="none">Tipo de identificación</option>
+                                          <option value="CC">Cedula de ciudadania</option>
+                                          <option value="CE">Cedula de extranjeria</option>
+                                    </select>
+
+                                    <span class="errorMessage hidden"><p class="error ">Selecciona tu tipo de identificación</p></span class="errorMessage">
+
+                             </div>
       
-                              <input id="numeroIdentificacionUsuario" class="input" type="number" placeholder="Número de identificación">
-                              <input id="contraseñaUsuario" class="input" type="password" name="" placeholder="Contraseña">
+                             <div>
+                                    <input id="numeroIdentificacionUsuario" class="input" type="number" placeholder="Número de identificación">
+                                    <span class="errorMessage hidden"><p class="error ">Escribe tu número de identificación</p></span class="errorMessage">
+                             </div>
+
+                              <div>
+                                    <input id="contraseñaUsuario" class="input" type="password" name="" placeholder="Contraseña">
+                                    <span class="errorMessage hidden"><p class="error">Escribe tu contraseña</p></span>
+                              </div>
+
 
                               <input id="iniciarSesionButton" class="form__inicioSesion" type="button" value="Iniciar Sesión">
                         </div>
@@ -36,6 +49,7 @@
       <footer></footer>  
       
       <script type="module" src="/src/controllers/controllersHU_01/autenticacion.js"></script>
+      <script src="./js/scriptsVista.js"></script>
       <script src="/src/app/main.js"></script>
 </body>
 </html>
