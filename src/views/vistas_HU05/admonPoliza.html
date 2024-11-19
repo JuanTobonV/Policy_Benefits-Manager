@@ -14,8 +14,10 @@
     <main class="flex">
         
         <div class="header__informacion flex">
-            <p class="border-top--blue text--blue text--bold">Selecciona tu solicitud</p>
-            <p class="text--blue text--bold">Ver mis solicitudes</p>
+            <p id="solicitudes" class="text--blue text--bold">Selecciona tu solicitud</p>
+            <p id="adminSolicitudes" class="border-top--blue text--blue text--bold">Ver mis solicitudes</p>
+            <p class="text--blue text--bold"></p>
+            <p class="text--blue text--bold"></p>
             <button id="btnCerrarSesion">Cerrar Sesión</button>
         </div>
         
@@ -23,10 +25,10 @@
             <div>
                 <label class="colorAzulTexto">Seleccione proveedor</label>
                 <select name="proveedor" id="proveedor">
-                    <option value="">Seleccione</option>
-                    <option value="proveedor1">Proveedor 1</option>
-                    <option value="proveedor2">Proveedor 2</option>
-                    <option value="proveedor3">Proveedor 3</option>
+                    <option value="">Seleccione...</option>
+                    <option value="0">Proveedor 1</option>
+                    <option value="0">Proveedor 2</option>
+                    <option value="0">Proveedor 3</option>
                 </select>
             </div>
         </form>
@@ -40,42 +42,42 @@
                 <label for="" class="colorAzulTexto">Tipo</label>
                 <select name="" id="selector-tipo--ID">
                     <option value="">CC</option>
-                    <option value="">TI</option>
+                    <!--<option value="">TI</option>
                     <option value="">CE</option>
                     <option value="">RC</option>
-                    <option value="">NIT</option>
+                    <option value="">NIT</option>-->
                 </select>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Número identificación</label>
-                <input type="text" name="" id="" placeholder="placeholder" class="inputs-informacion--Proveedor">
+                <input type="number" name="numeroIdentificacion" id="numeroIdentificacion" placeholder="Número Identificación" class="inputs-informacion--Proveedor" required>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Nombre</label>
-                <input type="text" name="" id="" placeholder="placeholder" class="inputs-informacion--Proveedor">
+                <input type="text" name="nombreProveedor" id="nombreProveedor" placeholder="Nombre Proveedor" class="inputs-informacion--Proveedor" required>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Razón social</label>
-                <input type="text" name="" id="" placeholder="placeholder" class="inputs-informacion--Proveedor">
+                <input type="text" name="razonSocialProveedor" id="razonSocialProveedor" placeholder="Razón social" class="inputs-informacion--Proveedor" required>
             </div>
         </form>
     
         <div class="titulos grid">
-            <h5 class="item">INFORMACIÓN DEL CONTACTO</h5>
+            <h5 class="item">CONTACTO DEL PROVEEDOR</h5>
         </div>
 
         <form action="" class="formulario2 grid">
             <div>
                 <label for="" class="colorAzulTexto">Teléfono proveedor</label> <br>
-                <input type="text" name="" id="" placeholder="placeholder" class="inputs-informacion--contacto">
+                <input type="text" name="telefonoProveedor" id="telefonoProveedor" placeholder="Teléfono proveedor" class="inputs-informacion--contacto" required>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Dirección de correo</label> <br>
-                <input type="text" name="" id="" placeholder="placeholder" class="inputs-informacion--contacto">
+                <input type="text" name="emailProveedor" id="emailProveedor" placeholder="Correo proveedor" class="inputs-informacion--contacto" required>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Ciudad</label> <br>
-                <input type="text" name="" id="" placeholder="placeholder" class="inputs-informacion--contacto">
+                <input type="text" name="ciudadProveedor" id="ciudadProveedor" placeholder="Ciudad proveedor" class="inputs-informacion--contacto" required>
             </div>
         </form>
 
@@ -86,22 +88,31 @@
         <form action="" class="formulario3 grid">
             <div>
                 <label for="" class="colorAzulTexto">Pólizas activas</label>
-                <select name="" id="selector-polizas-activas">
-                    <option value="">Seleccione</option>
-                    <option value="proveedor1">Proveedor 1</option>
-                    <option value="proveedor2">Proveedor 2</option>
-                    <option value="proveedor3">Proveedor 3</option>
+                <select name="selectorPolizasActivas" id="selector-polizas-activas">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Pólizas de vehículos</option>
+                    <option value="2">Pólizas de salud</option>
                 </select>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Pólizas disponibles</label>
                 <select name="" id="selector-polizas-disponibles">
-                    <option value="">Seleccione</option>
-                    <option value="proveedor1">Proveedor 1</option>
-                    <option value="proveedor2">Proveedor 2</option>
-                    <option value="proveedor3">Proveedor 3</option>
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Póliza contra accidentes</option>
+                    <option value="2">Póliza maternidad</option>
                 </select>
             </div>
+        </form>
+
+        <form action="" class="flex formulario4">
+            
+                <p for="" class="colorAzulTexto">Beneficios</p>
+                <select name="selectorBeneficios" id="selector-beneficios">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Beneficio 1</option>
+                    <option value="2">Beneficio 2</option>
+                </select>
+            
         </form>
 
         <div class="botones flex">
