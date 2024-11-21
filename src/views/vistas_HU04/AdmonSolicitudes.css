@@ -57,7 +57,7 @@ main{
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    width: 30%;
+    width: 25%;
     height: 6vh;
     color: white;
     transition: 0.2s;
@@ -223,7 +223,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(185, 0, 0);
+    background-color: #b2b2b2;
 }
 #aceptar{
     background-color: green;
