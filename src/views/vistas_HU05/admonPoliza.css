@@ -34,46 +34,37 @@ main{
     grid-template-rows: repeat(1, 1fr); /* una filas de igual tamaño */
     grid-template-columns: 1fr;
 }
+.header__informacion{
+    flex-wrap: wrap;
+    background-color: #eaecef;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 0.5px solid #b0bdc1;
+}
 .header__informacion p,button{
     padding: 4px;
     cursor: pointer;
 }
-#btnCerrarSesion{
-    background-color: red;
-    border-radius: 10px;
+.header__btn{
+    padding: 10px 0;
+    width: 40%;
     border: none;
-    cursor: pointer;
-    width: 80%;
-    height: 6vh;
+    border-radius: 10px;
+    background-color: #ed0000;
     color: white;
-    transition: 0.2s;
+    font-size: 1rem; 
 }
-#btnCerrarSesion:hover{
-    background-color: rgb(185,0,0);
+.contener--style{
+    flex-grow: 1;
+    border-left: 2px solid #b0bdc1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 .border-top--blue{
     border-bottom: 4px solid #007bff;
-}
-.encabezado{
-    grid-template-rows: 1fr;
-    grid-template-columns:repeat(3, 180px 50px 520px);
-    align-items: center;
-    padding: 20px 0px 20px 40px;
-    gap: 5px;
-    background-color: #eaecef;
-    border-bottom: solid #b0bdc1;
-}
-.divVerSolicitud{
-    cursor: pointer;
-}
-.divSeleccionSolicitud{
-    cursor: pointer;
-}
-.raya-vertical {
-    width: 1px; /* Ancho de la raya */
-    height: 100%; /* Asegura que ocupe toda la altura del contenedor */
-    background-color: #b0bdc1; /* Color de la raya */
-    margin: 0 20px; /* Espaciado a ambos lados de la raya */
 }
 .selectorProveedores{
     grid-template-rows: 1fr; /* una filas de igual tamaño */
@@ -220,15 +211,6 @@ main{
 
 @media (width <= 350px) {
 
-    .encabezado{
-        grid-template-rows: 3fr; /* una filas de igual tamaño */
-        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
-    }
-
-    #btnCerrarSesion{
-        width: 90%;
-    }
-
     .selectorProveedores{
         height: 5vh;
     }
@@ -299,14 +281,9 @@ main{
 
 @media (width <= 400px) {
 
-    .encabezado{
-        grid-template-rows: 3fr; /* una filas de igual tamaño */
-        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
-    }
-
-    #btnCerrarSesion{
-        width: 90%;
-    }
+    .btn-select__solicitud {
+        flex-grow: 1;
+      }
 
     .selectorProveedores{
         height: 5vh;
@@ -378,15 +355,6 @@ main{
 
 @media (width <= 768px) {
 
-    .encabezado{
-        grid-template-rows: 3fr; /* una filas de igual tamaño */
-        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
-    }
-
-    #btnCerrarSesion{
-        width: 90%;
-    }
-
     .formulario1{
         grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
@@ -441,14 +409,15 @@ main{
 }
 
 @media (width <= 880px) {
-    .encabezado{
-        grid-template-rows: 3fr; /* una filas de igual tamaño */
-        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
-    }
-
-    #btnCerrarSesion{
-        width: 90%;
-    }
+    .btn-select__solicitud {
+        flex-grow: 1;
+        margin: 15px 0 0 0;
+        text-align: center;
+      }
+      .contener--style{
+        padding: 0 0 9px 0;
+        border-left: none;
+      }
 
     .formulario1{
         grid-template-rows: 4fr; /* una filas de igual tamaño */
@@ -464,16 +433,7 @@ main{
     
 }
 
-
 @media (width <= 1164px) {
-    .encabezado{
-        grid-template-rows: 3fr; /* una filas de igual tamaño */
-        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
-    }
-
-    #btnCerrarSesion{
-        width: 90%;
-    }
 
     .formulario1{
     grid-template-rows: 4fr; /* una filas de igual tamaño */
