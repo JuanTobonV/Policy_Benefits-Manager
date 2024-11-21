@@ -18,6 +18,10 @@ btnIniciarSesion.addEventListener('click', () => {
         } else {
             input.error.classList.add('hidden');
             input.element.classList.remove('borderError');
+            Swal.fire({
+                title: "Usuario no encontrado",
+                icon: "error"
+              });
         }
     });
 
