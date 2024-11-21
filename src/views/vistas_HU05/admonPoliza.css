@@ -34,30 +34,26 @@ main{
     grid-template-rows: repeat(1, 1fr); /* una filas de igual tamaño */
     grid-template-columns: 1fr;
 }
-
 .header__informacion p,button{
     padding: 4px;
     cursor: pointer;
 }
 #btnCerrarSesion{
-    padding: 10px 0 ;
-    width: 80%;
-    border: none;
-    border-radius: 10px;
     background-color: red;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    height: 6vh;
     color: white;
+    transition: 0.2s;
 }
 #btnCerrarSesion:hover{
-    font-size: 15px;
-    background-color: white;
-    color: black;
+    background-color: rgb(185,0,0);
 }
 .border-top--blue{
     border-bottom: 4px solid #007bff;
 }
-
-/***********************************************/
-
 .encabezado{
     grid-template-rows: 1fr;
     grid-template-columns:repeat(3, 180px 50px 520px);
@@ -79,7 +75,6 @@ main{
     background-color: #b0bdc1; /* Color de la raya */
     margin: 0 20px; /* Espaciado a ambos lados de la raya */
 }
-/*------------------------------------*/
 .selectorProveedores{
     grid-template-rows: 1fr; /* una filas de igual tamaño */
     grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
@@ -135,7 +130,6 @@ main{
     height: 10vh;
     padding-left: 40px;
     padding-right: 40px;
-
     /*display: none;*/
     margin-bottom: 40px;
     flex-direction: row;
@@ -160,13 +154,7 @@ main{
     justify-content: space-around;
     align-items: center;
 }
-#btnAgregar:hover{
-    font-size: 20px;
-}
-#btnEliminar:hover{
-    font-size: 20px;
-}
-.botones #btnAgregar{
+#btnAgregar{
     background-color: #007bff;
     border-radius: 10px;
     border: none;
@@ -174,8 +162,9 @@ main{
     width: 30%;
     height: 6vh;
     color: white;
+    transition: 0.2s;
 }
-.botones #btnEliminar{
+#btnEliminar{
     background-color: red;
     border-radius: 10px;
     border: none;
@@ -183,11 +172,17 @@ main{
     width: 30%;
     height: 6vh;
     color: white;
+    transition: 0.2s;
+}
+#btnAgregar:hover{
+    background-color: #0167d4;
+}
+#btnEliminar:hover{
+    background-color: rgb(185,0,0);
 }
 .colorAzulTexto{
     color: #007bff;
 }
-
 #selector-tipo--ID{
     border-radius: 5px;
     border: 1px solid #4ca9c5;
