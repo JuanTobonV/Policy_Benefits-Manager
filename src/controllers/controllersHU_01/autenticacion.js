@@ -5,7 +5,7 @@ export function sesion(usuarioValidado) {
     console.log("dentro de sesion");
 
     if (String(usuarioValidado.rol).toUpperCase() === 'ADMIN') {
-        window.location.href = '../../views/vistas_HU02/verPolizasYBeneficios.html';
+        window.location.href = '../../views/vistas_HU05/admonPoliza.html';
     } else if (String(usuarioValidado.rol).toUpperCase() === 'EMPLEADO') {
         window.location.href = '../../views/vistas_HU02/verPolizasYBeneficios.html';
     }
