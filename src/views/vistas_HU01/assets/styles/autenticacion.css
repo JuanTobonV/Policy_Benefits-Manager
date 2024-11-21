@@ -60,6 +60,9 @@ form{
       font-size: 0.9rem;
 }
 
+.borderError{
+      border-color:  red;
+}
 
 .hidden{
       display: none;
