@@ -11,14 +11,25 @@
 </head>
 <body class="grid">
     <header></header>
+
     <main class="flex">
-        
-        <div class="header__informacion flex">
-            <p id="solicitudes" class="text--blue text--bold">Selecciona tu solicitud</p>
-            <p id="adminSolicitudes" class="border-top--blue text--blue text--bold">Ver mis solicitudes</p>
-            <p class="text--blue text--bold"></p>
-            <p class="text--blue text--bold"></p>
-            <button id="btnCerrarSesion">Cerrar Sesión</button>
+
+        <div class="encabezado grid flex">
+
+            <div class="divSeleccionSolicitud flex">
+                <p id="solicitudes" class="text--blue text--bold">Selecciona tu solicitud</p>
+            </div>
+
+            <div class="raya-vertical"></div>
+            
+            <div class="divVerSolicitud flex">
+                <p id="adminSolicitudes" class="border-top--blue text--blue text--bold">Ver mis solicitudes</p>
+            </div>
+
+            <div class="divBotonCerrarSesion flex">
+                <button id="btnCerrarSesion">Cerrar Sesión</button>
+            </div>
+
         </div>
         
         <form class="selectorProveedores grid">
@@ -34,7 +45,7 @@
         </form>
 
         <div class="titulos grid">
-                <h5 class="item">INFORMACIÓN DEL PROVEEDOR</h5>
+                <h5 class="item" id="infoProveedor">INFORMACIÓN DEL PROVEEDOR</h5>
         </div>
 
         <form action="" class="formulario1 grid">
@@ -57,7 +68,7 @@
         </form>
     
         <div class="titulos grid">
-            <h5 class="item">CONTACTO DEL PROVEEDOR</h5>
+            <h5 class="item" id="contactoProveedor">CONTACTO DEL PROVEEDOR</h5>
         </div>
 
         <form action="" class="formulario2 grid">
@@ -76,7 +87,7 @@
         </form>
 
         <div class="titulos grid">
-            <h5 class="item">ADMINISTRACIÓN DE PÓLIZAS</h5>
+            <h5 class="item" id="adminPoliza">ADMINISTRACIÓN DE PÓLIZAS</h5>
         </div>
 
         <form action="" class="formulario3 grid">

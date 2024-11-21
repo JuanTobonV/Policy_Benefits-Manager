@@ -14,11 +14,9 @@
 .text--bold{
     font-weight: 900;
 }
-
 p,h3,label{
     font-family: "Nunito", sans-serif;
 }
-
 body{
     gap: 50px;
 }
@@ -36,38 +34,51 @@ main{
     grid-template-rows: repeat(1, 1fr); /* una filas de igual tamaño */
     grid-template-columns: 1fr;
 }
-.header__informacion{
-    flex-wrap: wrap;
-    background-color: #eaecef;
-    gap: 12px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px 10px;
-}
-.header__informacion > p{
-    margin: 12px;
-}
 
-.header__informacion > p ~ p{
-    flex-grow: 1;
-}
 .header__informacion p,button{
     padding: 4px;
     cursor: pointer;
 }
 #btnCerrarSesion{
     padding: 10px 0 ;
-    width: 25%;
+    width: 80%;
     border: none;
     border-radius: 10px;
-    background-color: #ed0000;
+    background-color: red;
     color: white;
+}
+#btnCerrarSesion:hover{
+    font-size: 15px;
+    background-color: white;
+    color: black;
 }
 .border-top--blue{
     border-bottom: 4px solid #007bff;
-    
 }
 
+/***********************************************/
+
+.encabezado{
+    grid-template-rows: 1fr;
+    grid-template-columns:repeat(3, 180px 50px 520px);
+    align-items: center;
+    padding: 20px 0px 20px 40px;
+    gap: 5px;
+    background-color: #eaecef;
+    border-bottom: solid #b0bdc1;
+}
+.divVerSolicitud{
+    cursor: pointer;
+}
+.divSeleccionSolicitud{
+    cursor: pointer;
+}
+.raya-vertical {
+    width: 1px; /* Ancho de la raya */
+    height: 100%; /* Asegura que ocupe toda la altura del contenedor */
+    background-color: #b0bdc1; /* Color de la raya */
+    margin: 0 20px; /* Espaciado a ambos lados de la raya */
+}
 /*------------------------------------*/
 .selectorProveedores{
     grid-template-rows: 1fr; /* una filas de igual tamaño */
@@ -149,6 +160,12 @@ main{
     justify-content: space-around;
     align-items: center;
 }
+#btnAgregar:hover{
+    font-size: 20px;
+}
+#btnEliminar:hover{
+    font-size: 20px;
+}
 .botones #btnAgregar{
     background-color: #007bff;
     border-radius: 10px;
@@ -206,8 +223,108 @@ main{
     padding: 8px;
 }
 
-@media (width <= 505px) {
+@media (width <= 350px) {
 
+    .encabezado{
+        grid-template-rows: 3fr; /* una filas de igual tamaño */
+        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
+    }
+
+    #btnCerrarSesion{
+        width: 90%;
+    }
+
+    .selectorProveedores{
+        height: 5vh;
+    }
+    .titulos #infoProveedor{
+        margin-top: 10px;
+    }
+    .titulos #contactoProveedor{
+        margin-top: 10px;
+    }
+    .titulos #adminPoliza{
+        margin-top: 10px;
+    }
+    .formulario1{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 40vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+
+    .formulario2{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 40vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+
+    .formulario3{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 20vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+
+    .formulario4{
+    
+    height: 22vh;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    /*display: none;*/
+    margin-top: 5px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    
+    }
+
+    .divFormulario4{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .botones{
+        margin-top: 40px;
+    }
+
+    main{
+        gap: 40px;
+        width: 90%;
+        height: 1700px;
+    }
+}
+
+@media (width <= 400px) {
+
+    .encabezado{
+        grid-template-rows: 3fr; /* una filas de igual tamaño */
+        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
+    }
+
+    #btnCerrarSesion{
+        width: 90%;
+    }
+
+    .selectorProveedores{
+        height: 5vh;
+    }
+    .titulos #infoProveedor{
+        margin-top: 10px;
+    }
+    .titulos #contactoProveedor{
+        margin-top: 30px;
+    }
+    .titulos #adminPoliza{
+        margin-top: 30px;
+    }
     .formulario1{
     grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
@@ -241,7 +358,8 @@ main{
     padding-left: 40px;
     padding-right: 40px;
 
-    display: none;
+    /*display: none;*/
+    margin-top: 40px;
     margin-bottom: 40px;
     flex-direction: row;
     align-items: end;
@@ -259,25 +377,37 @@ main{
 
     main{
         gap: 28px;
+        width: 90%;
     }
 }
 
 @media (width <= 768px) {
 
+    .encabezado{
+        grid-template-rows: 3fr; /* una filas de igual tamaño */
+        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
+    }
+
+    #btnCerrarSesion{
+        width: 90%;
+    }
+
     .formulario1{
         grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
     gap: 8px;/*  Espacio entre las filas */
-    height: 27vh;
+    height: 40vh;
     padding-left: 40px;
     padding-right: 40px;
     }
-
+    .titulos #contactoProveedor{
+        margin-top: 50px;
+    }
     .formulario2{
     grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
     gap: 8px;/*  Espacio entre las filas */
-    height: 20vh;
+    height: 30vh;
     padding-left: 40px;
     padding-right: 40px;
     }
@@ -286,7 +416,7 @@ main{
     grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
     gap: 8px;/*  Espacio entre las filas */
-    height: 10vh;
+    height: 20vh;
     padding-left: 40px;
     padding-right: 40px;
     }
@@ -296,7 +426,7 @@ main{
     height: 10vh;
     padding-left: 40px;
     padding-right: 40px;
-    display: none;
+    /*display: none;*/
     margin-bottom: 10px;
     }
 
@@ -308,4 +438,63 @@ main{
     .botones{
         margin-top: 40px;
     }
+
+    main{
+        gap: 28px;
+        width: 90%;
+    }
+}
+
+@media (width <= 880px) {
+    .encabezado{
+        grid-template-rows: 3fr; /* una filas de igual tamaño */
+        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
+    }
+
+    #btnCerrarSesion{
+        width: 90%;
+    }
+
+    .formulario1{
+        grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 22vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .formulario2{
+        height: 10vh;
+    }
+    
+}
+
+
+@media (width <= 1164px) {
+    .encabezado{
+        grid-template-rows: 3fr; /* una filas de igual tamaño */
+        grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
+    }
+
+    #btnCerrarSesion{
+        width: 90%;
+    }
+
+    .formulario1{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 40vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .formulario2{
+        grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 30vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    
 }
