@@ -40,25 +40,19 @@
         <form action="" class="formulario1 grid">
             <div>
                 <label for="" class="colorAzulTexto">Tipo</label>
-                <select name="" id="selector-tipo--ID">
-                    <option value="">CC</option>
-                    <!--<option value="">TI</option>
-                    <option value="">CE</option>
-                    <option value="">RC</option>
-                    <option value="">NIT</option>-->
-                </select>
+                <input type="text" name="tipoIdentificacion" id="selector-tipo--ID" class="inputs-informacion--Proveedor" placeholder="NIT" disabled>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Número identificación</label>
-                <input type="number" name="numeroIdentificacion" id="numeroIdentificacion" placeholder="Número Identificación" class="inputs-informacion--Proveedor" required>
+                <input type="number" name="numeroIdentificacion" id="numeroIdentificacion" placeholder="Número Identificación" class="inputs-informacion--Proveedor" disabled>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Nombre</label>
-                <input type="text" name="nombreProveedor" id="nombreProveedor" placeholder="Nombre Proveedor" class="inputs-informacion--Proveedor" required>
+                <input type="text" name="nombreProveedor" id="nombreProveedor" placeholder="Nombre Proveedor" class="inputs-informacion--Proveedor" disabled>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Razón social</label>
-                <input type="text" name="razonSocialProveedor" id="razonSocialProveedor" placeholder="Razón social" class="inputs-informacion--Proveedor" required>
+                <input type="text" name="razonSocialProveedor" id="razonSocialProveedor" placeholder="Razón social" class="inputs-informacion--Proveedor" disabled>
             </div>
         </form>
     
@@ -69,15 +63,15 @@
         <form action="" class="formulario2 grid">
             <div>
                 <label for="" class="colorAzulTexto">Teléfono proveedor</label> <br>
-                <input type="text" name="telefonoProveedor" id="telefonoProveedor" placeholder="Teléfono proveedor" class="inputs-informacion--contacto" required>
+                <input type="text" name="telefonoProveedor" id="telefonoProveedor" placeholder="Teléfono proveedor" class="inputs-informacion--contacto" disabled>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Dirección de correo</label> <br>
-                <input type="text" name="emailProveedor" id="emailProveedor" placeholder="Correo proveedor" class="inputs-informacion--contacto" required>
+                <input type="text" name="emailProveedor" id="emailProveedor" placeholder="Correo proveedor" class="inputs-informacion--contacto" disabled>
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Ciudad</label> <br>
-                <input type="text" name="ciudadProveedor" id="ciudadProveedor" placeholder="Ciudad proveedor" class="inputs-informacion--contacto" required>
+                <input type="text" name="ciudadProveedor" id="ciudadProveedor" placeholder="Ciudad proveedor" class="inputs-informacion--contacto" disabled>
             </div>
         </form>
 
@@ -104,14 +98,15 @@
             </div>
         </form>
 
-        <form action="" class="flex formulario4">
-            
+        <form action="" class="flex formulario4">            
+            <div class="divFormulario4 flex">
                 <p for="" class="colorAzulTexto">Beneficios</p>
                 <select name="selectorBeneficios" id="selector-beneficios">
                     <option value="0">Seleccione...</option>
                     <option value="1">Beneficio 1</option>
                     <option value="2">Beneficio 2</option>
                 </select>
+            </div>
             
         </form>
 
