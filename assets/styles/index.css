@@ -43,6 +43,13 @@ main, .main__sectionImage, .section__image{
       align-items: center;
       gap: 10px;
 }
+
+@media (width<762px) {
+      .section__mainText{
+            flex-direction: column;
+            gap: 40px;
+      }
+}
 .section__mainText h2{
       font-size: 2rem;
       color: #1b376f;
@@ -76,7 +83,7 @@ main, .main__sectionImage, .section__image{
 
 
 
-@media (width >762px) {
+@media (width > 762px) {
 
       .section__mainText{
             gap: 100px;
@@ -90,5 +97,26 @@ main, .main__sectionImage, .section__image{
             font-size: 1.3rem;
       }
 }
+
+
+
+
+.section__mainText{
+      animation: appear 5s linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+}
+
+@keyframes appear {
+      from{
+            opacity: 0;
+            scale: 0.5;
+      }
+      to{
+            opacity: 1;
+            scale: 1;
+      }
+}
+
 
 
