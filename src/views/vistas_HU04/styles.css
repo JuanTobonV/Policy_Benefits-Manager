@@ -53,12 +53,16 @@ main{
     cursor: pointer;
 }
 .header__btn{
-    padding: 10px 0 ;
-    width: 25%;
-    border: none;
+    background-color: red;
     border-radius: 10px;
-    background-color: #ed0000;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    height: 6vh;
     color: white;
+    transition: 0.2s;
+    padding: 10px 0 ;    
+    
 }
 .border-top--blue{
     border-bottom: 4px solid #007bff;
@@ -219,7 +223,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: rgb(185, 0, 0);
 }
 #aceptar{
     background-color: green;
