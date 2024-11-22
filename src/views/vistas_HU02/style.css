@@ -50,7 +50,7 @@ main{
 .header__informacion > p ~ p{
     flex-grow: 1;
 }
-.header__informacion p,button,a{
+.header__informacion p,button{
     padding: 4px;
     cursor: pointer;
 }
