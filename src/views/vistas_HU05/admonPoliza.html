@@ -19,13 +19,13 @@
            <div class="contener--style flex" > 
              <p class="text--blue text--bold border-top--blue">Administrar pólizas</p>
             <button id="btnCerrarSesion" class="header__btn">Cerrar Sesión</button>
-        </div>
+            </div>
         </div>
         
         <form class="selectorProveedores grid">
             <div>
                 <label class="colorAzulTexto">Seleccione proveedor</label>
-                <select name="proveedor" id="proveedor">
+                <select name="proveedor" id="selectorProveedor">
                     <option value="">Seleccione...</option>
                     <option value="0">Proveedor 1</option>
                     <option value="0">Proveedor 2</option>
@@ -91,15 +91,17 @@
             </div>
             <div>
                 <label for="" class="colorAzulTexto">Pólizas disponibles</label>
-                <select name="" id="selector-polizas-disponibles">
+                <select name="" id="selector-polizas-disponibles" onchange="mostrarSelectorBeneficios()">
                     <option value="0">Seleccione...</option>
                     <option value="1">Póliza contra accidentes</option>
                     <option value="2">Póliza maternidad</option>
+                    <option value="3">Póliza contra accidentes</option>
+                    <option value="4">Póliza maternidad</option>
                 </select>
             </div>
         </form>
 
-        <form action="" class="flex formulario4">            
+        <form action="" class="flex formulario4" id="formularioBeneficios">            
             <div class="divFormulario4 flex">
                 <p for="" class="colorAzulTexto">Beneficios</p>
                 <select name="selectorBeneficios" id="selector-beneficios">
@@ -107,8 +109,7 @@
                     <option value="1">Beneficio 1</option>
                     <option value="2">Beneficio 2</option>
                 </select>
-            </div>
-            
+            </div>            
         </form>
 
         <div class="botones flex">
@@ -117,8 +118,10 @@
     </main>
     <footer></footer>
     
-    <script type="module" src="./js/admonPoliza.js"></script>
+    <script src="./js/validacionesAdmon.js"></script>
+    <script src="./js/funcionesAdmon.js"></script>
     <script src="../../app/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

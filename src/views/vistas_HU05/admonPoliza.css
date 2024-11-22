@@ -125,11 +125,13 @@ main{
     height: 10vh;
     padding-left: 40px;
     padding-right: 40px;
-    /*display: none;*/
     margin-bottom: 40px;
     flex-direction: row;
     align-items: end;
     justify-content: end;
+}
+#formularioBeneficios{
+    display: none;
 }
 .divFormulario4{
     flex-direction: column;
