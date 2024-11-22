@@ -4,9 +4,7 @@
 .flex{
     display: flex;
 }
-.grid{
-    display: grid;
-}
+
 .text--blue{
     color: #1b376f;
 }
