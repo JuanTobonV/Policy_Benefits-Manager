@@ -70,13 +70,13 @@ main{
 .border-top--blue{
     border-bottom: 4px solid #007bff;
 }
-.selectorProveedores{
+.selectorProveedores-form{
     grid-template-rows: 1fr; /* una filas de igual tamaño */
     grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
     padding-left: 40px;
     padding-right: 40px;
 }
-.selectorProveedores select{
+#selectorProveedor{
     width: 100%;              /* El select ocupa todo el ancho disponible */
     padding: 8px;            /* Espaciado interno para mejorar la apariencia */
     font-size: 16px;          /* Tamaño de la fuente */
@@ -217,7 +217,7 @@ main{
 
 @media (width <= 350px) {
 
-    .selectorProveedores{
+    .selectorProveedores-form{
         height: 5vh;
     }
     .titulos #infoProveedor{
@@ -291,7 +291,7 @@ main{
         flex-grow: 1;
       }
 
-    .selectorProveedores{
+    .selectorProveedores-form{
         height: 5vh;
     }
     .titulos #infoProveedor{
