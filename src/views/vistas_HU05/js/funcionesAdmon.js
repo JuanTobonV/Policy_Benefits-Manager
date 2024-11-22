@@ -22,3 +22,10 @@ function mostrarSelectorBeneficios(){
     }
 }
 
+function limpiarSelectores(){
+    let selectores = ['selectorProveedor', 'selector-polizas-activas', 'selector-polizas-disponibles', 'selector-beneficios'];
+
+    selectores.forEach(selectores => {
+        document.getElementById(selectores).value = "0";
+    })
+}

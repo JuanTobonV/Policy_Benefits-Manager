@@ -28,7 +28,18 @@ agregar.addEventListener("click", function(event){
         alert('Seleccione un beneficio');
         return;
     }
+    // esto es parcial, hay que enviarlo cuando en realidad se agregue la poliza
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Haz agregado correctamente",
+        showConfirmButton: false,
+        timer: 2000,
+        customClass: {
+        title: 'text--blue'
+        }
+    });
 
-    alert(`su provedor es: ${selectorProveedor.value}, su póliza activa es: ${selectorPolizasActivas.value}, la dispobible es: ${selectorPolizasDisponibles.value}, su beneficio es: ${selectorBeneficios.value}`)
-
+    limpiarSelectores();
+    mostrarSelectorBeneficios();
 })
