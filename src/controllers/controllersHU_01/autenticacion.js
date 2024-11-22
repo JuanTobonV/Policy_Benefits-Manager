@@ -28,10 +28,5 @@ botonInicioSesion.addEventListener('click', () => {
 
     if (usuarioExistente && regexNumeros.test(inputNumeroUsuario)) {
         sesion(usuarioExistente);
-    } else {
-        Swal.fire({
-            title: "Usuario no encontrado",
-            icon: "error"
-          });
     }
 });
