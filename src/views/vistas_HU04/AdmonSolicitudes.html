@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./AdmonSolicitudes.css">
 
     <title>con ventana sobre puesta</title>
 </head>
@@ -16,9 +16,11 @@
     <header></header>
     <main class="flex">
         <div class="header__informacion flex">
-            <p class="border-top--blue text--blue text--bold">Ver solicitudes</p>
-            <p class="text--blue text--bold">Administrar polizas</p>
-            <button class="header__btn">Cerrar Sesión</button>
+            <a href="../vistas_HU04/AdmonSolicitudes.html" class="border-top--blue text--blue text--bold">Ver Solicitudes</a>
+            <!-- <p class="border-top--blue text--blue text--bold">Ver solicitudes</p> -->
+            <a href="../vistas_HU05/admonPoliza.html" class="text--blue text--bold">Administrar Polizas</a>
+            <!-- <p class="text--blue text--bold">Administrar polizas</p> -->
+            <button class="header__btn" id="btnCerrarSesion">Cerrar Sesión</button>
         </div>
         <!-- __________________________________________________________________________- -->
         <h1 class="text--blue" align="center">Lista de Solicitudes Empleados</h1>
@@ -48,15 +50,21 @@
                 <br>
                 <div class="doprdown">
                     <div class="item">
-                      <div class="title" onclick="toggleInfo('info1', this)">
+                      <div class="title" onclick="">
                         <span>Información 1</span>
                         <span class="symbol">&#8964;</span> <!-- Flecha hacia la derecha -->
+                        <div style="border: solid black; display: none;" >
+                            <p>Lorem ipsum, dolor sit amet  officia?</p>
+                            <p>Lorem ipsum, dolor sit amet  officia?</p>
+                            <p>Lorem ipsum, dolor sit amet  officia?</p>
+                        </div>
+
                       </div>
                       <p class="info" id="info1"></p>
                     </div>
                 
                     <div class="item">
-                      <div class="title" onclick="toggleInfo('info2', this)">
+                      <div class="title" onclick="">
                         <span>Información 2</span>
                         <span class="symbol">&#8964;</span>
                       </div>
@@ -79,6 +87,8 @@
     
     <script type="module" src="./js/scriptHU04.js"></script>
     <script src="../../app/main.js"></script>
-       
+       <script>
+        
+       </script>
 </body>
 </html>
