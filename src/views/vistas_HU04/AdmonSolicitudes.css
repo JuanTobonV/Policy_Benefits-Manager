@@ -53,16 +53,17 @@ main{
     cursor: pointer;
 }
 .header__btn{
-    background-color: red;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
+    padding: 10px 0 ;
     width: 25%;
-    height: 6vh;
-    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: #ed0000;
     transition: 0.2s;
-    padding: 10px 0 ;    
-    
+    color: white;
+}
+
+.header__btn:hover{
+    background-color: rgb(185, 0, 0);
 }
 .border-top--blue{
     border-bottom: 4px solid #007bff;
