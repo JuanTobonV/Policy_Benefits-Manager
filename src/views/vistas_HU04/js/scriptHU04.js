@@ -29,7 +29,7 @@ function cargarTablaEmpleados() {
             <td>${empleado.nombre}</td>
             <td>${empleado.area}</td>
             <td>${empleado.poliza}</td>
-            <td>${empleado.descripcion}</td>
+            <td>${empleado.beneficio}</td>
        `;
         let button = document.createElement('button');
         button.textContent = '👁';// este es el ojo 
@@ -46,8 +46,11 @@ function verMasInfo(idEmpleado) {
     let empleado = empleados.find(emp => emp.id === idEmpleado);
 
     if (empleado) {
-        document.getElementById('popupTitle').innerHTML = "Más Información de las solicitudes de"+"<br>"+empleado.nombre;
-        document.getElementById('popupDescription').innerText = `Área: ${empleado.area}\nDescripción: ${empleado.descripcion}`;
+        document.getElementById('nombreE').innerHTML = empleado.nombre;
+        document.getElementById('area').innerHTML = empleado.area;
+        document.getElementById('fecha').innerHTML = empleado.fecha;
+        document.getElementById('poliza').innerHTML = empleado.poliza;
+        document.getElementById('beneficio').innerHTML = empleado.beneficio;
         document.getElementById('overlay').style.display = 'flex';  // Mostrar la ventana emergente
     }
 }
@@ -72,6 +75,15 @@ function rejectAction(){
 }
 
 //Asignar los eventos a los botones
+
+document.getElementById('infoempleado').addEventListener('click', function desplegar(){
+    document.getElementById('desplegarcontraer').classList.toggle('visible')
+})
+
+document.getElementById('infosolicitud').addEventListener('click', function desplegar(){
+    document.getElementById('desplegarcontraer2').classList.toggle('visible')
+})
+
 document.getElementById('closeWindowBtn').addEventListener('click', closePopup)
 document.getElementById('aceptar').addEventListener('click', acceptAction);
 document.getElementById('rechazar').addEventListener('click',rejectAction);

@@ -64,6 +64,9 @@ main{
     font-size: 1rem;
     
 }
+.header__btn:hover{
+    background-color: rgb(185,0,0);
+}
 .border-top--blue{
     border-bottom: 4px solid #007bff;
     
@@ -153,7 +156,9 @@ main{
     padding: 12px 0;
     cursor: pointer;
 }
-
+.enviar__btn:hover{
+    background-color: #0167d4;
+}
 .contener--style{
     flex-grow: 1;
     border-left: 2px solid #b0bdc1;
@@ -170,7 +175,7 @@ main{
   }
 }
 
-@media (width <= 821px) {
+@media (width <= 833px) {
  
   .btn-select__solicitud {
     flex-grow: 1;
