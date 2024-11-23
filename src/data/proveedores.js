@@ -1,4 +1,5 @@
 export const proveedores = [
+    
     {
         id:1,
         NIT:'12345',
