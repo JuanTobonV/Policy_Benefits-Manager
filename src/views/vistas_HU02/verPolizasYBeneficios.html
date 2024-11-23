@@ -59,11 +59,11 @@
             </div>
             <div class="informacion__info-beneficio grid">
                 <h3 class="info-empleado__titulo">SOLICITUD BENEFICIO</h3>
-                <form class="formulario flex">
+                <form class="formulario flex" id="form">
                     <div class="formulario__selec__polizas flex">
                         <label class="text--blue pading--left--8px" >Poliza que entrega el beneficio</label>
                         <select class="polizas" name="" id="polizas" required>
-                            <option value="">Selecciona</option>
+                            <option value=""  disabled selected>Selecciona</option>
                         </select>
                     </div>
                     <div class="formulario__selec__beneficios">
@@ -73,7 +73,7 @@
                         <div class="nombreDescriptivo grid">
                             <div class="beneficios__poliza flex">              
                                 <select class="beneficios" name="" id="beneficios" required>
-                                    <option value="">Selecciona</option>
+                                    <option value=""  disabled selected>Selecciona</option>
                                 </select>
                             </div>
                             <input type="submit"  class="enviar__btn" value="Enviar" id="btn-enviar">
