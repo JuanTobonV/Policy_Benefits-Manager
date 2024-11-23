@@ -32,7 +32,7 @@
                         <th>Empleado</th>
                         <th>Área</th>
                         <th>Póliza</th>
-                        <th>Solicitud</th>
+                        <th>Beneficio</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -45,33 +45,36 @@
         <!-- Ventana sobrepuesta -->
         <div id="overlay" class="overlay">
             <div class="popup">
-                <h2 id="popupTitle">Resumen Solicitud</h2>
-                <p id="popupDescription">Descripción del empleado.</p>
+                <h2>Resumen Solicitud</h2>
                 <br>
                 <div class="doprdown">
-                    <div class="item">
-                      <div class="title" onclick="">
-                        <span>Información 1</span>
-                        <span class="symbol">&#8964;</span> <!-- Flecha hacia la derecha -->
-                        <div style="border: solid black; display: none;" >
-                            <p>Lorem ipsum, dolor sit amet  officia?</p>
-                            <p>Lorem ipsum, dolor sit amet  officia?</p>
-                            <p>Lorem ipsum, dolor sit amet  officia?</p>
+                    
+                    
+                        <span>Información Empleado</span>
+                        <span class="symbol" id="infoempleado" style="cursor: pointer;">&#8964;</span> <!-- Flecha hacia la derecha -->
+                        <div class="novisible" id="desplegarcontraer" >
+                            <h5>Nombre del Empleado</h5>
+                            <p id="nombreE"></p>
+                            <h5>Área</h5>
+                            <p id="area"></p>
+                            
+                        </div>
+                        <br>
+                        <span>Información Solicitud</span>
+                        <span class="symbol" id="infosolicitud" style="cursor: pointer;">&#8964;</span> <!-- Flecha hacia la derecha -->
+                        <div class="novisible" id="desplegarcontraer2" >
+                            <h3>Fecha Solicitud</h3>
+                            <p id="fecha"></p>
+                            <h3>Póliza</h3>
+                            <p id="poliza"></p>
+                            <h3>Beneficio</h3>
+                            <p id="beneficio"></p>
+                            <h3>Comentario</h3>
+                            <input type="text" id="comentario">
                         </div>
 
-                      </div>
-                      <p class="info" id="info1"></p>
-                    </div>
-                
-                    <div class="item">
-                      <div class="title" onclick="">
-                        <span>Información 2</span>
-                        <span class="symbol">&#8964;</span>
-                      </div>
-                      <p class="info" id="info2"></p>
-                    </div>
 
-                  </div>
+                </div>
                 
                 <br>
                 <button id="closeWindowBtn">Cerrar</button>

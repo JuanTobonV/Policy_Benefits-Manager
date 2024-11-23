@@ -4,7 +4,7 @@ export let empleados = [
           nombre: 'Juan Pérez',
           area: 'Marketing',
           poliza: 'Vida',
-          descripcion: '50% de descuento en membresia anual gimnasio BodyTech',
+          beneficio: '50% de descuento en membresia anual gimnasio BodyTech',
           id: 1
       },
       {
@@ -12,7 +12,7 @@ export let empleados = [
           nombre: 'María García',
           area: 'Recursos Humanos',
           poliza: 'Vehiculos',
-          descripcion: '10% Descuento en compra llantas vehículo en AutollantasNutibara',
+          beneficio: '10% Descuento en compra llantas vehículo en AutollantasNutibara',
           id: 2
       },
       {
@@ -20,7 +20,7 @@ export let empleados = [
           nombre: 'Carlos López',
           area: 'Finanzas',
           poliza: 'Salud',
-          descripcion: '20% de descuento en cita Medico deportivo Augusto Bermudes.',
+          beneficio: '20% de descuento en cita Medico deportivo Augusto Bermudes.',
           id: 3
       }
   ];
