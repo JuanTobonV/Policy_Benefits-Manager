@@ -48,5 +48,30 @@ export const proveedores = [
             'Cubre daños parciales',
             'Cubre daños a vehículos'
         ],
+    },
+
+    {
+        id:3,
+        NIT:'1234567',
+        nombre: 'davivienda',
+        razonSocial: 'Grupo Aval',
+        telefono: '32345670',
+        correo:'davivienda@gmail,com',
+        ciudad: 'Medellín',
+        polizasActivas: [
+            'Todo riesgo',
+            'Resposabilidad civil'
+        ],
+        polizasDisponibles: [
+            'Accidente de transito',
+            'Hurto',
+            'Incendio',
+            'Daño a terceros'
+        ],
+        beneficios: [
+            'Cubre daños totales',
+            'Cubre daños parciales',
+            'Cubre daños a vehículos'
+        ],
     }
 ]
