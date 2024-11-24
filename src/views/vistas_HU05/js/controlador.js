@@ -12,7 +12,7 @@ let selectorProveedor = document.getElementById('selectorProveedor');
 // Limpiar el select antes de añadir las nuevas opciones
 const cargarProveedores = () => {
     // Limpiar las opciones existentes
-    selectorProveedor.innerHTML = '<option value="0">Selecciona proveedor</option>';
+    selectorProveedor.innerHTML = '<option value="0">Seleccione...</option>';
     
     // Agregar las nuevas opciones
     proveedores.forEach(function(proveedor){
@@ -33,7 +33,7 @@ let selectorPolizasActivas = document.getElementById('selector-polizas-activas')
 
 const cargarPolizasActivas = () => {
     // Limpiar las opciones existentes
-    selectorPolizasActivas.innerHTML = '<option value="0">Selecciona póliza activa</option>';
+    selectorPolizasActivas.innerHTML = '<option value="0">Seleccione...</option>';
     
     // Agregar las nuevas opciones
     const id = selectorProveedor.value; // capturmos el id del proveedor seleccionado
@@ -60,7 +60,7 @@ let selectorPolizasDisponibles = document.getElementById('selector-polizas-dispo
 
 const cargarPolizasDisponibles = () => {
     // Limpiar las opciones existentes
-    selectorPolizasDisponibles.innerHTML = '<option value="0">Selecciona póliza disponible</option>';
+    selectorPolizasDisponibles.innerHTML = '<option value="0">Seleccione...</option>';
     
     // Agregar las nuevas opciones
     const id = selectorProveedor.value; // capturmos el id del proveedor seleccionado
