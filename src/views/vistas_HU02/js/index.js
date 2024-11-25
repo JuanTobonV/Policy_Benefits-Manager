@@ -4,7 +4,7 @@ import { usuarios } from "../../../data/usuarios.js";
 
 const selectPoliza = document.getElementById('polizas');
 const selectBeneficio = document.getElementById('beneficios');
-
+const formulario = document.getElementById('form');
 
 // const selectPolizaRequered = document.querySelector('#polizas [required]');
 // const selectBeneficioRequered = document.querySelector('#beneficios [required]');
@@ -35,11 +35,12 @@ CrearOpciones(usuarioActivo.polizas,selectPoliza);
 
 selectPoliza.addEventListener('change',(e) => {
     const nombrePoliza = e.target.value
+    
     MostrarBeneficioPoliza(nombrePoliza,selectBeneficio)
   
 });
 
-btnEnviar.addEventListener('click',(e) => {
+formulario.addEventListener('submit',(e) => {
     e.preventDefault()
     const polizaSeleccionada = document.getElementById('polizas').value;
     const beneficioSeleccionada = document.getElementById('beneficios').value;
@@ -51,7 +52,14 @@ btnEnviar.addEventListener('click',(e) => {
       }); 
   
 
-    const data = {polizaSeleccionada,beneficioSeleccionada,fechaHora}
+    const data = {
+      polizaSeleccionada,
+      beneficioSeleccionada,
+      fechaHora,
+      empleado:usuarioActivo.nombre,
+      areaTrabajo:usuarioActivo.areaTrabajo,
+      estadoSolicitud:"Proceso"
+    }
     GuardarBeneficios([data],nombreEmpleado.innerText)
    
     /*Nota: La funcion guardar beneficio guarda en un array las polizas
