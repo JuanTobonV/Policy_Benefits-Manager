@@ -39,6 +39,11 @@ agregar.addEventListener("click", function(event){
         return;
     }
 
+    // Obtener el texto de la opción seleccionada porque no se puede con el .value, debido que según mi lógica, estos son números y el textcontent no se puede usar directamente a options de los selects
+    let activaTexto = selectorPolizasActivas.options[selectorPolizasActivas.selectedIndex].textContent;
+    let disponibleTexto = selectorPolizasDisponibles.options[selectorPolizasDisponibles.selectedIndex].textContent;
+    let beneficioTexto = selectorBeneficios.options[selectorBeneficios.selectedIndex].textContent;
+
     let proveedorAgregado = {
         id: idCounter++,
         NIT: numeroIdentificacion.value,
@@ -48,9 +53,9 @@ agregar.addEventListener("click", function(event){
         correo: correoProveedor.value,
         ciudad: ciudadProveedor.value,
         proveedor: selectorProveedor.value,
-        activa: selectorPolizasActivas.value, // SE ESTÁ ENVIANDO EL VALUE Y NO EL TEXTO
-        disponible: selectorPolizasDisponibles.value, // SE ESTÁ ENVIANDO EL VALUE Y NO EL TEXTO
-        beneficio: selectorBeneficios.value // SE ESTÁ ENVIANDO EL VALUE Y NO EL TEXTO
+        activa: activaTexto,
+        disponible: disponibleTexto,
+        beneficio: beneficioTexto 
     }
 
     listaProveedoresAgregados.push(proveedorAgregado);
