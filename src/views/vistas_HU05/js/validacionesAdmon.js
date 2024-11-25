@@ -8,7 +8,7 @@ agregar.addEventListener("click", function(event){
     
     let numeroIdentificacion = document.getElementById('numeroIdentificacion');
     let nombreProveedor = document.getElementById('nombreProveedor');
-    let razonSocial = document.getElementById('nombreProveedor');
+    let razonSocial = document.getElementById('razonSocialProveedor');
     let telefonoProveedor = document.getElementById('telefonoProveedor');
     let correoProveedor = document.getElementById('emailProveedor');
     let ciudadProveedor = document.getElementById('ciudadProveedor');
@@ -48,9 +48,9 @@ agregar.addEventListener("click", function(event){
         correo: correoProveedor.value,
         ciudad: ciudadProveedor.value,
         proveedor: selectorProveedor.value,
-        activa: selectorPolizasActivas.value,
-        disponible: selectorPolizasDisponibles.value,
-        beneficio: selectorBeneficios.value
+        activa: selectorPolizasActivas.value, // SE ESTÁ ENVIANDO EL VALUE Y NO EL TEXTO
+        disponible: selectorPolizasDisponibles.value, // SE ESTÁ ENVIANDO EL VALUE Y NO EL TEXTO
+        beneficio: selectorBeneficios.value // SE ESTÁ ENVIANDO EL VALUE Y NO EL TEXTO
     }
 
     listaProveedoresAgregados.push(proveedorAgregado);
