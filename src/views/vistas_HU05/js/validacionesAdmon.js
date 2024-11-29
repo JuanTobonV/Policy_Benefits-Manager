@@ -1,8 +1,8 @@
-
 let listaProveedoresAgregados = JSON.parse(localStorage.getItem("storageProveedoresAgregados")) || [];
 export let idCounter = listaProveedoresAgregados.length > 0 ? listaProveedoresAgregados[listaProveedoresAgregados.length - 1].id + 1 : 1;
 
 let agregar = document.getElementById('btnAgregar');
+let eliminar = document.getElementById('btnEliminar');
 
 agregar.addEventListener("click", function(event){
     
@@ -57,23 +57,52 @@ agregar.addEventListener("click", function(event){
         disponible: disponibleTexto,
         beneficio: beneficioTexto 
     }
+    // validación para que no se agregeue una misma póliza con el mismo beneficio
+    const coincideciaBeneficio = listaProveedoresAgregados.find(proveedorAuxiliar => beneficioTexto === proveedorAuxiliar.beneficio)
 
-    listaProveedoresAgregados.push(proveedorAgregado);
-    localStorage.setItem("storageProveedoresAgregados", JSON.stringify(listaProveedoresAgregados));
+    const coincideciaPoliza = listaProveedoresAgregados.find(proveedorAuxiliar => activaTexto === proveedorAuxiliar.activa)
+    
+    // console.log(coincideciaBeneficio, coincideciaPoliza) // me imprime los objetos en coincidencia
+    
+    if(coincideciaBeneficio && coincideciaPoliza){
+        
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "El beneficio asociado a esta póliza ya se encuentra agregado!!!"
+            });
 
-    Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Haz agregado correctamente",
-        showConfirmButton: false,
-        timer: 2000,
-        customClass: {
-        title: 'text--blue'
-        }
-    });
+            document.getElementById('selector-beneficios').value = "0";
+            idCounter--; // este decremento es para que cada vez que se me repita un beneficio, se mantenga el id consecutivo por objetos
+        return;
+    }
 
+        listaProveedoresAgregados.push(proveedorAgregado);
+        localStorage.setItem("storageProveedoresAgregados", JSON.stringify(listaProveedoresAgregados));
+
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Haz agregado correctamente",
+            showConfirmButton: false,
+            timer: 2000,
+            customClass: {
+            title: 'text--blue'
+            }
+        });
+    
+
+            
     limpiarSelectores();
     mostrarSelectorBeneficios();
 })
 
+// funcion boton eliminar
 
+
+/*
+eliminar.addEventListener("click", function(event){
+
+    
+})
+*/
