@@ -55,52 +55,38 @@ function verMasInfo(idEmpleado) {
     }
 }
 
-// Función para cerrar la ventana emergente y borrar comentarios
-function closePopup() {
+// Función para cerrar la ventana emergente
+function closePopup(){
     document.getElementById('overlay').style.display = 'none';
-
-    // Borrar el contenido del campo de comentarios
-    document.getElementById('comentario').value = '';
-
-    // Contraer todos los campos desplegables cuando se cierre la ventana
-    document.getElementById('desplegarcontraer').classList.remove('visible');
-    document.getElementById('desplegarcontraer2').classList.remove('visible');
-    
-    // Resetear la rotación de las flechas
-    document.getElementById('infoempleado').classList.remove('rotate-up');
-    document.getElementById('infosolicitud').classList.remove('rotate-up');
 }
 
-// Función para aceptar la solicitud
-function acceptAction() {
-    alert('¡Solicitud aceptada!');
+// función para aceptar la solicitud
+function acceptAction(){
+    alert('!solicitud Aceptada');
     closePopup();
 }
 
-// Función para rechazar la solicitud
-function rejectAction() {
-    if (confirm('¿Estás seguro de rechazar la solicitud?')) {
-        alert('Solicitud rechazada');
+// funcion para rechazar la solicitud
+function rejectAction(){
+    if(confirm("estas seguro de rechazar la solicitud")){
+        alert("solicitud rechazada");
         closePopup();
     }
 }
 
-// Asignar los eventos a los botones para desplegar información
-document.getElementById('infoempleado').addEventListener('click', function () {
-    const contenido = document.getElementById('desplegarcontraer');
-    contenido.classList.toggle('visible');
-    this.classList.toggle('rotate-up');  // Rotar la flecha hacia arriba/abajo
-});
+//Asignar los eventos a los botones
 
-document.getElementById('infosolicitud').addEventListener('click', function () {
-    const contenido = document.getElementById('desplegarcontraer2');
-    contenido.classList.toggle('visible');
-    this.classList.toggle('rotate-up');  // Rotar la flecha hacia arriba/abajo
-});
+document.getElementById('infoempleado').addEventListener('click', function desplegar(){
+    document.getElementById('desplegarcontraer').classList.toggle('visible')
+})
 
-document.getElementById('closeWindowBtn').addEventListener('click', closePopup);
+document.getElementById('infosolicitud').addEventListener('click', function desplegar(){
+    document.getElementById('desplegarcontraer2').classList.toggle('visible')
+})
+
+document.getElementById('closeWindowBtn').addEventListener('click', closePopup)
 document.getElementById('aceptar').addEventListener('click', acceptAction);
-document.getElementById('rechazar').addEventListener('click', rejectAction);
+document.getElementById('rechazar').addEventListener('click',rejectAction);
 
 // Cargar la tabla cuando la página se cargue
 cargarTablaEmpleados();
