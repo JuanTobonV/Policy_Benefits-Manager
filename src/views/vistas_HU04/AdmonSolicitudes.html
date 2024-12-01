@@ -45,46 +45,50 @@
         <!-- Ventana sobrepuesta -->
         <div id="overlay" class="overlay">
             <div class="popup">
+                <button class="close-btn" id="closeWindowBtn">x</button>
                 <h2>Resumen Solicitud</h2>
-                <br>
-                <div class="doprdown">
-                    
-                    
+        
+                <!-- Información Empleado -->
+                <div class="section">
+                    <div class="section-header bordered">
                         <span>Información Empleado</span>
-                        <span class="symbol" id="infoempleado" style="cursor: pointer;">&#8964;</span> <!-- Flecha hacia la derecha -->
-                        <div class="novisible" id="desplegarcontraer" >
-                            <h5>Nombre del Empleado</h5>
-                            <p id="nombreE"></p>
-                            <h5>Área</h5>
-                            <p id="area"></p>
-                            
-                        </div>
-                        <br>
-                        <span>Información Solicitud</span>
-                        <span class="symbol" id="infosolicitud" style="cursor: pointer;">&#8964;</span> <!-- Flecha hacia la derecha -->
-                        <div class="novisible" id="desplegarcontraer2" >
-                            <h3>Fecha Solicitud</h3>
-                            <p id="fecha"></p>
-                            <h3>Póliza</h3>
-                            <p id="poliza"></p>
-                            <h3>Beneficio</h3>
-                            <p id="beneficio"></p>
-                            <h3>Comentario</h3>
-                            <textarea name="" id="comentario"></textarea>
-                            
-                        </div>
-
-
+                        <span class="symbol" id="infoempleado">&#8964;</span>
+                    </div>
+                    <div class="novisible" id="desplegarcontraer">
+                        <h5>Nombre del Empleado</h5>
+                        <p id="nombreE"></p>
+                        <h5>Área</h5>
+                        <p id="area"></p>
+                    </div>
                 </div>
-                
-                <br>
-                <button id="closeWindowBtn">Cerrar</button>
-                <button id="aceptar" class="button--success">Aceptar</button>
-                <button id="rechazar" class="button--danger">Rechazar</button>
-
+        
+                <!-- Información Solicitud -->
+                <div class="section">
+                    <div class="section-header bordered">
+                        <span>Información Solicitud</span>
+                        <span class="symbol" id="infosolicitud">&#8964;</span>
+                    </div>
+                    <div class="novisible" id="desplegarcontraer2">
+                        <h5>Fecha Solicitud</h5>
+                        <p id="fecha"></p>
+                        <h5>Póliza</h5>
+                        <p id="poliza"></p>
+                        <h5>Beneficio</h5>
+                        <p id="beneficio"></p>
+                        <h5>Comentario</h5>
+                        <textarea id="comentario" placeholder="Escribe un comentario aquí..."></textarea>
+                    </div>
+                </div>
+        
+                <div class="buttons-container">
+                    <button id="aceptar" class="button--success">Aceptar</button>
+                    <button id="rechazar" class="button--danger">Rechazar</button>
+                </div>
             </div>
         </div>
-        </div>
+        
+</div>
+
     </main>
     <footer></footer>
 
