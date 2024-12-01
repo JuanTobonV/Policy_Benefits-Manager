@@ -90,8 +90,6 @@ agregar.addEventListener("click", function(event){
             title: 'text--blue'
             }
         });
-    
-
             
     limpiarSelectores();
     mostrarSelectorBeneficios();
@@ -99,10 +97,67 @@ agregar.addEventListener("click", function(event){
 
 // funcion boton eliminar
 
-
-/*
 eliminar.addEventListener("click", function(event){
 
+    let alerta = window.confirm('¿Estás seguro que quieres eliminar este Beneficio?');
+    if(alerta){
+    event.preventDefault();
+
+    let selectorProveedor = document.getElementById('selectorProveedor');
+    let selectorPolizasActivas = document.getElementById('selector-polizas-activas');
+    let selectorPolizasDisponibles = document.getElementById('selector-polizas-disponibles');
+    let selectorBeneficios = document.getElementById('selector-beneficios');
+
+    // Obtener los textos seleccionados
+    let activaTexto = selectorPolizasActivas.options[selectorPolizasActivas.selectedIndex]?.textContent || '';
+    let disponibleTexto = selectorPolizasDisponibles.options[selectorPolizasDisponibles.selectedIndex]?.textContent || '';
+    let beneficioTexto = selectorBeneficios.options[selectorBeneficios.selectedIndex]?.textContent || '';
+
+    // Verificar que no estén vacíos
+    if (!activaTexto || !disponibleTexto || !beneficioTexto) {
+        console.log("Faltan selecciones. Por favor, selecciona todos los valores.");
+        return;
+    }
+
+    // Obtener la lista de proveedores agregados desde localStorage
+    let listaProveedoresAgregados2 = JSON.parse(localStorage.getItem('storageProveedoresAgregados')) || [];
+
+    // Verificar si existe la lista de proveedores
     
-})
-*/
+    if (listaProveedoresAgregados2.length === 0) {
+        console.log("No se encontraron proveedores en el almacenamiento.");
+        return;
+    }
+
+    // Buscar la coincidencia por beneficio y por póliza activa
+    const indiceBeneficio = listaProveedoresAgregados2.findIndex(proveedorAuxiliar => beneficioTexto === proveedorAuxiliar.beneficio);
+    const indicePoliza = listaProveedoresAgregados2.findIndex(proveedorAuxiliar => activaTexto === proveedorAuxiliar.activa);
+
+    // Si hay coincidencias en ambos criterios, eliminar el proveedor correspondiente
+    if (indiceBeneficio !== -1 || indicePoliza !== -1) {
+        // Eliminar el proveedor encontrado
+        if (indiceBeneficio !== -1) {
+            listaProveedoresAgregados2.splice(indiceBeneficio, 1);
+            console.log("Proveedor con beneficio eliminado:", beneficioTexto);
+        }
+        if (indicePoliza !== -1 && indicePoliza !== indiceBeneficio) {
+            listaProveedoresAgregados2.splice(indicePoliza, 1);
+            console.log("Proveedor con póliza activa eliminada:", activaTexto);
+        }
+
+        // Actualizar el localStorage con la nueva lista
+        localStorage.setItem('storageProveedoresAgregados', JSON.stringify(listaProveedoresAgregados2));
+        location.reload();
+
+    } else {
+        console.log("No se encontraron coincidencias para eliminar.");
+    }
+
+    limpiarSelectores();
+}else{
+    limpiarSelectores();
+    location.reload();
+    return;
+}
+});
+
