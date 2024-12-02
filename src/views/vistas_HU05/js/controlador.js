@@ -35,7 +35,6 @@ const cargarPolizasActivas = () => {
 
     proveedorPolizaActiva.polizasActivas.forEach(function(polizaActivaAux, index){ // ACA PINTAMOS EL SELECTOR DE POLIZAS ACTIVAS
 
-        console.log(proveedorPolizaActiva.id)
 
         let option = document.createElement("option");
         option.textContent = polizaActivaAux;
@@ -106,7 +105,7 @@ const mostrarInfo = () => {
 
     // Buscar el proveedor con el NIT seleccionado
     const proveedor = proveedores.find(proveedor => proveedor.NIT === id);
-    console.log(proveedor.NIT)
+    
     // Si se encuentra el proveedor, llenar el formulario
     if (proveedor) {
         numeroIdentificacion.value = proveedor.NIT;
