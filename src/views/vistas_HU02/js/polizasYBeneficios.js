@@ -1,22 +1,34 @@
 import { beneficios } from "../../../data/beneficios.js";
 
-function MostrarBeneficioPoliza(nombrePoliza,etiqueta){
-    const benficioPoliza = beneficios[nombrePoliza]
+// function MostrarBeneficioPoliza(nombrePoliza,etiqueta){
+//     const benficioPoliza = beneficios[nombrePoliza]
 
-    etiqueta.innerHTML = '<option value="">Selecciona un beneficio</option>';
+//     etiqueta.innerHTML = '<option value="">Selecciona un beneficio</option>';
 
 
-    CrearOpciones(benficioPoliza,etiqueta)
-}
+//     CrearOpciones(benficioPoliza,etiqueta)
+// }
 
-function CrearOpciones (polizas,etiqueta){
+function CrearOpcionesPolizas (polizas,etiqueta){
+    etiqueta.innerHTML = '<option value="">Selecciona una poliza</option>';
     let option;
-    polizas.forEach(poliza => {
+    polizas.forEach(({nombre,id}) => {
         const option = document.createElement('option')
-        option.textContent = poliza
-        option.value = poliza
+        option.textContent = nombre
+        option.value = id
         etiqueta.append(option)
     });
 }
 
-export {CrearOpciones,MostrarBeneficioPoliza}
+function CrearOpcionesBeneficios (beneficios,etiqueta){
+    etiqueta.innerHTML = '<option value="">Selecciona un beneficio</option>';
+    let option;
+    beneficios.forEach(({descripcion,id}) => {
+        const option = document.createElement('option')
+        option.textContent = descripcion
+        option.value = id
+        etiqueta.append(option)
+    });
+}
+
+export {CrearOpcionesPolizas,CrearOpcionesBeneficios}
