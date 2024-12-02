@@ -1,5 +1,4 @@
 import {CrearOpcionesBeneficios, CrearOpcionesPolizas } from "./polizasYBeneficios.js";
-// import { GuardarBeneficios } from "./beneficiosSelecionados.js";
 import { usuarios } from "../../../data/usuarios.js";
 import { FetchData } from "../../../controllers/controllers_HU02/fetch.js";
 

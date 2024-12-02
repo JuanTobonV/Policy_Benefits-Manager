@@ -1,14 +1,3 @@
-import { beneficios } from "../../../data/beneficios.js";
-
-// function MostrarBeneficioPoliza(nombrePoliza,etiqueta){
-//     const benficioPoliza = beneficios[nombrePoliza]
-
-//     etiqueta.innerHTML = '<option value="">Selecciona un beneficio</option>';
-
-
-//     CrearOpciones(benficioPoliza,etiqueta)
-// }
-
 function CrearOpcionesPolizas (polizas,etiqueta){
     etiqueta.innerHTML = '<option value="">Selecciona una poliza</option>';
     let option;
