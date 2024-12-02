@@ -1,0 +1,201 @@
+/* Reiniciar márgenes globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Diseño flexible */
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Color y fuente azul */
+.text--blue {
+    color: #1b376f; /* Azul oscuro */
+}
+
+/* Fuente en negrita */
+.text--bold {
+    font-weight: 900;
+}
+
+/* Espaciado para la izquierda */
+.pading--left--8px {
+    padding-left: 8px;
+}
+
+/* Estilo de fuentes para párrafos, h3 y etiquetas */
+p, h3, label {
+    font-family: "Nunito", sans-serif;
+}
+
+/* Estilo general del body */
+body {
+    font-family: 'Nunito', sans-serif;
+    gap: 50px;
+}
+
+/* Estilo principal para el contenedor de la vista */
+main {
+    gap: 40px;
+    width: 90%;
+    flex-direction: column;
+    margin: auto;
+    border: solid #b0bdc1;
+    border-radius: 15px;
+    padding: 0 0 12px 0;
+    overflow: hidden;
+}
+
+/* Estilo del contenedor del encabezado */
+.header__informacion {
+    background-color: #eaecef; /* Fondo gris claro */
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px; /* Aumentar el tamaño del padding para hacerlo más grande */
+    flex-wrap: wrap;
+}
+
+/* Estilo para los elementos dentro del contenedor */
+.header__informacion p, .header__informacion button {
+    padding: 8px 12px; /* Tamaño más grande para los botones */
+    cursor: pointer;
+    font-size: 1rem; /* Asegurar que la fuente sea suficientemente legible */
+}
+
+/* Estilo del botón de cerrar sesión */
+.header__btn {
+    padding: 10px 0;
+    width: 25%;
+    border: none;
+    border-radius: 10px;
+    background-color: #ed0000;
+    color: white;
+}
+
+/* Línea inferior azul en el texto de la solicitud */
+.border-top--blue {
+    border-bottom: 4px solid #007bff;
+}
+
+/* Estilo de la sección de la información principal */
+.informacion {
+    gap: 6px;
+    margin: 10px 20px; /* Reducir espacio superior a 10px */
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* Estilo de la tabla principal */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #1b376f;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilo para la ventana emergente */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-content {
+    background-color: #f1f1f1; /* Fondo diferente a blanco */
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px; /* Tamaño mayor para la ventana emergente */
+    text-align: center;
+    max-width: 90%;
+    overflow-y: auto;
+}
+
+/* Estilo general para la ventana emergente */
+#overlay {
+    display: none; /* Inicialmente oculta */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Estilo del contenido de la ventana emergente */
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    overflow-y: auto;
+}
+
+/* Botón de cerrar */
+.popup-buttons button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para los botones dentro de la ventana emergente */
+#close-btn {
+    background-color: #ed0000;
+}
+
+#close-btn:hover {
+    background-color: #b30000;
+}
+
+/* Ajustes en la tabla para la ventana emergente */
+.popup-content td {
+    vertical-align: top; /* Alineación de texto en la parte superior de las celdas */
+}
+
+.popup-content td:first-child {
+    font-weight: bold; /* Resaltar el nombre de la categoría */
+}
+
+/* Efecto hover para botones (se mantiene) */
+.header__btn:hover {
+    background-color: #b30000;
+}
