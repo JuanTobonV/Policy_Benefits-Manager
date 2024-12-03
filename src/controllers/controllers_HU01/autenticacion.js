@@ -38,9 +38,9 @@ export function sesion(usuarioValidado) {
     const userId = usuarioValidado.id;
 
     if (String(usuarioValidado.rol).toUpperCase() === 'ADMIN') {
-        window.location.href = `http://localhost:8080/empleados/${userId}/polizas`;
+        window.location.href = `../../views/vistas_HU05/admonPoliza.html?id=${userId}`;
     } else if (String(usuarioValidado.rol).toUpperCase() === 'EMPLEADO') {
-        window.location.href = '../../views/vistas_HU02/verPolizasYBeneficios.html';
+        window.location.href = `../../views/vistas_HU02/verPolizasYBeneficios.html?id=${userId}`
     }
 }
 
