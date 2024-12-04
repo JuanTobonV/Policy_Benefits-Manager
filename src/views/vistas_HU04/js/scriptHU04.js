@@ -1,39 +1,30 @@
-import { empleados } from "../../../data/empleado.js";
+import { FetchEmpleadoSolicitud } from "../../../controllers/controllers_HU04/controller_1_HU04.js";
 
-// Guardar los empleados en el localStorage
-localStorage.setItem('empleados', JSON.stringify(empleados));
-
-// Función para cargar los empleados desde el localStorage y mostrar en la tabla
-function cargarTablaEmpleados() {
-    let empleados = [];
-    try{
-        empleados = JSON.parse(localStorage.getItem('empleados')) || [];  // Obtener los empleados del localStorage
-    }catch(error){
-        console.error('error al cargar los empleados', error);
-    }
-    
+// Función para cargar la tabla con datos obtenidos desde la API
+function cargarTablaEmpleados(empleados) {
     let tablaBody = document.querySelector('#tableBody');
     tablaBody.innerHTML = '';  // Limpiar el cuerpo de la tabla
 
-    if(empleados.lenght === 0){
-        let noEmpeadosMensaje = document.createElement('tr');
-        noEmpeadosMensaje.innerHTML='<td colspan="6">No hay empleados disponibles</td>';
-        tablaBody.appendChild(noEmpeadosMensaje);
+    if (empleados.length === 0) {
+        let noEmpleadosMensaje = document.createElement('tr');
+        noEmpleadosMensaje.innerHTML = '<td colspan="6">No hay empleados disponibles</td>';
+        tablaBody.appendChild(noEmpleadosMensaje);
         return;
     }
+
     // Iterar sobre los empleados y agregar una fila por cada uno
     empleados.forEach(empleado => {
         const fila = document.createElement('tr');
         fila.innerHTML = `
-            <td>${empleado.fecha}</td>
-            <td>${empleado.nombre}</td>
-            <td>${empleado.area}</td>
-            <td>${empleado.poliza}</td>
-            <td>${empleado.beneficio}</td>
-       `;
+            <td>${empleado.fechaSolicitud}</td>
+            <td>${empleado.empleado.nombreEmpleado}</td>
+            <td>${empleado.empleado.areaTrabajo}</td>
+            <td>${empleado.beneficio.descripcionBeneficio}</td>
+        `;
+        
         let button = document.createElement('button');
-        button.textContent = '👁';// este es el ojo 
-        button.addEventListener('click', () => verMasInfo(empleado.id));
+        button.textContent = '👁'; // Botón con icono de ojo
+        button.addEventListener('click', () => verMasInfo(empleado));
         fila.appendChild(button);
 
         tablaBody.appendChild(fila);
@@ -41,43 +32,44 @@ function cargarTablaEmpleados() {
 }
 
 // Función para mostrar más información en la ventana emergente
-function verMasInfo(idEmpleado) {
-    let empleados = JSON.parse(localStorage.getItem('empleados')) || [];
-    let empleado = empleados.find(emp => emp.id === idEmpleado);
-
-    if (empleado) {
-        document.getElementById('nombreE').innerHTML = empleado.nombre;
-        document.getElementById('area').innerHTML = empleado.area;
-        document.getElementById('fecha').innerHTML = empleado.fecha;
-        document.getElementById('poliza').innerHTML = empleado.poliza;
-        document.getElementById('beneficio').innerHTML = empleado.beneficio;
-        document.getElementById('overlay').style.display = 'flex';  // Mostrar la ventana emergente
-    }
+function verMasInfo(empleado) {
+    document.getElementById('nombreE').innerHTML = empleado.empleado.nombreEmpleado;
+    document.getElementById('area').innerHTML = empleado.empleado.areaTrabajo;
+    document.getElementById('fecha').innerHTML = empleado.fechaSolicitud;
+    document.getElementById('beneficio').innerHTML = empleado.beneficio.descripcionBeneficio;
+    document.getElementById('overlay').style.display = 'flex';  // Mostrar la ventana emergente
 }
 
-// Función para cerrar la ventana emergente y borrar comentarios
+// Llamar a la API y cargar la tabla con los datos obtenidos
+FetchEmpleadoSolicitud('http://localhost:8080/api/empleadobeneficio')
+    .then(data => {
+        cargarTablaEmpleados(data); // Pasar los datos a la función de carga
+        console.log(data)
+        console.log(data[0].fechaSolicitud)
+        console.log(data[0].empleado.nombreEmpleado)
+        console.log(data[0].empleado.areaTrabajo)
+        console.log(data[0].beneficio.descripcionBeneficio)
+    })
+    .catch(error => {
+        console.error('Error al obtener los empleados:', error);
+    });
+
+// Función para cerrar la ventana emergente
 function closePopup() {
     document.getElementById('overlay').style.display = 'none';
-
-    // Borrar el contenido del campo de comentarios
     document.getElementById('comentario').value = '';
-
-    // Contraer todos los campos desplegables cuando se cierre la ventana
     document.getElementById('desplegarcontraer').classList.remove('visible');
     document.getElementById('desplegarcontraer2').classList.remove('visible');
-    
-    // Resetear la rotación de las flechas
     document.getElementById('infoempleado').classList.remove('rotate-up');
     document.getElementById('infosolicitud').classList.remove('rotate-up');
 }
 
-// Función para aceptar la solicitud
+// Funciones para aceptar/rechazar solicitudes
 function acceptAction() {
     alert('¡Solicitud aceptada!');
     closePopup();
 }
 
-// Función para rechazar la solicitud
 function rejectAction() {
     if (confirm('¿Estás seguro de rechazar la solicitud?')) {
         alert('Solicitud rechazada');
@@ -85,22 +77,20 @@ function rejectAction() {
     }
 }
 
-// Asignar los eventos a los botones para desplegar información
+// Asignar eventos a botones de la interfaz
 document.getElementById('infoempleado').addEventListener('click', function () {
     const contenido = document.getElementById('desplegarcontraer');
     contenido.classList.toggle('visible');
-    this.classList.toggle('rotate-up');  // Rotar la flecha hacia arriba/abajo
+    this.classList.toggle('rotate-up');
 });
 
 document.getElementById('infosolicitud').addEventListener('click', function () {
     const contenido = document.getElementById('desplegarcontraer2');
     contenido.classList.toggle('visible');
-    this.classList.toggle('rotate-up');  // Rotar la flecha hacia arriba/abajo
+    this.classList.toggle('rotate-up');
 });
 
-document.getElementById('closeWindowBtn').addEventListener('click', closePopup)
+document.getElementById('closeWindowBtn').addEventListener('click', closePopup);
 document.getElementById('aceptar').addEventListener('click', acceptAction);
-document.getElementById('rechazar').addEventListener('click',rejectAction);
+document.getElementById('rechazar').addEventListener('click', rejectAction);
 
-// Cargar la tabla cuando la página se cargue
-cargarTablaEmpleados();
