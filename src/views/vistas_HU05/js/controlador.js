@@ -1,23 +1,32 @@
-import { proveedores } from "../../../data/proveedores.js";
+/*import { proveedores } from "../../../data/proveedores.js";*/
 
 let selectorProveedor = document.getElementById('selectorProveedor');
 
-    // Limpiar el select antes de añadir las nuevas opciones
-    const cargarProveedores = () => {
+    fetch("http://localhost:8080/proveedores")
+    .then(res=>res.json())
+    .then(proveedores => {
 
-    // Limpiar las opciones existentes
-    selectorProveedor.innerHTML = '<option value="0">Seleccione...</option>';
+         // Limpiar el select antes de añadir las nuevas opciones
+        const cargarProveedores = () => {
+
+        // Limpiar las opciones existentes
+        selectorProveedor.innerHTML = '<option value="0">Seleccione...</option>';
+        
+        // Agregar las nuevas opciones
+        proveedores.forEach(function(proveedor){
+            let option = document.createElement("option");
+            option.textContent = proveedor.razonSocial;
+            option.value = proveedor.id;
+            selectorProveedor.appendChild(option);
+            console.log(selectorProveedor);
+        });
     
-    // Agregar las nuevas opciones
-    proveedores.forEach(function(proveedor){
-        let option = document.createElement("option");
-        option.textContent = proveedor.nombre;
-        option.value = proveedor.NIT;
-        selectorProveedor.appendChild(option);
-    });
+    };
+    selectorProveedor.addEventListener("focus", cargarProveedores());
 
-};
-selectorProveedor.addEventListener("focus", cargarProveedores);
+
+
+   
 
 /***************************************************************************************/
 // PÓLIZAS ACTIVAS Y DISPONIBLES SERÁN LAS MISMAS
@@ -120,7 +129,7 @@ document.getElementById('selectorProveedor').addEventListener("change", mostrarI
 
 
 
-
+    })
 
 
 
