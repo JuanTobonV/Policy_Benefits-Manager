@@ -30,7 +30,7 @@ numeroCelular.textContent = usuarioActivo.numeroCelular;
 correo.textContent = usuarioActivo.direccionCorreo;
 ciudad.textContent = usuarioActivo.ciudad;
 
-const empleadoId = 1 // se debe remplazar por el id dinamico del empleado registrado
+const empleadoId = 1// se debe remplazar por el id dinamico del empleado registrado
 
 FetchData(`http://localhost:8080/empleados/${empleadoId}/polizas`)
 .then(poliza=> {
