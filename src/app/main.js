@@ -17,6 +17,5 @@ const buttonCerrarSesion = document.getElementById('btnCerrarSesion')
 if(buttonCerrarSesion){
    buttonCerrarSesion.addEventListener('click', () =>{
       window.location.href = '/src/views/vistas_HU01/autenticacion.html'
-      localStorage.clear()
    })   
 }

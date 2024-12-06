@@ -1,0 +1,345 @@
+*{
+    margin: 0;
+}
+.flex{
+    display: flex;
+}
+
+.text--blue{
+    color: #1b376f;
+}
+.text--bold{
+    font-weight: 900;
+}
+.pading--left--8px{
+    padding-left: 8px;
+}
+p,h3,label,a{
+    font-family: "Nunito", sans-serif;
+}
+body{
+    gap: 50px;
+}
+main{
+    gap: 40px;
+    width: 90%;
+    flex-direction: column;
+    margin: auto;
+    border: solid #b0bdc1;
+    border-radius: 15px;
+    padding: 0 0 12px 0;
+    overflow: hidden;
+}
+
+.header__informacion{
+    flex-wrap: wrap;
+    background-color: #eaecef;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 10px;
+}
+.header__informacion > a{
+    margin: 12px;
+}
+
+.header__informacion > a ~ a{
+    flex-grow: 1;
+}
+.header__informacion p,button{
+    padding: 4px;
+    cursor: pointer;
+}
+.header__btn{
+    padding: 10px 0 ;
+    width: 25%;
+    border: none;
+    border-radius: 10px;
+    background-color: #ed0000;
+    transition: 0.2s;
+    color: white;
+}
+
+.header__btn:hover{
+    background-color: rgb(185, 0, 0);
+}
+.border-top--blue{
+    border-bottom: 4px solid #007bff;
+    
+}
+.informacion{
+    gap: 6px;
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    margin: 0 20px;
+}
+.informacion__info-empleado{
+    gap: 12px;
+    grid-template-rows: repeat(2,auto);
+}
+.contenedor__documento{
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.informacion__info-beneficio{
+    gap: 12px;
+    grid-template-rows: repeat(2,auto)
+}
+.contenedor__info-empleado{
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0 30px;
+    padding: 8px;
+}
+
+.info-empleado__titulo{
+    font-size: 1rem;
+    color: #b0bdc1;
+    padding: 8px;
+    border: 0.5px solid #b0bdc1;
+    border-radius: 5px;
+    background-color: #eaecef;
+}
+.info-empleado_placeholder{
+    grid: flex;
+    place-content:center;
+    padding: 5px;
+    text-align: center;
+    border: 0.5px solid #4ca9c5;
+    border-radius: 5px;
+    /* width: 80%; */
+    height: 2rem;
+    margin: 8px 0;
+}
+.placeholder--grow{
+    flex-grow: 1;
+}
+.placeholder--size{
+    width: 2rem;
+}
+.formulario{
+    gap: 12px;
+    flex-direction: column;
+}
+.formulario select {
+    border-radius: 10px;
+    padding: 0 12px;
+}
+.formulario__selec__polizas{
+    flex-direction: column;
+    gap: 6px
+}
+.formulario__selec__beneficios{
+    grid-template-columns: repeat(2,1fr);
+    gap: 6px
+}
+.nombreDescriptivo{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px 22px;
+}
+.beneficios__poliza {
+    flex-direction: column;
+
+}
+.polizas{
+    height: 40px;
+}
+.beneficios{
+    height: 100%;
+}
+.enviar__btn{
+    background-color: #007bff;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 0;
+    cursor: pointer;
+}
+
+@media (width <= 505px) {
+    .beneficios{
+        height: 40px;
+    }
+}
+/* ____________________________________________________________ */
+/* estilos tabla */
+/* Tabla */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #1b376f;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* ____________________________________________________________ */
+/* Estilo general para la ventana sobrepuesta */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    /* Oculta inicialmente */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Estilo de la caja del popup */
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-height: 80%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* X de cerrar (botón) */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    font-size: 1.7rem;
+    /*altura de el titulo y la X de cerrar*/
+    cursor: pointer;
+    color: black;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* =====================
+   Secciones Desplegables
+====================== */
+
+/* Contenedor de las secciones (Empleado y Solicitud) */
+.dropdown {
+    margin-bottom: 40px;
+}
+
+/* Contenido de la sección */
+.novisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/* Icono de la flecha para desplegar/ocultar */
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+/* Contenedor de los botones Aceptar/Rechazar */
+/* Estilo general de los botones */
+.button--success,
+.button--danger {
+    width: 48%;
+    /* Asegura que ambos botones se ajusten bien */
+    padding: 13px 13px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    transition: background-color #0167d4;
+}
+
+/* Botón Aceptar (verde) */
+.button--success {
+    background-color: #0dc839;
+}
+
+.button--success:hover {
+    background-color: #199f36;
+}
+
+/* Botón Rechazar (rojo) */
+.button--danger {
+    background-color: #ed0000;
+}
+
+.button--danger:hover {
+    background-color: rgb(185, 0, 0);
+}
+
+/* =====================
+   Estilos de Inputs
+====================== */
+
+/* Estilo para el input de comentario */
+/* Centramos el input de comentarios */
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    margin-top: 8px;
+    text-align: center;
+    /* Centrar el texto del comentario */
+}
+
+/* General para secciones */
+.section {
+    border: 1px solid #007bff;/* Borde visible */
+    border-radius: 10px;/* Bordes redondeados */
+    padding: 5px; /* Espaciado interno */
+    background-color: #f9f9f9;/* Fondo claro */
+    margin: 10px 0;/* Separación entre secciones */
+    
+}
+
+/* Flechas desplegables */
+.symbol {
+    font-size: 2rem;
+    /* Tamaño más grande para que sean más gruesas */
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* Flecha cuando está rotada hacia arriba */
+.rotate-up {
+    transform: rotate(180deg);
+    /* Rotación hacia arriba */
+}

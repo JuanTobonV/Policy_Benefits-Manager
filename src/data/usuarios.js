@@ -22,9 +22,9 @@ export const usuarios = [
     {
         id: 2,
         nombre: 'Juan',
-        contraseña: 'password789',
+        contraseña: 'b',
         tipoDocumento: 'CE',
-        numeroDocumento: '987654321',
+        numeroDocumento: '3',
         areaTrabajo: 'Desarrollador',
         numeroCelular: '3123456789',
         direccionCorreo: 'juan@mail.com',

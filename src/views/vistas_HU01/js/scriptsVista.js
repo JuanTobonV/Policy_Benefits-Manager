@@ -1,20 +1,27 @@
 let usuarioInput = document.getElementById('numeroIdentificacionUsuario');
-let usuarioContraseña = document.getElementById('contraseñaUsuario');
-let tipoIdUsuario = document.getElementById('identificacionUsuarion').value;
+let tipoIdUsuario = document.getElementById('identificacionUsuarion');
 let errorMessage = document.querySelectorAll('.errorMessage');
 let btnIniciarSesion = document.getElementById('iniciarSesionButton');
 
 btnIniciarSesion.addEventListener('click', () => {
-      console.log(usuarioInput);
-      if (usuarioInput.value === '' || usuarioContraseña.value === '' || tipoIdUsuario === '') {
-            errorMessage.forEach(inputAuxiliar => {
-                  inputAuxiliar.classList.remove('hidden');
-            });
-      } else {
-            errorMessage.forEach(inputAuxiliar => {
-                  inputAuxiliar.classList.add('hidden');
-            });  
-      }
+    let inputs = [
+        { element: tipoIdUsuario, error: errorMessage[0], invalidValue: "none" },
+        { element: usuarioInput, error: errorMessage[1], invalidValue: "" },
+    ];
+
+    inputs.forEach(input => {
+        if (input.element.value === input.invalidValue) {
+            input.error.classList.remove('hidden');
+            input.element.classList.add('borderError');
+        } else {
+            input.error.classList.add('hidden');
+            input.element.classList.remove('borderError');
+        }
+    });
+
+
+
+    
 });
 
 
