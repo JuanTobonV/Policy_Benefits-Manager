@@ -1,5 +1,4 @@
 export const proveedores = [
-    
     {
         id:1,
         NIT:'12345',
@@ -12,10 +11,6 @@ export const proveedores = [
             'Seguro de vida individual',
             'Seguro de vida colectivo'
         ],
-        polizasDisponibles: [
-            'Por fallecimiento',
-            'Para empresas'
-        ],
         beneficios: [
             'Cobertura por muerte natural',
             'Cobertura por muerte accidental',
@@ -24,7 +19,6 @@ export const proveedores = [
             'Beneficios funerarios'
         ],
     },
-
     {
         id:2,
         NIT:'123456',
@@ -49,7 +43,6 @@ export const proveedores = [
             'Cubre daños a vehículos'
         ],
     },
-
     {
         id:3,
         NIT:'1234567',
