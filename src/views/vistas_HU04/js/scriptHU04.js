@@ -66,16 +66,41 @@ function closePopup() {
 
 // Funciones para aceptar/rechazar solicitudes
 function acceptAction() {
-    alert('¡Solicitud aceptada!');
-    closePopup();
+    Swal.fire({
+        icon: 'success',
+        title: '¡Solicitud aceptada!',
+        showConfirmButton: false,
+        timer: 1000
+    }).then(() => {
+        // Aquí se puede cerrar el popup después de mostrar el mensaje
+        closePopup(); 
+    });
 }
 
 function rejectAction() {
-    if (confirm('¿Estás seguro de rechazar la solicitud?')) {
-        alert('Solicitud rechazada');
-        closePopup();
-    }
+    Swal.fire({
+        title: '¿Estás seguro de rechazar la solicitud?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#007bff',
+        cancelButtonColor: '#ed0000',
+        confirmButtonText: 'Sí, rechazar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Solicitud rechazada',
+                showConfirmButton: false,           
+                timer: 1200
+            }).then(() => {
+                // Cerrar el popup tras mostrar el mensaje de rechazo
+                closePopup();
+            });
+        }
+    });
 }
+
 
 // Asignar eventos a botones de la interfaz
 document.getElementById('infoempleado').addEventListener('click', function () {

@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="./AdmonSolicitudes.css">
 
     <title>con ventana sobre puesta</title>
 </head>
+
 <body class="grid">
     <header></header>
     <main class="flex">
         <div class="header__informacion flex">
-            <a href="../vistas_HU04/AdmonSolicitudes.html" class="border-top--blue text--blue text--bold">Ver Solicitudes</a>
+            <a href="../vistas_HU04/AdmonSolicitudes.html" class="border-top--blue text--blue text--bold">Ver
+                Solicitudes</a>
             <!-- <p class="border-top--blue text--blue text--bold">Ver solicitudes</p> -->
             <a href="../vistas_HU05/admonPoliza.html" class="text--blue text--bold">Administrar Polizas</a>
             <!-- <p class="text--blue text--bold">Administrar polizas</p> -->
@@ -40,13 +44,13 @@
                 </tbody>
             </table>
         </div>
-    
+
         <!-- Ventana sobrepuesta -->
         <div id="overlay" class="overlay">
             <div class="popup">
                 <button class="close-btn" id="closeWindowBtn">x</button>
                 <h2>Resumen Solicitud</h2>
-        
+
                 <!-- Información Empleado -->
                 <div class="section">
                     <div class="section-header bordered">
@@ -60,7 +64,7 @@
                         <p id="area"></p>
                     </div>
                 </div>
-        
+
                 <!-- Información Solicitud -->
                 <div class="section">
                     <div class="section-header bordered">
@@ -76,24 +80,25 @@
                         <textarea id="comentario" placeholder="Escribe un comentario aquí..."></textarea>
                     </div>
                 </div>
-        
+
                 <div class="buttons-container">
                     <button id="aceptar" class="button--success">Aceptar</button>
                     <button id="rechazar" class="button--danger">Rechazar</button>
                 </div>
             </div>
         </div>
-        
-</div>
+
+        </div>
 
     </main>
     <footer></footer>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./js/scriptHU04.js"></script>
     <script src="../../app/main.js"></script>
-       <script>
-        
-       </script>
+    <script>
+
+    </script>
 </body>
+
 </html>

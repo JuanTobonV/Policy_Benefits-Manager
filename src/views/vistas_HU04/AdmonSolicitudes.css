@@ -215,11 +215,7 @@ tr:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     max-height: 80%;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -233,10 +229,11 @@ tr:hover {
     /*altura de el titulo y la X de cerrar*/
     cursor: pointer;
     color: black;
+    background-color: transparent;
 }
 
 .close-btn:hover {
-    color: red;
+    color:  #b0bdc1
 }
 
 /* =====================
@@ -265,30 +262,30 @@ tr:hover {
 .rotate {
     transform: rotate(180deg);
 }
-
+ 
 /* Contenedor de los botones Aceptar/Rechazar */
 /* Estilo general de los botones */
+
 .button--success,
 .button--danger {
-    width: 48%;
+    width: 120px;
     /* Asegura que ambos botones se ajusten bien */
-    padding: 13px 13px;
-    font-size: 17px;
+    padding: 10px 15px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
-    text-align: center;
-    transition: background-color #0167d4;
+    color: #ffffff;
+    margin:20px;
 }
 
 /* Botón Aceptar (verde) */
 .button--success {
-    background-color: #0dc839;
+    background-color: #007bff;
 }
 
 .button--success:hover {
-    background-color: #199f36;
+    background-color:#007bff;
 }
 
 /* Botón Rechazar (rojo) */
@@ -297,7 +294,7 @@ tr:hover {
 }
 
 .button--danger:hover {
-    background-color: rgb(185, 0, 0);
+    background-color: #ed0000;
 }
 
 /* =====================
@@ -306,31 +303,52 @@ tr:hover {
 
 /* Estilo para el input de comentario */
 /* Centramos el input de comentarios */
-textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-    margin-top: 8px;
-    text-align: center;
-    /* Centrar el texto del comentario */
-}
 
+textarea:focus {
+    border-color:#5e17eb; /* Color azul más oscuro al enfocar el campo */
 /* General para secciones */
+outline: none; /* Remueve el borde de enfoque predeterminado */
+}
 .section {
-    border: 1px solid #007bff;/* Borde visible */
-    border-radius: 10px;/* Bordes redondeados */
-    padding: 5px; /* Espaciado interno */
-    background-color: #f9f9f9;/* Fondo claro */
-    margin: 10px 0;/* Separación entre secciones */
-    
+    border: 2px solid #5e17eb; /* Borde visible */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Fondo claro */
+    margin: 10px 0; /* Separación entre secciones */
+    margin-bottom: 20px;
+}
+/* Etiquetas de los campos (con mayor peso y tamaño) */
+.section h5 {
+    font-weight: bold;           /* Negrita para los títulos */
+    font-size: 20px;             /* Tamaño de fuente un poco más grande */
+    margin: 10px;                   /* Eliminar márgenes para alinear bien */
+    padding-right: 10px;         /* Un pequeño espacio a la derecha para separar de los valores */
+    color: #333;   
+}
+.section p, .section textarea {
+    padding: 8px;
+    border: 2px solid  #5e17eb;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 18px;
+    width: 440px; /* Ajustamos el tamaño de los campos de valor */
+}
+.section-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items:normal;
+}
+.section textarea {
+    resize: vertical; /* Permite redimensionar el campo de comentario solo en vertical */
 }
 
 /* Flechas desplegables */
 .symbol {
-    font-size: 2rem;
+    font-size: 1.5rem;
     /* Tamaño más grande para que sean más gruesas */
     color: #007bff;
     font-weight: bold;
