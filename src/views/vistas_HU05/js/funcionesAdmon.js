@@ -1,4 +1,4 @@
-function mostrarSelectorBeneficios(){
+/*function mostrarSelectorBeneficios(){
     const formularioBeneficios = document.getElementById('formularioBeneficios');
     let selectorPolizas = document.getElementById('selector-polizas-disponibles');
     let opcion = selectorPolizas.value;
@@ -22,7 +22,7 @@ function mostrarSelectorBeneficios(){
             formularioBeneficios.style.display = "flex";
         break;
     }
-}
+}*/
 function limpiarSelectores(){
     let selectores = ['selectorProveedor', 'selector-polizas-activas', 'selector-polizas-disponibles', 'selector-beneficios'];
     selectores.forEach(selectores => {

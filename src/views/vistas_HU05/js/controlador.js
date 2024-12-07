@@ -1,24 +1,45 @@
-import { proveedores } from "../../../data/proveedores.js";
+import { EnviarBeneficio } from "../../../controllers/controllers_HU05/controller_HU05.js";
+/*import { proveedores } from "../../../data/proveedores.js";*/
+import { beneficios } from "../../../data/proveedores.js";
 
 let selectorProveedor = document.getElementById('selectorProveedor');
-   /* fetch("http://localhost:8080/proveedores")
+
+   fetch("http://localhost:8080/proveedores")
     .then(res=>res.json())
-    .then(proveedores => {*/
-         // Limpiar el select antes de añadir las nuevas opciones
-    const cargarProveedores = () => {
-    // Limpiar las opciones existentes
-    selectorProveedor.innerHTML = '<option value="0">Seleccione...</option>';
-    // Agregar las nuevas opciones
-    proveedores.forEach(function(proveedor){
-        let option = document.createElement("option");
-        option.textContent = proveedor.nombre;
-        option.value = proveedor.NIT;
-        selectorProveedor.appendChild(option);
-    })    
-    }
-selectorProveedor.addEventListener("focus", cargarProveedores());
+    .then(proveedores => {
+  
+     // Limpiar las opciones existentes
+     selectorProveedor.innerHTML = '<option value="0">Seleccione...</option>';
+     // Agregar las nuevas opciones
+     proveedores.forEach(function(proveedor){
+         let option = document.createElement("option");
+         option.textContent = proveedor.razonSocial;
+         option.value = proveedor.id;
+         selectorProveedor.appendChild(option);
+     }) 
+    
+    selectorProveedor.addEventListener("change", (e) => {
+        const proveedorSeleccionado = proveedores.find(proveedor => proveedor.id === Number(e.target.value));  
+        document.getElementById('selectorProveedor').addEventListener("change", mostrarInfo);
+
+        let agregar = document.getElementById('btnAgregar');
+        selectorBeneficios.addEventListener("change", (e) => {
+            console.log(e.target)
+            const beneficioSeleccionado = beneficios.find(beneficio => beneficio.id === Number(e.target.value));
+            delete beneficioSeleccionado.id;
+            beneficioSeleccionado.proveedor = {id: proveedorSeleccionado.id}
+            agregar.addEventListener("click", () => {
+                EnviarBeneficio("http://localhost:8080/api/beneficios", beneficioSeleccionado)
+            .then(luis => console.log(luis))
+            })
+            
+        }) 
+    })
+   
+    
 /* CARGAR POLIZAS ACTIVAS*/
 let selectorPolizasActivas = document.getElementById('selector-polizas-activas');
+
 const cargarPolizasActivas = () => {
     // Limpiar las opciones existentes
     selectorPolizasActivas.innerHTML = '<option value="0">Seleccione...</option>';
@@ -54,6 +75,9 @@ const cargarPolizasDisponibles = () => {
     }
 };
 selectorPolizasDisponibles.addEventListener("focus", cargarPolizasDisponibles);
+
+
+
 /* CARGAR BENEFICIOS */
 let selectorBeneficios = document.getElementById('selector-beneficios');
 const cargarBeneficios = () => {
@@ -61,14 +85,18 @@ const cargarBeneficios = () => {
     // Agregar las nuevas opciones
     const id = selectorProveedor.value;
     const proveedorBeneficios = proveedores.find(proveedor => proveedor.NIT === id) // buscamos en el foreahc de proveedores el NIT  y lo comparamos con el id para que corresponda al proveedor que seleccionamos
-    proveedorBeneficios.beneficios.forEach(function(beneficioAux, index){ // ACA PINTAMOS EL SELECTOR DE POLIZAS ACTIVAS
+    beneficios.forEach(function(beneficioAux, index){ 
         let option = document.createElement("option");
-        option.textContent = beneficioAux;
-        option.value = `${index+1}`;
+        option.textContent = beneficioAux.descripcionBeneficio;
+        option.value = `${beneficioAux.id}`;
         selectorBeneficios.appendChild(option);
     });
 };
 selectorBeneficios.addEventListener("focus", cargarBeneficios);
+
+
+
+
 /* INFORMACIÓN DE INPUTS */
 const mostrarInfo = () => {
     // definimos el DOM
@@ -92,4 +120,7 @@ const mostrarInfo = () => {
         ciudadProveedor.value = proveedor.ciudad;
     }
 }
-document.getElementById('selectorProveedor').addEventListener("change", mostrarInfo);
+
+
+
+})

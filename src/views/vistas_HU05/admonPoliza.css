@@ -133,9 +133,9 @@ main{
     align-items: end;
     justify-content: end;
 }
-#formularioBeneficios{
+/*#formularioBeneficios{
     display: none;
-}
+}*/
 .divFormulario4{
     flex-direction: column;
     width: 50%;
