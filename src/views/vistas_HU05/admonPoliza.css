@@ -113,14 +113,6 @@ main{
     padding-left: 40px;
     padding-right: 40px;
 }
-.formulario3{
-    grid-template-rows: 1fr; /* una filas de igual tamaño */
-    grid-template-columns:repeat(2, 1fr); /* 2 columna misma fración */
-    gap: 8px; /* Espacio entre las filas */
-    height: 10vh;
-    padding-left: 40px;
-    padding-right: 40px;
-}
 .formulario4{
     grid-template-rows: 1fr; /* una filas de igual tamaño */
     grid-template-columns:repeat(1, 1fr); /* 1 columna misma fración */
@@ -131,11 +123,8 @@ main{
     margin-bottom: 40px;
     flex-direction: row;
     align-items: end;
-    justify-content: end;
+    justify-content: start;
 }
-/*#formularioBeneficios{
-    display: none;
-}*/
 .divFormulario4{
     flex-direction: column;
     width: 50%;
@@ -199,18 +188,6 @@ main{
     padding: 8px;
     width: 100%;
 }
-#selector-polizas-activas{
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #4ca9c5;
-    padding: 8px;
-}
-#selector-polizas-disponibles{
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #4ca9c5;
-    padding: 8px;
-}
 #selector-beneficios{
     width: 100%;
     border-radius: 5px;
@@ -240,7 +217,6 @@ main{
     padding-left: 40px;
     padding-right: 40px;
     }
-
     .formulario2{
     grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
@@ -249,38 +225,21 @@ main{
     padding-left: 40px;
     padding-right: 40px;
     }
-
-    .formulario3{
-    grid-template-rows: 4fr; /* una filas de igual tamaño */
-    grid-template-columns: 1fr; /* cuatro columna misma fración */
-    gap: 8px;/*  Espacio entre las filas */
-    height: 20vh;
-    padding-left: 40px;
-    padding-right: 40px;
-    }
-
     .formulario4{
-    
     height: 22vh;
     padding-left: 40px;
     padding-right: 40px;
-
-    /*display: none;*/
     margin-top: 5px;
     margin-bottom: 20px;
     flex-direction: row;
-    
     }
-
     .divFormulario4{
         flex-direction: column;
         width: 100%;
     }
-
     .botones{
         margin-top: 40px;
     }
-
     main{
         gap: 40px;
         width: 90%;
@@ -293,7 +252,6 @@ main{
     .btn-select__solicitud {
         flex-grow: 1;
       }
-
     .selectorProveedores-form{
         height: 5vh;
     }
@@ -314,7 +272,6 @@ main{
     padding-left: 40px;
     padding-right: 40px;
     }
-
     .formulario2{
     grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
@@ -323,39 +280,23 @@ main{
     padding-left: 40px;
     padding-right: 40px;
     }
-
-    .formulario3{
-    grid-template-rows: 4fr; /* una filas de igual tamaño */
-    grid-template-columns: 1fr; /* cuatro columna misma fración */
-    gap: 8px;/*  Espacio entre las filas */
-    height: 40vh;
-    padding-left: 40px;
-    padding-right: 40px;
-    }
-
     .formulario4{
-    
     height: 22vh;
     padding-left: 40px;
     padding-right: 40px;
-
-    /*display: none;*/
     margin-top: 40px;
     margin-bottom: 40px;
     flex-direction: row;
     align-items: end;
     justify-content: end;
     }
-
     .divFormulario4{
         flex-direction: column;
         width: 100%;
     }
-
     .botones{
         margin-top: 70px;
     }
-
     main{
         gap: 28px;
         width: 90%;
@@ -365,7 +306,7 @@ main{
 @media (width <= 768px) {
 
     .formulario1{
-        grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
     gap: 8px;/*  Espacio entre las filas */
     height: 40vh;
@@ -383,34 +324,19 @@ main{
     padding-left: 40px;
     padding-right: 40px;
     }
-
-    .formulario3{
-    grid-template-rows: 4fr; /* una filas de igual tamaño */
-    grid-template-columns: 1fr; /* cuatro columna misma fración */
-    gap: 8px;/*  Espacio entre las filas */
-    height: 20vh;
-    padding-left: 40px;
-    padding-right: 40px;
-    }
-
     .formulario4{
-    
     height: 10vh;
     padding-left: 40px;
     padding-right: 40px;
-    /*display: none;*/
     margin-bottom: 10px;
     }
-
     .divFormulario4{
         flex-direction: column;
         width: 100%;
     }
-
     .botones{
         margin-top: 40px;
     }
-
     main{
         gap: 28px;
         width: 90%;
@@ -427,9 +353,8 @@ main{
         padding: 0 0 9px 0;
         border-left: none;
       }
-
     .formulario1{
-        grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
     gap: 8px;/*  Espacio entre las filas */
     height: 22vh;
@@ -439,7 +364,6 @@ main{
     .formulario2{
         height: 10vh;
     }
-    
 }
 
 @media (width <= 1164px) {
@@ -453,12 +377,11 @@ main{
     padding-right: 40px;
     }
     .formulario2{
-        grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
     grid-template-columns: 1fr; /* cuatro columna misma fración */
     gap: 8px;/*  Espacio entre las filas */
     height: 30vh;
     padding-left: 40px;
     padding-right: 40px;
     }
-    
 }

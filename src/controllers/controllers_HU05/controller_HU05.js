@@ -16,3 +16,14 @@ export async function EnviarBeneficio(url,data) {
         console.error(error)
     }
 }
+
+export async function ObtnerPolizas (url){
+    const option = {
+        method:"GET"
+    }
+
+    const response = await fetch(url,option)
+    const data = await response.json()
+
+    return data
+}
