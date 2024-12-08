@@ -3,7 +3,7 @@ import { FetchEmpleadoSolicitud } from "../../../controllers/controllers_HU04/co
 // Función para cargar la tabla con datos obtenidos desde la API
 function cargarTablaEmpleados(empleados) {
     let tablaBody = document.querySelector('#tableBody');
-    tablaBody.innerHTML = '';  // Limpiar el cuerpo de la tabla
+    tablaBody.innerHTML = ''; // Limpiar el cuerpo de la tabla
 
     if (empleados.length === 0) {
         let noEmpleadosMensaje = document.createElement('tr');
@@ -21,15 +21,23 @@ function cargarTablaEmpleados(empleados) {
             <td>${empleado.empleado.areaTrabajo}</td>
             <td>${empleado.beneficio.descripcionBeneficio}</td>
         `;
-        
+
+        // Crear una celda para el botón
+        let celdaBoton = document.createElement('td');
+        celdaBoton.style.textAlign = 'center'; // Alinear horizontalmente
+        celdaBoton.style.verticalAlign = 'middle'; // Alinear verticalmente
+
         let button = document.createElement('button');
         button.textContent = '👁'; // Botón con icono de ojo
         button.addEventListener('click', () => verMasInfo(empleado));
-        fila.appendChild(button);
+
+        celdaBoton.appendChild(button);
+        fila.appendChild(celdaBoton);
 
         tablaBody.appendChild(fila);
     });
 }
+
 
 // Función para mostrar más información en la ventana emergente
 function verMasInfo(empleado) {

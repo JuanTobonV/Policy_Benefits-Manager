@@ -216,6 +216,7 @@ tr:hover {
     max-height: 80%;
     overflow-y: auto;
     text-align: left;
+    
 }
 
 
@@ -230,6 +231,7 @@ tr:hover {
     cursor: pointer;
     color: black;
     background-color: transparent;
+    
 }
 
 .close-btn:hover {
@@ -270,13 +272,14 @@ tr:hover {
 .button--danger {
     width: 120px;
     /* Asegura que ambos botones se ajusten bien */
-    padding: 10px 15px;
+    padding: 10px 9px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     color: #ffffff;
-    margin:20px;
+    margin:15px;
+    
 }
 
 /* Botón Aceptar (verde) */
@@ -314,24 +317,24 @@ outline: none; /* Remueve el borde de enfoque predeterminado */
     border-radius: 10px; /* Bordes redondeados */
     padding: 15px; /* Espaciado interno */
     background-color: #f9f9f9; /* Fondo claro */
-    margin: 10px 0; /* Separación entre secciones */
+    margin: 8px 0; /* Separación entre secciones */
     margin-bottom: 20px;
 }
 /* Etiquetas de los campos (con mayor peso y tamaño) */
 .section h5 {
     font-weight: bold;           /* Negrita para los títulos */
-    font-size: 20px;             /* Tamaño de fuente un poco más grande */
-    margin: 10px;                   /* Eliminar márgenes para alinear bien */
-    padding-right: 10px;         /* Un pequeño espacio a la derecha para separar de los valores */
+    font-size: 15px;             /* Tamaño de fuente un poco más grande */
+    margin: 5px;                   /* Eliminar márgenes para alinear bien */
+    padding-right: 0px;         /* Un pequeño espacio a la derecha para separar de los valores */
     color: #333;   
 }
 .section p, .section textarea {
-    padding: 8px;
+    padding: 5px;
     border: 2px solid  #5e17eb;
     border-radius: 5px;
     background-color: #fff;
-    font-size: 18px;
-    width: 440px; /* Ajustamos el tamaño de los campos de valor */
+    font-size: 16px;
+    width: 420px; /* Ajustamos el tamaño de los campos de valor */
 }
 .section-header {
     font-weight: bold;
