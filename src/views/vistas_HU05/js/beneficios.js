@@ -6,14 +6,6 @@ let eliminar = document.getElementById('btnEliminar');
 
 // Función para agregar un registro a la tabla de beneficios de la BBDD y validaciones de campos vacíos
 agregar.addEventListener("click", function(event){
-    let numeroIdentificacion = document.getElementById('numeroIdentificacion');
-    let nombreProveedor = document.getElementById('nombreProveedor');
-    let razonSocial = document.getElementById('razonSocialProveedor');
-    let telefonoProveedor = document.getElementById('telefonoProveedor');
-    let correoProveedor = document.getElementById('emailProveedor');
-    let ciudadProveedor = document.getElementById('ciudadProveedor');
-    let selectorProveedor = document.getElementById('selectorProveedor');
-    let selectorBeneficios = document.getElementById('selector-beneficios');
 
     event.preventDefault();
 
@@ -44,17 +36,35 @@ fetch("http://localhost:8080/proveedores")
 .then(res=>res.json())
 .then(proveedores => {
 
-    selectorProveedor.innerHTML = '<option value="0">Seleccione...</option>';
+        selectorProveedor.innerHTML = '<option value="0">Seleccione...</option>';
 
-    proveedores.forEach(function(proveedor){
-        let option = document.createElement("option");
-        option.textContent = proveedor.razonSocial;
-        option.value = proveedor.id;
-        selectorProveedor.appendChild(option);
-    }) 
-    // evento para encontrar el id del proveedor seleccionado en el selector
-    selectorProveedor.addEventListener("change", (e) => {
+        proveedores.forEach(function(proveedor){
+            let option = document.createElement("option");
+            option.textContent = proveedor.razonSocial;
+            option.value = proveedor.id;
+            selectorProveedor.appendChild(option);
+        }) 
+        // evento para encontrar el id del proveedor seleccionado en el selector
+        selectorProveedor.addEventListener("change", (e) => {
         const proveedorSeleccionado = proveedores.find(proveedor => proveedor.id === Number(e.target.value));
+
+        /* INFORMACIÓN DE INPUTS */
+        let numeroIdentificacion = document.getElementById('numeroIdentificacion');
+        let nombreProveedor = document.getElementById('nombreProveedor');
+        let razonSocial = document.getElementById('razonSocialProveedor');
+        let telefonoProveedor = document.getElementById('telefonoProveedor');
+        let correoProveedor = document.getElementById('emailProveedor');
+        let ciudadProveedor = document.getElementById('ciudadProveedor');
+        
+        if (proveedorSeleccionado) {
+            numeroIdentificacion.value = proveedorSeleccionado.numeroIdentificacion;
+            nombreProveedor.value = proveedorSeleccionado.razonSocial;
+            razonSocial.value = proveedorSeleccionado.razonSocial;
+            telefonoProveedor.value = proveedorSeleccionado.telefonoProveedor;
+            correoProveedor.value = proveedorSeleccionado.correoProveedor;
+            ciudadProveedor.value = proveedorSeleccionado.ciudadProveedor;
+        }
+
 
         selectorBeneficios.addEventListener("change", (e) => {
             console.log(e.target)
