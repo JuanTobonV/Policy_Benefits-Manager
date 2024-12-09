@@ -1,9 +1,9 @@
-import { EnviarBeneficio, ObtnerPolizas } from "../../../controllers/controllers_HU05/controller_HU05.js";
-/*import { proveedores } from "../../../data/proveedores.js";*/
+import { EnviarBeneficio, EliminarBeneficio } from "../../../controllers/controllers_HU05/controller_HU05.js";
 import { beneficios } from "../../../data/proveedores.js";
 
 let agregar = document.getElementById('btnAgregar');
 let eliminar = document.getElementById('btnEliminar');
+
 // Función para agregar un registro a la tabla de beneficios de la BBDD y validaciones de campos vacíos
 agregar.addEventListener("click", function(event){
     let numeroIdentificacion = document.getElementById('numeroIdentificacion');
@@ -34,36 +34,7 @@ agregar.addEventListener("click", function(event){
             document.getElementById('selector-beneficios').value = "0";
             idCounter--; // este decremento es para que cada vez que se me repita un beneficio, se mantenga el id consecutivo por objetos
         return;
-    }
-       
-        Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Haz agregado correctamente",
-            showConfirmButton: false,
-            timer: 2000,
-            customClass: {
-            title: 'text--blue'
-            }
-        });*/
-});
-
-// Función para eliminar un registro a la tabla de beneficios de la BBDD y validaciones de campos vacíos (aún no está en funcionamiento)
-eliminar.addEventListener("click", function(event){
-    let alerta = window.confirm('¿Estás seguro que quieres eliminar este Beneficio?');
-    if(alerta){
-        let selectorProveedor = document.getElementById('selectorProveedor');
-        let selectorBeneficios = document.getElementById('selector-beneficios');
-        event.preventDefault();
-        if(selectorProveedor.value <= "0"){
-            alert('Seleccione un proveedor');
-            return;
-        }
-        if(selectorBeneficios.value <= "0"){
-            alert('Seleccione un beneficio');
-            return;
-        }
-    }        
+    }*/
 });
 
 // Mostrando los proveedores desde la BBDD en el selector aplicando fetch
@@ -85,7 +56,6 @@ fetch("http://localhost:8080/proveedores")
     selectorProveedor.addEventListener("change", (e) => {
         const proveedorSeleccionado = proveedores.find(proveedor => proveedor.id === Number(e.target.value));
 
-        let agregar = document.getElementById('btnAgregar');
         selectorBeneficios.addEventListener("change", (e) => {
             console.log(e.target)
             const beneficioSeleccionado = beneficios.find(beneficio => beneficio.id === Number(e.target.value));
@@ -94,10 +64,58 @@ fetch("http://localhost:8080/proveedores")
             agregar.addEventListener("click", () => {
                 EnviarBeneficio("http://localhost:8080/api/beneficios", beneficioSeleccionado)
                 .then(luis => console.log(luis))
+
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Haz agregado un nuevo beneficio",
+                    showConfirmButton: false,
+                    timer: 2000,
+                    customClass: {
+                    title: 'text--blue'
+                    }
+                });
+                limpiarSelectores();
+            })
+
+            eliminar.addEventListener("click", () => {
+                EliminarBeneficio("http://localhost:8080/api/beneficios", beneficioSeleccionado)
+                .then(luis => console.log(luis))
+
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Haz eliminado un beneficio",
+                    showConfirmButton: false,
+                    timer: 2000,
+                    customClass: {
+                    title: 'text--red'
+                    }
+                });
+
+                limpiarSelectores();
             })
         }) 
     })
-
+/*
+    // Función para eliminar un registro a la tabla de beneficios de la BBDD y validaciones de campos vacíos (aún no está en funcionamiento)
+eliminar.addEventListener("click", function(event){
+    let alerta = window.confirm('¿Estás seguro que quieres eliminar este Beneficio?');
+    if(alerta){
+        let selectorProveedor = document.getElementById('selectorProveedor');
+        let selectorBeneficios = document.getElementById('selector-beneficios');
+        event.preventDefault();
+        if(selectorProveedor.value <= "0"){
+            alert('Seleccione un proveedor');
+            return;
+        }
+        if(selectorBeneficios.value <= "0"){
+            alert('Seleccione un beneficio');
+            return;
+        }
+    }        
+});
+*/
     /* CARGAR BENEFICIOS */
     let selectorBeneficios = document.getElementById('selector-beneficios');
     const cargarBeneficios = () => {
@@ -113,12 +131,10 @@ fetch("http://localhost:8080/proveedores")
         });
     };
     selectorBeneficios.addEventListener("focus", cargarBeneficios);
-    ObtnerPolizas("http://localhost:8080/api/poliza")
-    .then(polizas => console.log(polizas))
 })
 
 function limpiarSelectores(){
-    let selectores = ['selectorProveedor', 'selector-polizas-activas', 'selector-polizas-disponibles', 'selector-beneficios'];
+    let selectores = ['selectorProveedor', 'selector-beneficios'];
     selectores.forEach(selectores => {
     document.getElementById(selectores).value = "0";
     })
