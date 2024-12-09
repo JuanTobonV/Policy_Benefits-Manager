@@ -216,8 +216,9 @@ tr:hover {
     max-height: 80%;
     overflow-y: auto;
     text-align: left;
-    
+    color:#808080;
 }
+
 
 
 /* X de cerrar (botón) */
@@ -231,58 +232,85 @@ tr:hover {
     cursor: pointer;
     color: black;
     background-color: transparent;
-    
 }
 
 .close-btn:hover {
     color:  #b0bdc1
 }
 
-/* =====================
-   Secciones Desplegables
-====================== */
-
-/* Contenedor de las secciones (Empleado y Solicitud) */
-.dropdown {
-    margin-bottom: 40px;
+.section {
+    border: 1px solid#eaecef ;
+    border-radius: 10px;/* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    margin-bottom: 20px;
+}
+.section-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+   
 }
 
-/* Contenido de la sección */
-.novisible {
-    display: none;
+.section h5 {
+   color: #808080; /* Negrita para los títulos */
+    font-size: 15px;             /* Tamaño de fuente un poco más grande */
+    margin: 5px 0;                   /* Eliminar márgenes para alinear bien */
+   
+    
+}
+.section p, .section textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color:#808080;
+    background-color: #EAECEF;
 }
 
-.visible {
-    display: block;
+/* Centramos el input de comentarios */
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    resize: vertical; /* Solo permite cambiar tamaño verticalmente */
+    margin-top: 2px;
+    box-sizing: border-box; /* Asegura que padding y borde no aumenten el ancho total */
+    overflow-y: auto; /* Muestra un scrollbar si el contenido es largo */
+    
 }
 
-/* Icono de la flecha para desplegar/ocultar */
-.toggle-icon {
-    transition: transform 0.3s;
+/* Estilo para botones */
+.buttons-container {
+    display: flex; /* Usamos flexbox */
+    justify-content: center; /* Centramos horizontalmente */
+    align-items: center;
+    gap: 20px; /* Espaciado entre botones */
+    margin-top: 15px;
 }
-
-.rotate {
-    transform: rotate(180deg);
-}
- 
-/* Contenedor de los botones Aceptar/Rechazar */
-/* Estilo general de los botones */
-
 .button--success,
 .button--danger {
-    width: 120px;
-    /* Asegura que ambos botones se ajusten bien */
-    padding: 10px 9px;
+    width: 120px;/* Asegura que ambos botones se ajusten bien */
+    padding: 10px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     color: #ffffff;
-    margin:15px;
-    
+    text-align: center;
 }
 
-/* Botón Aceptar (verde) */
+ 
+/* Contenedor de los botones Aceptar/Rechazar */
+
+/* Botón Aceptar (Azul) */
 .button--success {
     background-color: #007bff;
 }
@@ -304,51 +332,28 @@ tr:hover {
    Estilos de Inputs
 ====================== */
 
-/* Estilo para el input de comentario */
-/* Centramos el input de comentarios */
 
-textarea:focus {
-    border-color:#5e17eb; /* Color azul más oscuro al enfocar el campo */
-/* General para secciones */
-outline: none; /* Remueve el borde de enfoque predeterminado */
-}
-.section {
-    border: 2px solid #5e17eb; /* Borde visible */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 15px; /* Espaciado interno */
-    background-color: #f9f9f9; /* Fondo claro */
-    margin: 8px 0; /* Separación entre secciones */
-    margin-bottom: 20px;
-}
-/* Etiquetas de los campos (con mayor peso y tamaño) */
-.section h5 {
-    font-weight: bold;           /* Negrita para los títulos */
-    font-size: 15px;             /* Tamaño de fuente un poco más grande */
-    margin: 5px;                   /* Eliminar márgenes para alinear bien */
-    padding-right: 0px;         /* Un pequeño espacio a la derecha para separar de los valores */
-    color: #333;   
-}
-.section p, .section textarea {
-    padding: 5px;
-    border: 2px solid  #5e17eb;
-    border-radius: 5px;
-    background-color: #fff;
-    font-size: 16px;
-    width: 420px; /* Ajustamos el tamaño de los campos de valor */
-}
-.section-header {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items:normal;
-}
-.section textarea {
-    resize: vertical; /* Permite redimensionar el campo de comentario solo en vertical */
+/* =====================
+   Secciones Desplegables
+====================== */
+
+/* Contenido de la sección */
+.novisible {
+    display: none;
 }
 
+.visible {
+    display: block;
+}
+
+/* Icono de la flecha para desplegar/ocultar */
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
 /* Flechas desplegables */
 .symbol {
     font-size: 1.5rem;
