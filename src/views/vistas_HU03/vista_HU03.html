@@ -7,18 +7,15 @@
     <title>Estado Solicitudes</title>
 </head>
 <body>
-    <header>
-      
-    </header>
-
+    <header></header>
 
     <main class="content">
-     <!-- Contenedor con tres columnas -->
-      <div class="header__informacion flex">
-        <p class="btn-select__solicitud text--blue text--bold">Selecciona tu solicitud</p>
-        <p class="text--blue text--bold border-top--blue ">Ver mis solicitudes</p>
-        <button id="btnCerrarSesion" class="header__btn">Cerrar Sesión</button>
-    </div>
+        <!-- Contenedor con tres columnas -->
+        <div class="header__informacion flex">
+            <p class="btn-select__solicitud text--blue text--bold">Selecciona tu solicitud</p>
+            <p class="text--blue text--bold border-top--blue">Ver mis solicitudes</p>
+            <button id="btnCerrarSesion" class="header__btn">Cerrar Sesión</button>
+        </div>
 
         <!-- Tabla -->
         <div class="informacion">
@@ -37,36 +34,34 @@
             </table>
         </div>
 
-       <!-- Ventana emergente -->
-       <div id="overlay">
-        <div class="popup-content">
-            <h2>Resumen de Solicitud</h2>
-            <table>
-                <tr>
-                    <th>Fecha</th>
-                    <td id="fecha-solicitud"></td>
-                </tr>
-                <tr>
-                    <th>Póliza</th>
-                    <td id="poliza-solicitud"></td>
-                </tr>
-                <tr>
-                    <th>Beneficio</th>
-                    <td id="beneficio-solicitud"></td>
-                </tr>
-                <tr>
-                    <th>Comentarios</th>
-                    <td id="comentarios-solicitud"></td>
-                </tr>
-            </table>
-            <div class="popup-buttons">
-                <button id="close-btn">Cerrar</button>
-                <button id="estado-btn">Estado Solicitud</button>
+        <!-- Ventana emergente -->
+        <div id="overlay">
+            <div class="popup-content">
+                <h2>Resumen de Solicitud</h2>
+                <table>
+                    <tr>
+                        <th>Fecha</th>
+                        <td id="fecha-solicitud"></td>
+                    </tr>
+                    <tr>
+                        <th>Póliza</th>
+                        <td id="poliza-solicitud"></td>
+                    </tr>
+                    <tr>
+                        <th>Beneficio</th>
+                        <td id="beneficio-solicitud"></td>
+                    </tr>
+                    <tr>
+                        <th>Comentarios</th>
+                        <td id="comentarios-solicitud"></td>
+                    </tr>
+                </table>
+                <div class="popup-buttons">
+                    <button id="close-btn">Cerrar</button>
+                    <button id="estado-btn">Estado Solicitud</button>
+                </div>
             </div>
         </div>
-    </div>
-    
-
     </main>
 
     <footer></footer>
