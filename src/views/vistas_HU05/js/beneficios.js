@@ -4,30 +4,22 @@ import { beneficios } from "../../../data/proveedores.js";
 let agregar = document.getElementById('btnAgregar');
 let eliminar = document.getElementById('btnEliminar');
 
-// Función para agregar un registro a la tabla de beneficios de la BBDD y validaciones de campos vacíos
-agregar.addEventListener("click", function(event){
+eliminar.addEventListener("click", () => {
+    EliminarBeneficio()
+    .then(beneficio => console.log(beneficio))
 
-    event.preventDefault();
-
-    if(selectorProveedor.value <= "0"){
-        alert('Seleccione un proveedor');
-        return;
-    }
-    if(selectorBeneficios.value <= "0"){
-        alert('Seleccione un beneficio');
-        return;
-    }
-    /*   
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "El beneficio asociado a esta póliza ya se encuentra agregado!!!"
-            });
-            document.getElementById('selector-beneficios').value = "0";
-            idCounter--; // este decremento es para que cada vez que se me repita un beneficio, se mantenga el id consecutivo por objetos
-        return;
-    }*/
-});
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Haz eliminado un beneficio",
+        showConfirmButton: false,
+        timer: 2000,
+        customClass: {
+        title: 'text--red'
+        }
+    });
+    limpiarSelectores();
+})
 
 // Mostrando los proveedores desde la BBDD en el selector aplicando fetch
 let selectorProveedor = document.getElementById('selectorProveedor');
@@ -35,7 +27,7 @@ let selectorProveedor = document.getElementById('selectorProveedor');
 fetch("http://localhost:8080/proveedores")
 .then(res=>res.json())
 .then(proveedores => {
-
+console.log(proveedores)
         selectorProveedor.innerHTML = '<option value="0">Seleccione...</option>';
 
         proveedores.forEach(function(proveedor){
@@ -72,8 +64,9 @@ fetch("http://localhost:8080/proveedores")
             delete beneficioSeleccionado.id;
             beneficioSeleccionado.proveedor = {id: proveedorSeleccionado.id}
             agregar.addEventListener("click", () => {
+
                 EnviarBeneficio("http://localhost:8080/api/beneficios", beneficioSeleccionado)
-                .then(beneficio => console.log(beneficio))
+                .then(beneficio => console.log(beneficio))``
 
                 Swal.fire({
                     position: "center",
@@ -88,23 +81,23 @@ fetch("http://localhost:8080/proveedores")
                 limpiarSelectores();
             })
 
-            eliminar.addEventListener("click", () => {
-                EliminarBeneficio("http://localhost:8080/api/beneficios", beneficioSeleccionado)
-                .then(beneficio => console.log(beneficio))
+            // eliminar.addEventListener("click", () => {
+            //     EliminarBeneficio()
+            //     .then(beneficio => console.log(beneficio))
 
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Haz eliminado un beneficio",
-                    showConfirmButton: false,
-                    timer: 2000,
-                    customClass: {
-                    title: 'text--red'
-                    }
-                });
+            //     Swal.fire({
+            //         position: "center",
+            //         icon: "success",
+            //         title: "Haz eliminado un beneficio",
+            //         showConfirmButton: false,
+            //         timer: 2000,
+            //         customClass: {
+            //         title: 'text--red'
+            //         }
+            //     });
 
-                limpiarSelectores();
-            })
+            //     limpiarSelectores();
+            // })
         }) 
     })
 
