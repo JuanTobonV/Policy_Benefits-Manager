@@ -1,4 +1,4 @@
-import { FetchEmpleadoSolicitud } from "../../../controllers/controllers_HU04/controller_1_HU04.js";
+import { FetchEmpleadoSolicitud, FetchModificarEstadoSolicitud } from "../../../controllers/controllers_HU04/controller_1_HU04.js";
 
 // Función para cargar la tabla con datos obtenidos desde la API
 function cargarTablaEmpleados(empleados) {
@@ -31,6 +31,7 @@ function cargarTablaEmpleados(empleados) {
         button.textContent = '👁'; // Botón con icono de ojo
         button.addEventListener('click', () => verMasInfo(empleado));
 
+       
         celdaBoton.appendChild(button);
         fila.appendChild(celdaBoton);
 
@@ -45,7 +46,69 @@ function verMasInfo(empleado) {
     document.getElementById('area').innerHTML = empleado.empleado.areaTrabajo;
     document.getElementById('fecha').innerHTML = empleado.fechaSolicitud;
     document.getElementById('beneficio').innerHTML = empleado.beneficio.descripcionBeneficio;
+    const textarea = document.getElementById('comentario')
     document.getElementById('overlay').style.display = 'flex';  // Mostrar la ventana emergente
+    const url =`http://localhost:8080/api/empleadoBeneficio/${empleado.beneficio.id}/${empleado.empleado.id}`
+      
+    textarea.addEventListener("input", function() {
+        let valorComentario = textarea.value;
+
+        function acceptAction() {
+            const modificador = {
+                "comentarioSolicitud": valorComentario,
+                "estadoSolicitud": "Aceptada"
+            }
+            FetchModificarEstadoSolicitud(url,modificador)
+            .then(res => console.log(res))
+            Swal.fire({
+                icon: 'success',
+                title: '¡Solicitud aceptada!',
+                showConfirmButton: false,
+                timer: 1000
+            }).then(() => {
+                // Aquí se puede cerrar el popup después de mostrar el mensaje
+                closePopup(); 
+            });
+        }
+
+        function rejectAction() {
+
+            const modificador = {
+                "comentarioSolicitud": valorComentario,
+                "estadoSolicitud": "Rechazada"
+            }
+            FetchModificarEstadoSolicitud(url,modificador)
+            Swal.fire({
+                title: '¿Estás seguro de rechazar la solicitud?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#007bff',
+                cancelButtonColor: '#ed0000',
+                confirmButtonText: 'Sí, rechazar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Solicitud rechazada',
+                        showConfirmButton: false,           
+                        timer: 1200
+                    }).then(() => {
+                        // Cerrar el popup tras mostrar el mensaje de rechazo
+                        closePopup();
+                    });
+                }
+            });
+        }
+        
+        document.getElementById('aceptar').addEventListener('click', acceptAction);
+        document.getElementById('rechazar').addEventListener('click', rejectAction);
+       
+    });
+
+    
+
+ 
 }
 
 // Llamar a la API y cargar la tabla con los datos obtenidos
@@ -53,10 +116,6 @@ FetchEmpleadoSolicitud('http://localhost:8080/api/empleadobeneficio')
     .then(data => {
         cargarTablaEmpleados(data); // Pasar los datos a la función de carga
         console.log(data)
-        console.log(data[0].fechaSolicitud)
-        console.log(data[0].empleado.nombreEmpleado)
-        console.log(data[0].empleado.areaTrabajo)
-        console.log(data[0].beneficio.descripcionBeneficio)
     })
     .catch(error => {
         console.error('Error al obtener los empleados:', error);
@@ -73,41 +132,41 @@ function closePopup() {
 }
 
 // Funciones para aceptar/rechazar solicitudes
-function acceptAction() {
-    Swal.fire({
-        icon: 'success',
-        title: '¡Solicitud aceptada!',
-        showConfirmButton: false,
-        timer: 1000
-    }).then(() => {
-        // Aquí se puede cerrar el popup después de mostrar el mensaje
-        closePopup(); 
-    });
-}
+// function acceptAction() {
+//     Swal.fire({
+//         icon: 'success',
+//         title: '¡Solicitud aceptada!',
+//         showConfirmButton: false,
+//         timer: 1000
+//     }).then(() => {
+//         // Aquí se puede cerrar el popup después de mostrar el mensaje
+//         closePopup(); 
+//     });
+// }
 
-function rejectAction() {
-    Swal.fire({
-        title: '¿Estás seguro de rechazar la solicitud?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#007bff',
-        cancelButtonColor: '#ed0000',
-        confirmButtonText: 'Sí, rechazar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Solicitud rechazada',
-                showConfirmButton: false,           
-                timer: 1200
-            }).then(() => {
-                // Cerrar el popup tras mostrar el mensaje de rechazo
-                closePopup();
-            });
-        }
-    });
-}
+// function rejectAction() {
+//     Swal.fire({
+//         title: '¿Estás seguro de rechazar la solicitud?',
+//         icon: 'warning',
+//         showCancelButton: true,
+//         confirmButtonColor: '#007bff',
+//         cancelButtonColor: '#ed0000',
+//         confirmButtonText: 'Sí, rechazar',
+//         cancelButtonText: 'Cancelar'
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             Swal.fire({
+//                 icon: 'error',
+//                 title: 'Solicitud rechazada',
+//                 showConfirmButton: false,           
+//                 timer: 1200
+//             }).then(() => {
+//                 // Cerrar el popup tras mostrar el mensaje de rechazo
+//                 closePopup();
+//             });
+//         }
+//     });
+// }
 
 
 // Asignar eventos a botones de la interfaz
@@ -124,6 +183,6 @@ document.getElementById('infosolicitud').addEventListener('click', function () {
 });
 
 document.getElementById('closeWindowBtn').addEventListener('click', closePopup);
-document.getElementById('aceptar').addEventListener('click', acceptAction);
-document.getElementById('rechazar').addEventListener('click', rejectAction);
+//document.getElementById('aceptar').addEventListener('click', acceptAction);
+//document.getElementById('rechazar').addEventListener('click', rejectAction);
 
