@@ -194,6 +194,12 @@ main{
     border: 1px solid #4ca9c5;
     padding: 8px;
 }
+#selector-beneficios-eliminar{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+}
 
 @media (width <= 350px) {
 
