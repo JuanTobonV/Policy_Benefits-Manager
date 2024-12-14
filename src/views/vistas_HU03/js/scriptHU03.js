@@ -1,75 +1,101 @@
-import { empleados } from "../../../data/empleadRegistrado1.js";
+import { obtnerIdUrl } from "../../../sevice/service_HU03/obtenerBeneficios.js";
+import { consultarBeneficios } from "../../../controllers/controllers_HU03/controller_HU03.js";
 
-// Guardar los empleados en el localStorage
-localStorage.setItem('empleados', JSON.stringify(empleados));
+let verMisSolicitudes = document.getElementById('verMisSolicitudes')
+let seleccionarSolicitudes = document.getElementById('seleccionarSolicitudes')
 
 // Función para cargar los empleados desde el localStorage y mostrar en la tabla
 function cargarTablaEmpleados() {
-    let empleados = [];
-    try {
-        empleados = JSON.parse(localStorage.getItem('empleados')) || [];  // Obtener los empleados del localStorage
-    } catch (error) {
-        console.error('Error al cargar los empleados', error);
-    }
+    consultarBeneficios().then((respuestaBack) => {
+        respuestaBack.map((prueba) => console.log(prueba.empleado.id));
+        console.log(typeof(obtnerIdUrl()));
+        
+        let respuestaBackPrueba = respuestaBack.filter((prueba) => prueba.empleado.id === +obtnerIdUrl());
 
-    let tablaBody = document.querySelector('#tableBody');
-    tablaBody.innerHTML = '';  // Limpiar el cuerpo de la tabla
+        respuestaBackPrueba.forEach(empleado => {
+            console.log(empleado);
+            let tablaBody = document.querySelector('#tableBody');
+            tablaBody.innerHTML = '';
 
-    if (empleados.length === 0) {
-        let noEmpleadosMensaje = document.createElement('tr');
-        noEmpleadosMensaje.innerHTML = '<td colspan="4">No hay empleados disponibles</td>';
-        tablaBody.appendChild(noEmpleadosMensaje);
-        return;
-    }
+            const fila = document.createElement('tr');
+            fila.innerHTML = `
+                <td>${empleado.fechaSolicitud}</td>
+                <td>${empleado.beneficio.descripcionBeneficio}</td>
+                <td class="flex_data">
+                ${
+                   empleado.estadoSolicitud === "Aceptada" ?
+                   `<button class="estado-btn green" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>`
+                   :
+                   empleado.estadoSolicitud === "Rechazada" ? 
+                   `<button class="estado-btn red" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>` 
+                   :
+                   `<button class="estado-btn yellow" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>` 
+                }
+                </td>
+            `;
+    
+            // Agregar el evento al botón de estado para mostrar la ventana emergente
+            let estadoButton = fila.querySelector('.estado-btn');
+            estadoButton.addEventListener('click', () => verMasInfo(empleado));
+    
+            tablaBody.appendChild(fila);
 
-    // Iterar sobre los empleados y agregar una fila por cada uno
-    empleados.forEach(empleado => {
-        const fila = document.createElement('tr');
-        fila.innerHTML = `
-            <td>${empleado.fecha}</td>
-            <td>${empleado.poliza}</td>
-            <td>${empleado.descripcion}</td>
-            <td>
-                <button class="estado-btn" data-id="${empleado.id}">${empleado.estado}</button>
-            </td>
-        `;
+            // Función para mostrar más información en la ventana emergente
+            function verMasInfo(idEmpleado) {
+                if (idEmpleado) {
+                    // Llenar los campos con los datos del empleado
+                    document.getElementById('fecha-solicitud').textContent = idEmpleado.fechaSolicitud;
+                    document.getElementById('beneficio-solicitud').textContent = idEmpleado.beneficio.descripcionBeneficio;
+                    document.getElementById('comentarios-solicitud').textContent = idEmpleado.comentarioSolicitud;
 
-        // Agregar el evento al botón de estado para mostrar la ventana emergente
-        let estadoButton = fila.querySelector('.estado-btn');
-        estadoButton.addEventListener('click', (e) => verMasInfo(e.target.dataset.id));
+                    let estadoBox = document.getElementById('estado-solicitud');
 
-        tablaBody.appendChild(fila);
+                    if (idEmpleado && idEmpleado.estadoSolicitud) {
+                        if (idEmpleado.estadoSolicitud === "Aceptada") {
+                            estadoBox.classList.add("bg-blue");
+                            estadoBox.innerHTML = `<span class="estado-btn-menu bg-green">${idEmpleado.estadoSolicitud}</span>`;
+                        } else if (idEmpleado.estadoSolicitud === "Rechazada") {
+                            estadoBox.classList.add("bg-red");
+                            estadoBox.innerHTML = `<span class="estado-btn-menu bg-red">${idEmpleado.estadoSolicitud}</span>`;
+                        } else {
+                            estadoBox.classList.add("bg-yellow");
+                            estadoBox.innerHTML = `<span class="estado-btn-menu bg-gray">${idEmpleado.estadoSolicitud}</span>`;
+                        }
+                    } else {
+                        estadoBox.classList.add("bg-yellow");
+                        estadoBox.innerHTML = `<span class="estado-btn-menu bg-gray">Estado desconocido</span>`;
+                    }
+
+                    // Mostrar la ventana emergente
+                    document.getElementById('overlay').style.display = 'flex';
+                } else {
+                    console.error('Empleado no encontrado');
+                }
+            }
+
+            // Función para cerrar la ventana emergente
+            function closePopup() {
+                document.getElementById('overlay').style.display = 'none';
+            }
+
+            // Asignar los eventos al botón de cerrar la ventana emergente
+            document.getElementById('close-btn').addEventListener('click', closePopup);
+        });
+    }).catch((error) => {
+        console.error('Error al consultar beneficios:', error);
     });
 }
 
-// Función para mostrar más información en la ventana emergente
-function verMasInfo(idEmpleado) {
-    let empleados = JSON.parse(localStorage.getItem('empleados')) || [];
-    let empleado = empleados.find(emp => emp.id === parseInt(idEmpleado)); // Asegurándonos de comparar correctamente
-
-    console.log(empleado);  // Verifica que se está encontrando al empleado
-
-    if (empleado) {
-        // Llenar los campos con los datos del empleado
-        document.getElementById('fecha-solicitud').textContent = empleado.fecha;
-        document.getElementById('poliza-solicitud').textContent = empleado.poliza;
-        document.getElementById('beneficio-solicitud').textContent = empleado.descripcion;
-        document.getElementById('comentarios-solicitud').textContent = empleado.comentarios;
-
-        // Mostrar la ventana emergente
-        document.getElementById('overlay').style.display = 'flex';
-    } else {
-        console.error('Empleado no encontrado');
-    }
-}
-
-// Función para cerrar la ventana emergente
-function closePopup() {
-    document.getElementById('overlay').style.display = 'none';
-}
-
-// Asignar los eventos al botón de cerrar la ventana emergente
-document.getElementById('close-btn').addEventListener('click', closePopup);
-
 // Cargar la tabla cuando la página se cargue
 cargarTablaEmpleados();
+
+let empleadoId = obtnerIdUrl();
+
+verMisSolicitudes.addEventListener('click',() =>{
+    window.location.href = `/src/views/vistas_HU03/vista_HU03.html?id=${empleadoId}`
+})
+
+seleccionarSolicitudes.addEventListener('click',() =>{
+    window.location.href = `/src/views/vistas_HU02/verPolizasYBeneficios.html?id=${empleadoId}`
+})
+

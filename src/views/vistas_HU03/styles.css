@@ -1,95 +1,89 @@
-/* Reiniciar márgenes globales */
+/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Diseño flexible */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Flexbox general */
 .flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Color y fuente azul */
-.text--blue {
-    color: #1b376f; /* Azul oscuro */
-}
-
-/* Fuente en negrita */
-.text--bold {
-    font-weight: 900;
-}
-
-/* Espaciado para la izquierda */
-.pading--left--8px {
-    padding-left: 8px;
-}
-
-/* Estilo de fuentes para párrafos, h3 y etiquetas */
-p, h3, label {
-    font-family: "Nunito", sans-serif;
-}
-
-/* Estilo general del body */
-body {
-    font-family: 'Nunito', sans-serif;
-    gap: 50px;
-}
-
-/* Estilo principal para el contenedor de la vista */
+/* Contenedor principal */
 main {
-    gap: 40px;
     width: 90%;
-    flex-direction: column;
     margin: auto;
-    border: solid #b0bdc1;
+    margin-top: 20px;
+    border: 1px solid #ced4da;
     border-radius: 15px;
-    padding: 0 0 12px 0;
-    overflow: hidden;
+    background-color: white;
 }
 
-/* Estilo del contenedor del encabezado */
+/* Contenedor de la cabecera */
 .header__informacion {
-    background-color: #eaecef; /* Fondo gris claro */
+    background-color: #f0f4f8;
+    padding: 15px 20px;
     gap: 12px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px; /* Aumentar el tamaño del padding para hacerlo más grande */
     flex-wrap: wrap;
+    border-radius: 15px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+
+    display: flex;
+    justify-content: space-between;
 }
 
-/* Estilo para los elementos dentro del contenedor */
-.header__informacion p, .header__informacion button {
-    padding: 8px 12px; /* Tamaño más grande para los botones */
+.header__titles{
+    display: flex;
+    gap: 10px;
+}
+
+.header__titles p {
+    font-weight: 700;
+    color:#1b376f;
     cursor: pointer;
-    font-size: 1rem; /* Asegurar que la fuente sea suficientemente legible */
 }
 
-/* Estilo del botón de cerrar sesión */
+
+
+.header__informacion p, .header__informacion button {
+    padding: 8px 12px;
+    font-size: 1rem;
+}
+
+.informacion{
+    margin: 25px;
+}
+
+.thead{
+    background-color: #1b376f;
+}
+
+/* Botón de cerrar sesión */
 .header__btn {
-    padding: 10px 0;
-    width: 25%;
+    padding: 10px 20px;
     border: none;
     border-radius: 10px;
     background-color: #ed0000;
     color: white;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
-/* Línea inferior azul en el texto de la solicitud */
-.border-top--blue {
-    border-bottom: 4px solid #007bff;
+.header__btn:hover {
+    background-color: rgb(185, 0, 0);
 }
 
-/* Estilo de la sección de la información principal */
-.informacion {
-    gap: 6px;
-    margin: 10px 20px; /* Reducir espacio superior a 10px */
-    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
-}
-
-/* Estilo de la tabla principal */
+/* Tabla */
 table {
     width: 100%;
     margin: 20px auto;
@@ -98,104 +92,156 @@ table {
 
 th, td {
     padding: 12px 15px;
-    text-align: left;
-    border: 1px solid #ddd;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
 }
 
-th {
-    background-color: #1b376f;
-    color: white;
+#comentarios-solicitud{
+    height:150px;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
 
-tr:hover {
-    background-color: #ddd;
-}
 
-/* Estilo para la ventana emergente */
+
+
+
+
+
+
+/* Ventana emergente */
 #overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-content {
-    background-color: #f1f1f1; /* Fondo diferente a blanco */
-    padding: 20px;
-    border-radius: 8px;
-    width: 500px; /* Tamaño mayor para la ventana emergente */
-    text-align: center;
-    max-width: 90%;
-    overflow-y: auto;
-}
-
-/* Estilo general para la ventana emergente */
-#overlay {
-    display: none; /* Inicialmente oculta */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
     justify-content: center;
     align-items: center;
-    z-index: 1000;
 }
 
-/* Estilo del contenido de la ventana emergente */
 .popup-content {
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 600px;
-    overflow-y: auto;
+    position: relative;
+
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-/* Botón de cerrar */
+.popup-content table tbody{
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+
+.popup-content table tr{
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+
+.popup-content table th{
+    background-color: #eaecef;
+    color:#808080;
+    text-align: left;
+    border-radius:5px;
+}
+
+.beneficio-solicitud{
+    background-color: #fff;
+}
+
+
+/* Botones de la ventana emergente */
 .popup-buttons button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
+    margin: 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.popup-buttons button:hover {
-    background-color: #0056b3;
-}
-
-/* Estilos para los botones dentro de la ventana emergente */
 #close-btn {
-    background-color: #ed0000;
+    color: black;
+    transition: all 0.1s;
 }
 
 #close-btn:hover {
-    background-color: #b30000;
+    color: #e63946;
 }
 
-/* Ajustes en la tabla para la ventana emergente */
-.popup-content td {
-    vertical-align: top; /* Alineación de texto en la parte superior de las celdas */
+.estado-btn{
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+}
+.estado-btn-menu{
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 800;
+    border: none;
 }
 
-.popup-content td:first-child {
-    font-weight: bold; /* Resaltar el nombre de la categoría */
+
+
+.flex_data{
+    display: flex;
+    justify-content: center;
 }
 
-/* Efecto hover para botones (se mantiene) */
-.header__btn:hover {
-    background-color: #b30000;
+.green{
+    color:#00bf63
+}
+
+.red{
+    color: #ed0000;
+}
+
+.informacion thead{
+    background-color: #1b376f;
+    color: white;
+
+}
+
+.estado-solicitud{
+    padding: 12px 15px;
+}
+
+.close_btn{
+    position: relative;
+    text-align: right;
+    padding-right: 5px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    cursor: pointer;
+    
+}
+
+.bg-blue{
+    background-color: #007bff;
+    color: white;
+}
+
+.bg-red{
+    background-color: #ed0000;
+    color: white;
+}
+
+.bg-yellow{
+    background-color: #f8c593;
+}
+
+.yellow{
+    color: #fca54f;
+}
+
+#tableBody{
+    background-color: #f7f7f7;
 }
