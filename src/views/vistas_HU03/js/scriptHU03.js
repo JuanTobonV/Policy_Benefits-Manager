@@ -1,6 +1,9 @@
 import { obtnerIdUrl } from "../../../sevice/service_HU03/obtenerBeneficios.js";
 import { consultarBeneficios } from "../../../controllers/controllers_HU03/controller_HU03.js";
 
+let verMisSolicitudes = document.getElementById('verMisSolicitudes')
+let seleccionarSolicitudes = document.getElementById('seleccionarSolicitudes')
+
 // Función para cargar los empleados desde el localStorage y mostrar en la tabla
 function cargarTablaEmpleados() {
     consultarBeneficios().then((respuestaBack) => {
@@ -85,3 +88,14 @@ function cargarTablaEmpleados() {
 
 // Cargar la tabla cuando la página se cargue
 cargarTablaEmpleados();
+
+let empleadoId = obtnerIdUrl();
+
+verMisSolicitudes.addEventListener('click',() =>{
+    window.location.href = `/src/views/vistas_HU03/vista_HU03.html?id=${empleadoId}`
+})
+
+seleccionarSolicitudes.addEventListener('click',() =>{
+    window.location.href = `/src/views/vistas_HU02/verPolizasYBeneficios.html?id=${empleadoId}`
+})
+
