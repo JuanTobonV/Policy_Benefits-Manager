@@ -12,7 +12,9 @@ function cargarTablaEmpleados() {
         console.log(typeof(obtnerIdUrl()));
         
         let respuestaBackPrueba = respuestaBack.filter((prueba) => prueba.empleado.id === +obtnerIdUrl())
-        console.log(respuestaBackPrueba);
+
+        //Debugging
+        // console.log(respuestaBackPrueba);
         // console.log(respuestaBackPrueba.beneficio.descripcionSolicitud);
 
 
