@@ -16,27 +16,36 @@ export async function EnviarBeneficio(url,data) {
     }
 }
 
-export async function EliminarBeneficio() {
+export async function EliminarBeneficio(url, id) {
     try {
-        const option = {
-            method: 'DELETE'
+        // Configurar las opciones de la solicitud
+        const options = {
+            method: 'DELETE',
         };
 
-        // Agregar el ID en la URL para identificar el registro que se eliminará
-        const response = await fetch(`http://localhost:8080/api/beneficios/91`, option);
-        
-        // Verificamos si la respuesta fue exitosa
+        // Realizar la solicitud a la API
+        const response = await fetch(`${url}/${id}`, options);
+
+        // Verificar si la respuesta fue exitosa
         if (!response.ok) {
             throw new Error(`Error al eliminar el beneficio: ${response.statusText}`);
         }
 
-        return response;
+        // Convertir la respuesta a JSON
+        // const responseData = await response.json();
+        // return responseData;
+
+        const responseText = await response.text();
+console.log("Respuesta del servidor:", responseText);
+
 
     } catch (error) {
-        console.error('Error:', error);
-        return { success: false, message: error.message };
+        console.error('Error al eliminar el beneficio:', error);
+        throw error;
     }
+
 }
+
 
 
 export async function ObtnerPolizas (url){
