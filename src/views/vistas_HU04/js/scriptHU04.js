@@ -48,66 +48,80 @@ function verMasInfo(empleado) {
     document.getElementById('beneficio').innerHTML = empleado.beneficio.descripcionBeneficio;
     const textarea = document.getElementById('comentario')
     document.getElementById('overlay').style.display = 'flex';  // Mostrar la ventana emergente
-    const url =`http://localhost:8080/api/empleadoBeneficio/${empleado.beneficio.id}/${empleado.empleado.id}`
+
+    console.log(empleado.beneficio.id)
+    console.log(empleado.empleado.id)
+    const url =`http://localhost:8080/api/empleadoBeneficio/${empleado.empleado.id}/${empleado.beneficio.id}`
       
     textarea.addEventListener("input", function() {
         let valorComentario = textarea.value;
 
-        function acceptAction() {
-            const modificador = {
-                "comentarioSolicitud": valorComentario,
-                "estadoSolicitud": "Aceptada"
-            }
-            FetchModificarEstadoSolicitud(url,modificador)
+         // Referencias a los botones
+    const aceptarBtn = document.getElementById('aceptar');
+    const rechazarBtn = document.getElementById('rechazar');
+
+    // Clonar los botones para limpiar listeners antiguos
+    const nuevoAceptarBtn = aceptarBtn.cloneNode(true);
+    const nuevoRechazarBtn = rechazarBtn.cloneNode(true);
+
+    // Reemplazar los botones en el DOM
+    aceptarBtn.parentNode.replaceChild(nuevoAceptarBtn, aceptarBtn);
+    rechazarBtn.parentNode.replaceChild(nuevoRechazarBtn, rechazarBtn);
+
+    // Asignar los nuevos eventos
+    nuevoAceptarBtn.addEventListener('click', () => {
+        const valorComentario = textarea.value; // Mantener el valor del textarea
+        const modificador = {
+            comentarioSolicitud: valorComentario,
+            estadoSolicitud: "Aceptada"
+        };
+
+        FetchModificarEstadoSolicitud(url, modificador)
             .then(res => console.log(res))
-            Swal.fire({
-                icon: 'success',
-                title: '¡Solicitud aceptada!',
-                showConfirmButton: false,
-                timer: 1000
-            }).then(() => {
-                // Aquí se puede cerrar el popup después de mostrar el mensaje
-                closePopup(); 
+            .then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Solicitud aceptada!',
+                    showConfirmButton: false,
+                    timer: 1000
+                }).then(() => {
+                    closePopup();
+                });
             });
-        }
+    });
 
-        function rejectAction() {
+    nuevoRechazarBtn.addEventListener('click', () => {
+        const valorComentario = textarea.value; // Mantener el valor del textarea
+        const modificador = {
+            comentarioSolicitud: valorComentario,
+            estadoSolicitud: "Rechazada"
+        };
 
-            const modificador = {
-                "comentarioSolicitud": valorComentario,
-                "estadoSolicitud": "Rechazada"
-            }
-            FetchModificarEstadoSolicitud(url,modificador)
-            Swal.fire({
-                title: '¿Estás seguro de rechazar la solicitud?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#007bff',
-                cancelButtonColor: '#ed0000',
-                confirmButtonText: 'Sí, rechazar',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
+        Swal.fire({
+            title: '¿Estás seguro de rechazar la solicitud?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#007bff',
+            cancelButtonColor: '#ed0000',
+            confirmButtonText: 'Sí, rechazar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                FetchModificarEstadoSolicitud(url, modificador).then(() => {
                     Swal.fire({
                         icon: 'error',
                         title: 'Solicitud rechazada',
-                        showConfirmButton: false,           
+                        showConfirmButton: false,
                         timer: 1200
                     }).then(() => {
-                        // Cerrar el popup tras mostrar el mensaje de rechazo
                         closePopup();
                     });
-                }
-            });
-        }
-        
-        document.getElementById('aceptar').addEventListener('click', acceptAction);
-        document.getElementById('rechazar').addEventListener('click', rejectAction);
+                });
+            }
+        });
+    });
        
     });
-
-    
-
  
 }
 
@@ -131,42 +145,6 @@ function closePopup() {
     document.getElementById('infosolicitud').classList.remove('rotate-up');
 }
 
-// Funciones para aceptar/rechazar solicitudes
-// function acceptAction() {
-//     Swal.fire({
-//         icon: 'success',
-//         title: '¡Solicitud aceptada!',
-//         showConfirmButton: false,
-//         timer: 1000
-//     }).then(() => {
-//         // Aquí se puede cerrar el popup después de mostrar el mensaje
-//         closePopup(); 
-//     });
-// }
-
-// function rejectAction() {
-//     Swal.fire({
-//         title: '¿Estás seguro de rechazar la solicitud?',
-//         icon: 'warning',
-//         showCancelButton: true,
-//         confirmButtonColor: '#007bff',
-//         cancelButtonColor: '#ed0000',
-//         confirmButtonText: 'Sí, rechazar',
-//         cancelButtonText: 'Cancelar'
-//     }).then((result) => {
-//         if (result.isConfirmed) {
-//             Swal.fire({
-//                 icon: 'error',
-//                 title: 'Solicitud rechazada',
-//                 showConfirmButton: false,           
-//                 timer: 1200
-//             }).then(() => {
-//                 // Cerrar el popup tras mostrar el mensaje de rechazo
-//                 closePopup();
-//             });
-//         }
-//     });
-// }
 
 
 // Asignar eventos a botones de la interfaz
@@ -183,6 +161,5 @@ document.getElementById('infosolicitud').addEventListener('click', function () {
 });
 
 document.getElementById('closeWindowBtn').addEventListener('click', closePopup);
-//document.getElementById('aceptar').addEventListener('click', acceptAction);
-//document.getElementById('rechazar').addEventListener('click', rejectAction);
+
 
