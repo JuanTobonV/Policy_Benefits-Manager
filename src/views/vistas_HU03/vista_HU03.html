@@ -11,9 +11,11 @@
 
     <main class="content">
         <!-- Contenedor con tres columnas -->
-        <div class="header__informacion flex">
-            <p class="btn-select__solicitud text--blue text--bold">Selecciona tu solicitud</p>
-            <p class="text--blue text--bold border-top--blue">Ver mis solicitudes</p>
+        <div class="header__informacion ">
+            <div class="header__titles">
+                <p class="btn-select__solicitud text--blue text--bold">Selecciona tu solicitud</p>
+                <p class="text--blue text--bold border-top--blue">Ver mis solicitudes</p>
+            </div>
             <button id="btnCerrarSesion" class="header__btn">Cerrar Sesión</button>
         </div>
 
@@ -35,7 +37,11 @@
 
         <!-- Ventana emergente -->
         <div id="overlay">
+
             <div class="popup-content">
+                <div id="close-btn" class="close_btn">
+                    <span>X</span>
+                </div>
                 <h2>Resumen de Solicitud</h2>
                 <table>
                     <tr>
@@ -45,17 +51,19 @@
 
                     <tr>
                         <th>Beneficio</th>
-                        <td id="beneficio-solicitud"></td>
+                        <td id="beneficio-solicitud" class="beneficio-solicitud"></td>
                     </tr>
                     <tr>
                         <th>Comentarios</th>
                         <td id="comentarios-solicitud"></td>
                     </tr>
+
+                    <tr>
+                        <td id="estado-solicitud"></td>
+                    </tr>
+
                 </table>
-                <div class="popup-buttons">
-                    <button id="close-btn">Cerrar</button>
-                    <button id="estado-btn">Estado Solicitud</button>
-                </div>
+
             </div>
         </div>
     </main>

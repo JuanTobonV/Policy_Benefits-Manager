@@ -18,8 +18,16 @@ function cargarTablaEmpleados() {
             fila.innerHTML = `
                 <td>${empleado.fechaSolicitud}</td>
                 <td>${empleado.beneficio.descripcionBeneficio}</td>
-                <td>
-                    <button class="estado-btn" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>
+                <td class="flex_data">
+                ${
+                   empleado.estadoSolicitud === "Aceptada" ?
+                   `<button class="estado-btn green" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>`
+                   :
+                   empleado.estadoSolicitud === "Rechazada" ? 
+                   `<button class="estado-btn red" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>` 
+                   :
+                   `<button class="estado-btn yellow" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>` 
+                }
                 </td>
             `;
     
@@ -36,6 +44,24 @@ function cargarTablaEmpleados() {
                     document.getElementById('fecha-solicitud').textContent = idEmpleado.fechaSolicitud;
                     document.getElementById('beneficio-solicitud').textContent = idEmpleado.beneficio.descripcionBeneficio;
                     document.getElementById('comentarios-solicitud').textContent = idEmpleado.comentarioSolicitud;
+
+                    let estadoBox = document.getElementById('estado-solicitud');
+
+                    if (idEmpleado && idEmpleado.estadoSolicitud) {
+                        if (idEmpleado.estadoSolicitud === "Aceptada") {
+                            estadoBox.classList.add("bg-blue");
+                            estadoBox.innerHTML = `<span class="estado-btn-menu bg-green">${idEmpleado.estadoSolicitud}</span>`;
+                        } else if (idEmpleado.estadoSolicitud === "Rechazada") {
+                            estadoBox.classList.add("bg-red");
+                            estadoBox.innerHTML = `<span class="estado-btn-menu bg-red">${idEmpleado.estadoSolicitud}</span>`;
+                        } else {
+                            estadoBox.classList.add("bg-yellow");
+                            estadoBox.innerHTML = `<span class="estado-btn-menu bg-gray">${idEmpleado.estadoSolicitud}</span>`;
+                        }
+                    } else {
+                        estadoBox.classList.add("bg-yellow");
+                        estadoBox.innerHTML = `<span class="estado-btn-menu bg-gray">Estado desconocido</span>`;
+                    }
 
                     // Mostrar la ventana emergente
                     document.getElementById('overlay').style.display = 'flex';
