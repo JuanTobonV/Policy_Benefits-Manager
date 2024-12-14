@@ -75,7 +75,7 @@ fetch("http://localhost:8080/proveedores")
                         }
                     });
                 limpiarSelectores();
-                 
+                setTimeout(() => window.location.reload(), 2000);
             }) // listener para agregar beneficio a la BBDD           
         }) // listener selector de beneficios
     }) // listener selector de proveedores
