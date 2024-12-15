@@ -111,7 +111,7 @@ th, td {
 /* Ventana emergente */
 #overlay {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -196,8 +196,8 @@ th, td {
     justify-content: center;
 }
 
-.green{
-    color:#00bf63
+.blue{
+    color:#007bff;
 }
 
 .red{
