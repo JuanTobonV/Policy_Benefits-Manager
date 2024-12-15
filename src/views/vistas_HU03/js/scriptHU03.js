@@ -7,15 +7,13 @@ let seleccionarSolicitudes = document.getElementById('seleccionarSolicitudes')
 // Función para cargar los empleados desde el localStorage y mostrar en la tabla
 function cargarTablaEmpleados() {
     consultarBeneficios().then((respuestaBack) => {
-        respuestaBack.map((prueba) => console.log(prueba.empleado.id));
-        console.log(typeof(obtnerIdUrl()));
         
-        let respuestaBackPrueba = respuestaBack.filter((prueba) => prueba.empleado.id === +obtnerIdUrl());
+        let solicitudPorId = respuestaBack.filter((prueba) => prueba.empleado.id === +obtnerIdUrl());
 
-        respuestaBackPrueba.forEach(empleado => {
-            console.log(empleado);
-            let tablaBody = document.querySelector('#tableBody');
-            tablaBody.innerHTML = '';
+        let tablaBody = document.querySelector('#tableBody');
+        tablaBody.innerHTML = '';
+
+        solicitudPorId.forEach(empleado => {
 
             const fila = document.createElement('tr');
             fila.innerHTML = `
@@ -24,7 +22,7 @@ function cargarTablaEmpleados() {
                 <td class="flex_data">
                 ${
                    empleado.estadoSolicitud === "Aceptada" ?
-                   `<button class="estado-btn green" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>`
+                   `<button class="estado-btn blue" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>`
                    :
                    empleado.estadoSolicitud === "Rechazada" ? 
                    `<button class="estado-btn red" data-id="${empleado.empleado.id}">${empleado.estadoSolicitud}</button>` 
@@ -46,14 +44,17 @@ function cargarTablaEmpleados() {
                     // Llenar los campos con los datos del empleado
                     document.getElementById('fecha-solicitud').textContent = idEmpleado.fechaSolicitud;
                     document.getElementById('beneficio-solicitud').textContent = idEmpleado.beneficio.descripcionBeneficio;
-                    document.getElementById('comentarios-solicitud').textContent = idEmpleado.comentarioSolicitud;
 
+                    let comentario = document.getElementById('comentarios-solicitud');
+                    comentario.textContent = idEmpleado.comentarioSolicitud;
+                    comentario.style.textAlign = 'left';
+                    
                     let estadoBox = document.getElementById('estado-solicitud');
 
                     if (idEmpleado && idEmpleado.estadoSolicitud) {
                         if (idEmpleado.estadoSolicitud === "Aceptada") {
                             estadoBox.classList.add("bg-blue");
-                            estadoBox.innerHTML = `<span class="estado-btn-menu bg-green">${idEmpleado.estadoSolicitud}</span>`;
+                            estadoBox.innerHTML = `<span class="estado-btn-menu">${idEmpleado.estadoSolicitud}</span>`;
                         } else if (idEmpleado.estadoSolicitud === "Rechazada") {
                             estadoBox.classList.add("bg-red");
                             estadoBox.innerHTML = `<span class="estado-btn-menu bg-red">${idEmpleado.estadoSolicitud}</span>`;
