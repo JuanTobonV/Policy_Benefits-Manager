@@ -13,4 +13,5 @@ La idea es que se haga uso del comando ``git clone https://github.com/JuanTobonV
 
 ## Estructura de carpetas
 
-![Screenshot from 2024-11-11 01-11-58](https://github.com/user-attachments/assets/2dd78686-9d59-4109-8cf3-831f673f7344)
+
+![code](https://github.com/user-attachments/assets/9f717e45-62ef-45c3-876f-b8e4451bef74)
