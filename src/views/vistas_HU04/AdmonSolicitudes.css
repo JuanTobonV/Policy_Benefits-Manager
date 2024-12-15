@@ -1,0 +1,371 @@
+*{
+    margin: 0;
+}
+.flex{
+    display: flex;
+}
+
+.text--blue{
+    color: #1b376f;
+}
+.text--bold{
+    font-weight: 900;
+}
+.pading--left--8px{
+    padding-left: 8px;
+}
+p,h3,label,a{
+    font-family: "Nunito", sans-serif;
+}
+body{
+    gap: 50px;
+}
+main{
+    gap: 40px;
+    width: 90%;
+    flex-direction: column;
+    margin: auto;
+    border: solid #b0bdc1;
+    border-radius: 15px;
+    padding: 0 0 12px 0;
+    overflow: hidden;
+}
+
+.header__informacion{
+    flex-wrap: wrap;
+    background-color: #eaecef;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 10px;
+}
+.header__informacion > a{
+    margin: 12px;
+}
+
+.header__informacion > a ~ a{
+    flex-grow: 1;
+}
+.header__informacion p,button{
+    padding: 4px;
+    cursor: pointer;
+}
+.header__btn{
+    padding: 10px 0 ;
+    width: 25%;
+    border: none;
+    border-radius: 10px;
+    background-color: #ed0000;
+    transition: 0.2s;
+    color: white;
+}
+
+.header__btn:hover{
+    background-color: rgb(185, 0, 0);
+}
+.border-top--blue{
+    border-bottom: 4px solid #007bff;
+    
+}
+.informacion{
+    gap: 6px;
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    margin: 0 20px;
+}
+.informacion__info-empleado{
+    gap: 12px;
+    grid-template-rows: repeat(2,auto);
+}
+.contenedor__documento{
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.informacion__info-beneficio{
+    gap: 12px;
+    grid-template-rows: repeat(2,auto)
+}
+.contenedor__info-empleado{
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0 30px;
+    padding: 8px;
+}
+
+.info-empleado__titulo{
+    font-size: 1rem;
+    color: #b0bdc1;
+    padding: 8px;
+    border: 0.5px solid #b0bdc1;
+    border-radius: 5px;
+    background-color: #eaecef;
+}
+.info-empleado_placeholder{
+    grid: flex;
+    place-content:center;
+    padding: 5px;
+    text-align: center;
+    border: 0.5px solid #4ca9c5;
+    border-radius: 5px;
+    /* width: 80%; */
+    height: 2rem;
+    margin: 8px 0;
+}
+.placeholder--grow{
+    flex-grow: 1;
+}
+.placeholder--size{
+    width: 2rem;
+}
+.formulario{
+    gap: 12px;
+    flex-direction: column;
+}
+.formulario select {
+    border-radius: 10px;
+    padding: 0 12px;
+}
+.formulario__selec__polizas{
+    flex-direction: column;
+    gap: 6px
+}
+.formulario__selec__beneficios{
+    grid-template-columns: repeat(2,1fr);
+    gap: 6px
+}
+.nombreDescriptivo{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px 22px;
+}
+.beneficios__poliza {
+    flex-direction: column;
+
+}
+.polizas{
+    height: 40px;
+}
+.beneficios{
+    height: 100%;
+}
+.enviar__btn{
+    background-color: #007bff;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 0;
+    cursor: pointer;
+}
+
+@media (width <= 505px) {
+    .beneficios{
+        height: 40px;
+    }
+}
+/* ____________________________________________________________ */
+/* estilos tabla */
+/* Tabla */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #1b376f;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* ____________________________________________________________ */
+/* Estilo general para la ventana sobrepuesta */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    /* Oculta inicialmente */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Estilo de la caja del popup */
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-height: 80%;
+    overflow-y: auto;
+    text-align: left;
+    color:#808080;
+}
+
+
+
+/* X de cerrar (botón) */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    font-size: 1.7rem;
+    /*altura de el titulo y la X de cerrar*/
+    cursor: pointer;
+    color: black;
+    background-color: transparent;
+}
+
+.close-btn:hover {
+    color:  #b0bdc1
+}
+
+.section {
+    border: 1px solid#eaecef ;
+    border-radius: 10px;/* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    margin-bottom: 20px;
+}
+.section-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+   
+}
+
+.section h5 {
+   color: #808080; /* Negrita para los títulos */
+    font-size: 15px;             /* Tamaño de fuente un poco más grande */
+    margin: 5px 0;                   /* Eliminar márgenes para alinear bien */
+   
+    
+}
+.section p, .section textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color:#808080;
+    background-color: #EAECEF;
+}
+
+/* Centramos el input de comentarios */
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    resize: vertical; /* Solo permite cambiar tamaño verticalmente */
+    margin-top: 2px;
+    box-sizing: border-box; /* Asegura que padding y borde no aumenten el ancho total */
+    overflow-y: auto; /* Muestra un scrollbar si el contenido es largo */
+    
+}
+
+/* Estilo para botones */
+.buttons-container {
+    display: flex; /* Usamos flexbox */
+    justify-content: center; /* Centramos horizontalmente */
+    align-items: center;
+    gap: 20px; /* Espaciado entre botones */
+    margin-top: 15px;
+}
+.button--success,
+.button--danger {
+    width: 120px;/* Asegura que ambos botones se ajusten bien */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    text-align: center;
+}
+
+ 
+/* Contenedor de los botones Aceptar/Rechazar */
+
+/* Botón Aceptar (Azul) */
+.button--success {
+    background-color: #007bff;
+}
+
+.button--success:hover {
+    background-color:#007bff;
+}
+
+/* Botón Rechazar (rojo) */
+.button--danger {
+    background-color: #ed0000;
+}
+
+.button--danger:hover {
+    background-color: #ed0000;
+}
+
+/* =====================
+   Estilos de Inputs
+====================== */
+
+
+/* =====================
+   Secciones Desplegables
+====================== */
+
+/* Contenido de la sección */
+.novisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/* Icono de la flecha para desplegar/ocultar */
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+/* Flechas desplegables */
+.symbol {
+    font-size: 1.5rem;
+    /* Tamaño más grande para que sean más gruesas */
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* Flecha cuando está rotada hacia arriba */
+.rotate-up {
+    transform: rotate(180deg);
+    /* Rotación hacia arriba */
+}

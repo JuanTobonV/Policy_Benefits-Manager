@@ -1,0 +1,393 @@
+*{
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+}
+.flex{
+    display: flex;
+}
+.grid{
+    display: grid;
+}
+.text--blue{
+    color: #1b376f;
+}
+.text--bold{
+    font-weight: 900;
+}
+.custom-icon{
+    color: blue !important;
+}
+p,h3,label{
+    font-family: "Nunito", sans-serif;
+}
+body{
+    gap: 50px;
+}
+main{
+    gap: 10px;
+    justify-content: space-between;
+    width: 70%;
+    flex-direction: column;
+    margin: auto;
+    border: solid #b0bdc1;
+    border-radius: 15px;
+    padding: 0 0 12px 0;
+    overflow: hidden;
+
+    grid-template-rows: repeat(1, 1fr); /* una filas de igual tamaño */
+    grid-template-columns: 1fr;
+}
+.header__informacion{
+    flex-wrap: wrap;
+    background-color: #eaecef;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 0.5px solid #b0bdc1;
+}
+.header__informacion p,button{
+    padding: 4px;
+    cursor: pointer;
+}
+.header__btn{
+    padding: 10px 0;
+    width: 40%;
+    border: none;
+    border-radius: 10px;
+    background-color: #ed0000;
+    color: white;
+    font-size: 1rem; 
+    transition: 0.2s;
+}
+.header__btn:hover{
+    background-color: rgb(185,0,0);
+}
+.contener--style{
+    flex-grow: 1;
+    border-left: 2px solid #b0bdc1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.border-top--blue{
+    border-bottom: 4px solid #007bff;
+}
+.selectorProveedores-form{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns:repeat(1, 1fr); /* una columna misma fración */
+    padding-left: 40px;
+    padding-right: 40px;
+}
+#selectorProveedor{
+    width: 100%;              /* El select ocupa todo el ancho disponible */
+    padding: 8px;            /* Espaciado interno para mejorar la apariencia */
+    font-size: 16px;          /* Tamaño de la fuente */
+    border: 1px solid #4ca9c5;
+    border-radius: 5px;
+}
+.titulos{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns:repeat(1, 1fr); /* cuatro columna misma fración */
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 10px;
+}
+.formulario1{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns: 62px 1fr 1fr 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 10vh;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.formulario1 div {
+    display: flex;
+    flex-direction: column;
+}
+.formulario2{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns:repeat(3, 1fr); /* cuatro columna misma fración */
+    gap: 8px; /* Espacio entre las filas */
+    height: 10vh;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.formulario4{
+    grid-template-rows: 1fr; /* una filas de igual tamaño */
+    grid-template-columns:repeat(1, 1fr); /* 1 columna misma fración */
+    gap: 8px; /* Espacio entre las filas */
+    height: 10vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 40px;
+    flex-direction: row;
+    align-items: end;
+    justify-content: start;
+}
+.divFormulario4{
+    flex-direction: column;
+    width: 50%;
+}
+.item {
+    color: #b0bdc1;
+    padding: 10px;
+    text-align: start;
+    border: 1px solid #b0bdc1;
+    border-radius: 5px;
+    background-color: #eaecef;
+}
+.botones{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    justify-content: space-around;
+    align-items: center;
+}
+#btnAgregar{
+    background-color: #007bff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    height: 6vh;
+    color: white;
+    transition: 0.2s;
+}
+#btnEliminar{
+    background-color: red;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    height: 6vh;
+    color: white;
+    transition: 0.2s;
+}
+#btnAgregar:hover{
+    background-color: #0167d4;
+}
+#btnEliminar:hover{
+    background-color: rgb(185,0,0);
+}
+.colorAzulTexto{
+    color: #007bff;
+}
+#selector-tipo--ID{
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+}
+.inputs-informacion--Proveedor{
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+}
+.inputs-informacion--contacto{
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+    width: 100%;
+}
+#selector-beneficios{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+}
+#selector-beneficios-eliminar{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #4ca9c5;
+    padding: 8px;
+}
+
+@media (width <= 350px) {
+
+    .selectorProveedores-form{
+        height: 5vh;
+    }
+    .titulos #infoProveedor{
+        margin-top: 10px;
+    }
+    .titulos #contactoProveedor{
+        margin-top: 10px;
+    }
+    .titulos #adminPoliza{
+        margin-top: 10px;
+    }
+    .formulario1{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 40vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .formulario2{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 40vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .formulario4{
+    height: 22vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    }
+    .divFormulario4{
+        flex-direction: column;
+        width: 100%;
+    }
+    .botones{
+        margin-top: 40px;
+    }
+    main{
+        gap: 40px;
+        width: 90%;
+        height: 1700px;
+    }
+}
+
+@media (width <= 400px) {
+
+    .btn-select__solicitud {
+        flex-grow: 1;
+      }
+    .selectorProveedores-form{
+        height: 5vh;
+    }
+    .titulos #infoProveedor{
+        margin-top: 10px;
+    }
+    .titulos #contactoProveedor{
+        margin-top: 30px;
+    }
+    .titulos #adminPoliza{
+        margin-top: 30px;
+    }
+    .formulario1{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 40vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .formulario2{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 40vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .formulario4{
+    height: 22vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    }
+    .divFormulario4{
+        flex-direction: column;
+        width: 100%;
+    }
+    .botones{
+        margin-top: 70px;
+    }
+    main{
+        gap: 28px;
+        width: 90%;
+    }
+}
+
+@media (width <= 768px) {
+
+    .formulario1{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 40vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .titulos #contactoProveedor{
+        margin-top: 50px;
+    }
+    .formulario2{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 30vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .formulario4{
+    height: 10vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 10px;
+    }
+    .divFormulario4{
+        flex-direction: column;
+        width: 100%;
+    }
+    .botones{
+        margin-top: 40px;
+    }
+    main{
+        gap: 28px;
+        width: 90%;
+    }
+}
+
+@media (width <= 880px) {
+    .btn-select__solicitud {
+        flex-grow: 1;
+        margin: 15px 0 0 0;
+        text-align: center;
+      }
+      .contener--style{
+        padding: 0 0 9px 0;
+        border-left: none;
+      }
+    .formulario1{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 22vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .formulario2{
+        height: 10vh;
+    }
+}
+
+@media (width <= 1164px) {
+
+    .formulario1{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 40vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    .formulario2{
+    grid-template-rows: 4fr; /* una filas de igual tamaño */
+    grid-template-columns: 1fr; /* cuatro columna misma fración */
+    gap: 8px;/*  Espacio entre las filas */
+    height: 30vh;
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+}

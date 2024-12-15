@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+
+        html,body{
+        min-height: 100vh;
+
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+      
+        main{
+            flex:1;
+        }
+        
+        .footer__section{
+            width: 100%;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            padding: 15px 30px;
+            z-index: 2;
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            align-items: center;
+            
+            
+            
+        }
+        .footer__image{
+            width: 100px;
+
+
+        }
+
+        .footer__links div{
+            display: flex;
+            gap: 50px;
+            
+        }
+
+        .footer__links div h3{
+            color: #1b376f;
+
+        }
+        @media (width < 810px) {
+            .footer__links div, .footer__links{
+                display: none;
+            }
+
+            .footer__section{
+                width: 100%;
+                text-align: center;
+                position: relative;
+                bottom: 0;
+                padding: 15px 0px;
+                z-index: 2;
+            }
+        }
+
+    </style>
+
+    <footer>
+        <section class="footer__section">
+            <img class="footer__image" src="/assets/LogoazulSura.png" alt="">
+
+            <section class="footer__links">
+                <div>
+                   <a href="https://www.gruposura.com/nuestra-compania/"> <h3>NUESTRA COMPAÑIA</h3> </a> 
+                   <a href="https://www.gruposura.com/relacion-con-inversionistas/"> <h3>RELACIÓN CON INVERSIONISTAS</h3> </a> 
+                   <a href="https://www.gruposura.com/sostenibilidad/"> <h3>SOSTENIBILIDAD</h3> </a>
+                   <a href="https://www.gruposura.com/prensa/"> <h3>PRENSA</h3> </a>
+                </div>
+            </section>
+        </section>
+    </footer>
+    
+</body>
+</html>
